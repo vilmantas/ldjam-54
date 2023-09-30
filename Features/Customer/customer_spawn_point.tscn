@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvvy1btjxn8ip"]
+
+[ext_resource type="Script" path="res://Features/Customer/CustomerSpawnPoint.cs" id="1_4sc8x"]
+
+[node name="CustomerSpawnPoint" type="Node3D" groups=["CustomerSpawnPoint"]]
+script = ExtResource("1_4sc8x")
