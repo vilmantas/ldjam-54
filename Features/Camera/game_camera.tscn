@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://8er6tm3o863x"]
+
+[ext_resource type="Script" path="res://Features/Camera/GameCamera.cs" id="1_vm15t"]
+
+[node name="GameCamera" type="Node3D"]
+script = ExtResource("1_vm15t")
+
+[node name="SpringArm" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+collision_mask = 0
+spring_length = 10.0
+
+[node name="Camera" type="Camera3D" parent="SpringArm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130615, 0, -0.714966)
+fov = 90.0
