@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bby6xx2qgismp"]
+
+[ext_resource type="Script" path="res://Features/Customer/Customer.cs" id="1_qhhjd"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8hfvp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3vbt"]
+
+[node name="Customer" type="CharacterBody3D" groups=["Customer"]]
+script = ExtResource("1_qhhjd")
+
+[node name="CustomerModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998011, 0)
+mesh = SubResource("CapsuleMesh_8hfvp")
+
+[node name="CustomerCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_n3vbt")
