@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0iahgtf6q71f"]
+
+[ext_resource type="PackedScene" uid="uid://bevvwr5abyiyj" path="res://Imports/BattleRoyale/CapsuleContainer.glb" id="1_ybmq5"]
+
+[node name="capsule_container" instance=ExtResource("1_ybmq5")]
+transform = Transform3D(1.05271, 0, 0, 0, 0.405, 0, 0, 0, 0.680173, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="." index="0"]
+
+[node name="SM_Prop_Container_01__16_" parent="." index="1"]
+transform = Transform3D(-0.01, 8.74228e-10, -3.82137e-17, 0, -4.37114e-10, -0.01, -8.74228e-10, -0.01, 4.37114e-10, 0, 0, -3)

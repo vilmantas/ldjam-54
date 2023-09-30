@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvv0gyihhy51r"]
+
+[ext_resource type="Texture2D" uid="uid://cgogsq0adocjx" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_C.png" id="1_ulqqd"]
+
+[resource]
+albedo_texture = ExtResource("1_ulqqd")

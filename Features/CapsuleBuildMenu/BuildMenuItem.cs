@@ -1,9 +1,9 @@
-﻿using Godot;
+using Godot;
 using System;
 
 public partial class BuildMenuItem : Button
 {
-	[Export] public PackedScene CapsulePrefab;
+	[Export] public string title;
 
 	public override void _Ready()
 	{
@@ -12,6 +12,6 @@ public partial class BuildMenuItem : Button
 
 	private void OnPressed()
 	{
-		GameManager.Instance.SetCapsulePrefab(CapsulePrefab);
+		GameManager.Instance.SetCapsuleConfiguration(title);
 	}
 }

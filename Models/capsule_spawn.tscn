@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bacx1emt3f8ox" path="res://Models/Parts/capsule_node_pt_2.tscn" id="2_qenhj"]
 
 [node name="model_capsule_base" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 
-[node name="SM_Bld_Floor_Lines_02_6" parent="." instance=ExtResource("1_bwqho")]
+[node name="SM_Bld_Floor_Lines_02_6" parent="Node3D" instance=ExtResource("1_bwqho")]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, -149)
 
-[node name="SM_Bld_Floor_Lines_04_1" parent="." instance=ExtResource("2_qenhj")]
+[node name="SM_Bld_Floor_Lines_04_1" parent="Node3D" instance=ExtResource("2_qenhj")]
 transform = Transform3D(1, 0, 0, 0, -2.18557e-08, -1, 0, 0.5, -4.37114e-08, -300, 0, 1)

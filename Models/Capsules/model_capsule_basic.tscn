@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://xpad0cy1u1dm"]
 
-[ext_resource type="Texture2D" uid="uid://br8iofhfqh8pw" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_04_A.png" id="1_ngdlb"]
-[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_woxsl"]
-[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/warfare_mat.tres" id="3_3srnx"]
+[ext_resource type="Texture2D" uid="uid://br8iofhfqh8pw" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_04_A.png" id="1_lnvw6"]
+[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_c57i5"]
+[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/mat_warfare_A.tres" id="3_qkode"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_304r4"]
 resource_name = "PolygonGangWarfare_Material_04_A.002"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_ngdlb")
+albedo_texture = ExtResource("1_lnvw6")
 roughness = 0.552786
 emission_enabled = true
-emission_texture = ExtResource("2_woxsl")
+emission_texture = ExtResource("2_c57i5")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0b75y"]
 _surfaces = [{
@@ -45,11 +45,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0b75y")
 
-[node name="model_capsule" type="Node3D"]
-transform = Transform3D(-0.02, 0, -4.52987e-09, 0, 0.02, 0, 3.01992e-09, 0, -0.03, 113, 0, 142)
+[node name="model_capsule_basic" type="Node3D"]
+transform = Transform3D(-0.02, 0, -4.52987e-09, 0, 0.02, 0, 3.01992e-09, 0, -0.03, 0, 0, -1.59626)
 
 [node name="SM_Prop_Barrel_Metal_01__9_" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 46)
+transform = Transform3D(1, 0, -7.10543e-14, 0, 1, 0, 0, 0, 1, 0, 38.1945, 0)
 mesh = SubResource("ArrayMesh_4d8oe")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("3_3srnx")
+surface_material_override/0 = ExtResource("3_qkode")

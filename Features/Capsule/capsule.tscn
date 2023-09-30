@@ -1,26 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv2somk4f8oc2"]
+[gd_scene load_steps=5 format=3 uid="uid://b0cy13xu0rgii"]
 
 [ext_resource type="Script" path="res://Features/Capsule/CapsuleController.cs" id="1_57kud"]
 [ext_resource type="Script" path="res://Features/CapsuleSpawn/CapsuleSpawnController.cs" id="2_gopnc"]
-[ext_resource type="PackedScene" uid="uid://xpad0cy1u1dm" path="res://Models/model_capsule.tscn" id="2_w3bno"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dprli"]
 size = Vector3(1.985, 0.245, 3.28)
 
-[node name="capsule" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_nusjp"]
+size = Vector3(1.985, 0.245, 3.28)
+
+[node name="capsule_nice" type="Node3D"]
 script = ExtResource("1_57kud")
 
 [node name="spawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38664, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005, 1.117, 0)
 script = ExtResource("2_gopnc")
 
 [node name="Area3D" type="Area3D" parent="spawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.68808)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267154, 0)
 shape = SubResource("BoxShape3D_dprli")
 
-[node name="model_capsule" parent="." instance=ExtResource("2_w3bno")]
-transform = Transform3D(-0.02, 0, -4.52987e-09, 0, 0.02, 0, 3.01992e-09, 0, -0.03, 0, 0, 0)
-
-[connection signal="input_event" from="spawn/Area3D" to="spawn" method="_on_area_3d_input_event"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="spawn/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.266884, 0)
+mesh = SubResource("BoxMesh_nusjp")

@@ -1,50 +1,21 @@
 using Godot;
 using System;
+using Ldjam54.Features.Capsule;
 
 public partial class CapsuleController : Node3D
 {
-	public Node3D LowerCapsule;
+	public CapsuleModel Data;
 	
-	public Node3D UpperCapsule;
-
-	[Export] public int StartingPods = 0;
-
-	public int CurrentPods = 0;
-
-	public override void _Ready()
+	public void Initialize(CapsuleConfiguration configuration, Node parent)
 	{
-		LowerCapsule = GetNode<Node3D>("capsule_lower");
+		Data = new CapsuleModel() {Parent = parent};
 		
-		UpperCapsule = GetNode<Node3D>("capsule_upper");
-
-		LowerCapsule.Hide();
-		UpperCapsule.Hide();
-
-		if (StartingPods == 1)
+		if (parent is CapsuleController)
 		{
-			LowerCapsule.Show();
+			GetNode<Node3D>("spawn").Hide();
 		}
 		
-		if (StartingPods == 2)
-		{
-			LowerCapsule.Show();
-			UpperCapsule.Show();
-		}
-		
-		CurrentPods = StartingPods;
-	}
-
-	public void BuildPod()
-	{
-		if (CurrentPods == 0)
-		{
-			LowerCapsule.Show();
-			CurrentPods++;
-		}
-		else if (CurrentPods == 1)
-		{
-			UpperCapsule.Show();
-			CurrentPods++;
-		}
+		var model = (Node3D) configuration.CapsulePrefab.Instantiate();
+		AddChild(model);
 	}
 }

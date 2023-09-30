@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://v0ac5jpw1l4p"]
 
 [ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuItem.cs" id="1_0spjo"]
-[ext_resource type="PackedScene" uid="uid://bv2somk4f8oc2" path="res://Features/Capsule/capsule.tscn" id="2_bjrjb"]
+[ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuUIController.cs" id="1_3j4d5"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -11,12 +11,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Build Menu" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.197
+anchor_bottom = 0.367
+offset_right = 0.0559845
+offset_bottom = 0.18399
+script = ExtResource("1_3j4d5")
+
+[node name="Button" type="Button" parent="Build Menu"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 10.0
 offset_right = 199.0
 offset_bottom = 60.0
-text = "UwU Button"
+text = "Select Basic Capsule
+"
 script = ExtResource("1_0spjo")
-CapsulePrefab = ExtResource("2_bjrjb")
+title = "Basic Capsule"
+
+[node name="Button3" type="Button" parent="Build Menu"]
+offset_left = 17.0
+offset_top = 166.0
+offset_right = 200.0
+offset_bottom = 216.0
+text = "Select Pro Capsule"
+script = ExtResource("1_0spjo")
+title = "Pro Capsule"
+
+[node name="Button2" type="Button" parent="Build Menu"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 89.0
+offset_right = 201.0
+offset_bottom = 139.0
+text = "Select Nice Capsule"
+script = ExtResource("1_0spjo")
+title = "Nice Capsule"
