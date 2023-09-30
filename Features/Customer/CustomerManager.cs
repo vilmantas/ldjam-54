@@ -24,13 +24,11 @@ public partial class CustomerManager : Node
 	public void setCustomerSpawners()
 	{
 		var customerSpawnPointNodeList = GetTree().GetNodesInGroup("CustomerSpawnPoint");
-		GD.Print(GetTree().GetNodesInGroup("CustomerSpawnPoint"));
 		for (int i = 0; i < customerSpawnPointNodeList.Count; i++)
 		{
 			var customerSpawnPointNode = customerSpawnPointNodeList[i] as CustomerSpawnPoint;
 			if(customerSpawnPointNode != null)
 			{
-				GD.Print(customerSpawnPointNode);
 				_customerSpawnPoints.Add(customerSpawnPointNode);
 			}
 		}
@@ -40,7 +38,6 @@ public partial class CustomerManager : Node
 	public override void _Process(double delta)
 	{
 		currentSpawnCustomerTimer += delta;
-		GD.Print(currentSpawnCustomerTimer);
 		if (currentSpawnCustomerTimer >= spawnCustomerSeconds)
 		{
 			spawnCustomer();
