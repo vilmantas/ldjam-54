@@ -40,6 +40,11 @@ public partial class GameManager : Node
         BuildingManager.Instance.SetConfiguration(Capsules.First(x => x.Title == title));
     }
     
+    public CapsuleConfiguration GetCapsuleConfiguration(string title)
+    {
+        return Capsules.First(x => x.Title == title);
+    }
+    
     public bool BuildCapsule(Vector3 globalPosition, Node parent)
     {
         var config = BuildingManager.Instance.CapsuleConfiguration;

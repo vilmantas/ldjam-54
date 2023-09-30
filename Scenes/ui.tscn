@@ -1,54 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://v0ac5jpw1l4p"]
+[gd_scene load_steps=5 format=3 uid="uid://v0ac5jpw1l4p"]
 
-[ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuItem.cs" id="1_0spjo"]
 [ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuUIController.cs" id="1_3j4d5"]
+[ext_resource type="PackedScene" uid="uid://2rbo1hw3e8p6" path="res://Features/CapsuleBuildMenu/capsule_tooltip.tscn" id="2_ad1ve"]
 [ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
+[ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuItemUIController.cs" id="3_xsqtr"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="Build Menu" type="Control" parent="."]
+[node name="Build Menu" type="Control" parent="." node_paths=PackedStringArray("CapsuleTooltip", "BuildMenuItems")]
 layout_mode = 1
-anchor_right = 0.197
-anchor_bottom = 0.367
-offset_right = 0.0559845
-offset_bottom = 0.18399
+anchor_right = 0.264
+anchor_bottom = 0.517
+offset_right = -0.127991
+offset_bottom = -0.0160217
 script = ExtResource("1_3j4d5")
+CapsuleTooltip = NodePath("CapsuleTooltip")
+BuildMenuItems = [NodePath("GridContainer/Button"), NodePath("GridContainer/Button2"), NodePath("GridContainer/Button3")]
 
-[node name="Button" type="Button" parent="Build Menu"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 10.0
-offset_right = 199.0
-offset_bottom = 60.0
-text = "Select Basic Capsule
+[node name="GridContainer" type="GridContainer" parent="Build Menu"]
+layout_mode = 1
+offset_left = 41.0
+offset_top = 76.0
+offset_right = 241.0
+offset_bottom = 256.0
+
+[node name="Title" type="RichTextLabel" parent="Build Menu/GridContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Select Capsule Type"
+fit_content = true
+autowrap_mode = 1
+
+[node name="Button" type="Button" parent="Build Menu/GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Basic
 "
-script = ExtResource("1_0spjo")
+script = ExtResource("3_xsqtr")
 title = "Basic Capsule"
 
-[node name="Button3" type="Button" parent="Build Menu"]
-offset_left = 17.0
-offset_top = 166.0
-offset_right = 200.0
-offset_bottom = 216.0
-text = "Select Pro Capsule"
-script = ExtResource("1_0spjo")
+[node name="Button2" type="Button" parent="Build Menu/GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Nice"
+script = ExtResource("3_xsqtr")
+title = "Nice Capsule"
+
+[node name="Button3" type="Button" parent="Build Menu/GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Pro"
+script = ExtResource("3_xsqtr")
 title = "Pro Capsule"
 
-[node name="Button2" type="Button" parent="Build Menu"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 89.0
-offset_right = 201.0
-offset_bottom = 139.0
-text = "Select Nice Capsule"
-script = ExtResource("1_0spjo")
-title = "Nice Capsule"
+[node name="CapsuleTooltip" parent="Build Menu" instance=ExtResource("2_ad1ve")]
+layout_mode = 1
+offset_left = 292.0
+offset_top = 293.0
+offset_right = 292.0
+offset_bottom = 293.0
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("MoneyLabel")]
 anchors_preset = 0
