@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4gwy8uluna1e"]
+[gd_scene load_steps=6 format=3 uid="uid://c4gwy8uluna1e"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_8jrna"]
+[ext_resource type="PackedScene" uid="uid://gcqxnh45f8qw" path="res://Features/Capsule/capsule.tscn" id="2_jdncc"]
+[ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="3_410jr"]
+[ext_resource type="PackedScene" uid="uid://bby6xx2qgismp" path="res://Features/Customer/customer.tscn" id="4_hgfxr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pfsws"]
 
@@ -8,9 +11,28 @@
 
 [node name="Camera" parent="." instance=ExtResource("1_8jrna")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_pfsws")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.871077, 0.491147, 0, -0.491147, 0.871077, -0.446458, 6.70517, 6.61504)
 light_energy = 0.848
+
+[node name="Customer" parent="." instance=ExtResource("4_hgfxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2848, 0, 8.66861)
+
+[node name="Customer2" parent="." instance=ExtResource("4_hgfxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2999, 0, 11.4616)
+
+[node name="Capsule" parent="." instance=ExtResource("2_jdncc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.30104, 0, -6.93725)
+
+[node name="Capsule2" parent="." instance=ExtResource("2_jdncc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.28643, 0, -5.73229)
+
+[node name="Capsule3" parent="." instance=ExtResource("2_jdncc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.23217, 0, -4.53346)
+
+[node name="Reception" parent="." instance=ExtResource("3_410jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37744, -2.38419e-07, -1.59181)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(57.986, 0, 0, 0, 0.266987, 0, 0, 0, 45.135, 0, 0, 0)
+mesh = SubResource("BoxMesh_pfsws")

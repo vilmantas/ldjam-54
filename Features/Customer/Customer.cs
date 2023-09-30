@@ -12,4 +12,10 @@ public partial class Customer : CharacterBody3D
 	public override void _Process(double delta)
 	{
 	}
+
+	public override void _PhysicsProcess(double delta)
+	{
+		
+		base._PhysicsProcess(delta);
+	}
 }
