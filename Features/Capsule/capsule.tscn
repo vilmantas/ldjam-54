@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://gcqxnh45f8qw"]
+
+[ext_resource type="Script" path="res://Features/Capsule/Capsule.cs" id="1_ghmex"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1tt4"]
+
+[node name="Capsule" type="Node3D"]
+script = ExtResource("1_ghmex")
+
+[node name="CapsuleModel" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_u1tt4")

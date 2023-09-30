@@ -9,14 +9,8 @@
 [node name="Camera" parent="." instance=ExtResource("1_8jrna")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.74559, -1.76282)
 mesh = SubResource("BoxMesh_pfsws")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.871077, 0.491147, 0, -0.491147, 0.871077, -0.446458, 6.70517, 6.61504)
 light_energy = 0.848
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(524.731, 0, 0, 0, 42.8117, 0, 0, 0, 1, 0, 5.29268, 18.1573)
-mesh = SubResource("BoxMesh_pfsws")
-skeleton = NodePath("../MeshInstance3D")
