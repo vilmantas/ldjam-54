@@ -3,11 +3,11 @@ using System;
 
 public partial class CapsuleSpawnController : Node3D
 {
-	public Godot.Area3D SpawnArea;
+	public Area3D SpawnArea;
     
 	public override void _Ready()
 	{
-		SpawnArea = GetNode<Godot.Area3D>("Area3D");
+		SpawnArea = GetNode<Area3D>("Area3D");
 		
 		SpawnArea.InputEvent += OnInputEvent;
 	}
