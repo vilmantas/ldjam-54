@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o4u12"]
 
-[node name="Reception" type="Node3D"]
+[node name="Reception" type="Node3D" groups=["Reception"]]
 script = ExtResource("1_4f3n1")
 
 [node name="DeskModel" type="MeshInstance3D" parent="."]
