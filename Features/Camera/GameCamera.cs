@@ -5,8 +5,18 @@ public partial class GameCamera : Node3D
 {
 	private Camera3D _camera;
 	private SpringArm3D _springArm;
+	
 	private float _zoomSpeed = 0.5f;
-	private float _rotationspeed = 0.05f;
+	private float _minimumZoom = 1f;
+	private float _maximumZoom = 20f;
+	
+	
+	private float _rotationspeed = 0.005f;
+	private float _movementSpeed = 0.01f;
+	
+	
+	
+	
 
 	private bool _rotating = false;
 
@@ -16,7 +26,6 @@ public partial class GameCamera : Node3D
 	{
 		this._camera = GetNode<Camera3D>("SpringArm/Camera");
 		this._springArm = GetNode<SpringArm3D>("SpringArm");
-		GD.Print(_springArm);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,12 +35,10 @@ public partial class GameCamera : Node3D
 	
 	public override void _UnhandledInput(InputEvent unhandledEvent)
 	{
-		// GD.Print(unhandledEvent);
 		if (unhandledEvent  is InputEventMouseButton mouseEvent)
 		{
 			if (mouseEvent.ButtonIndex == MouseButton.Right)
 			{
-				GD.Print("Right click");
 				if (mouseEvent.IsPressed())
 				{
 					_rotating = true;
@@ -52,12 +59,13 @@ public partial class GameCamera : Node3D
 				}
 			} else if (mouseEvent.ButtonIndex == MouseButton.WheelDown)
 			{
-				_springArm.SpringLength += _zoomSpeed;
+				float targetZoom = _springArm.SpringLength + _zoomSpeed;
+				_springArm.SpringLength = targetZoom > _maximumZoom ? _maximumZoom : targetZoom;
 			} else if (mouseEvent.ButtonIndex == MouseButton.WheelUp)
 			{
-				_springArm.SpringLength -= _zoomSpeed;
+				float targetZoom = _springArm.SpringLength - _zoomSpeed;
+				_springArm.SpringLength = targetZoom < _minimumZoom ? _minimumZoom : targetZoom;
 			}
-			GD.Print(_springArm.SpringLength);
 			
 			
 		}
@@ -71,8 +79,7 @@ public partial class GameCamera : Node3D
 
 			}else if (_moving)
 			{
-				Translate(new Vector3(mouseMotionEvent.Relative.X * -0.1f, 0 , mouseMotionEvent.Relative.Y * -0.1f));
-	
+				Translate(new Vector3(mouseMotionEvent.Relative.X * -_movementSpeed, 0 , mouseMotionEvent.Relative.Y * -_movementSpeed));
 			}
 			
 		}
