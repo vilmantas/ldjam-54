@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CapsuleController : Node
+public partial class CapsuleController : Node3D
 {
 	public Node3D LowerCapsule;
 	

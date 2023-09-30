@@ -1,21 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtnerdctf3he5"]
+[gd_scene load_steps=5 format=3 uid="uid://bv2somk4f8oc2"]
 
 [ext_resource type="Script" path="res://Features/Capsule/CapsuleController.cs" id="1_57kud"]
-[ext_resource type="PackedScene" uid="uid://74kqrhlxkv2u" path="res://Models/capsule_node.tscn" id="1_pe4f5"]
+[ext_resource type="Script" path="res://Features/CapsuleSpawn/CapsuleSpawnController.cs" id="2_gopnc"]
 [ext_resource type="PackedScene" uid="uid://xpad0cy1u1dm" path="res://Models/model_capsule.tscn" id="2_w3bno"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dprli"]
+size = Vector3(1.985, 0.245, 3.28)
+
 [node name="capsule" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 321.763, 3.21272, 324)
 script = ExtResource("1_57kud")
 
-[node name="base" parent="." instance=ExtResource("1_pe4f5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -23.0616)
+[node name="spawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38664, 0)
+script = ExtResource("2_gopnc")
 
-[node name="capsule_lower" parent="." instance=ExtResource("2_w3bno")]
-transform = Transform3D(-2.165, -1.1614e-21, -4.52987e-07, 0, 2.165, -1.06581e-14, 3.26906e-07, -7.69162e-15, -3, -183.901, 1.78728, -113.987)
+[node name="Area3D" type="Area3D" parent="spawn"]
 
-[node name="capsule_upper" parent="." instance=ExtResource("2_w3bno")]
-transform = Transform3D(-2.165, -1.1614e-21, -4.52987e-07, 0, 2.165, -1.06581e-14, 3.26906e-07, -7.69162e-15, -3, -188.364, 152.361, -106.258)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267154, 0)
+shape = SubResource("BoxShape3D_dprli")
 
-[editable path="capsule_lower"]
-[editable path="capsule_upper"]
+[node name="model_capsule" parent="." instance=ExtResource("2_w3bno")]
+transform = Transform3D(-0.02, 0, -4.52987e-09, 0, 0.02, 0, 3.01992e-09, 0, -0.03, 0, 0, 0)
+
+[connection signal="input_event" from="spawn/Area3D" to="spawn" method="_on_area_3d_input_event"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://74kqrhlxkv2u"]
+
+[ext_resource type="PackedScene" uid="uid://di0amhcm3pqds" path="res://Models/Parts/capsule_node_pt_1.tscn" id="1_bwqho"]
+[ext_resource type="PackedScene" uid="uid://bacx1emt3f8ox" path="res://Models/Parts/capsule_node_pt_2.tscn" id="2_qenhj"]
+
+[node name="model_capsule_base" type="Node3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="SM_Bld_Floor_Lines_02_6" parent="." instance=ExtResource("1_bwqho")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, -149)
+
+[node name="SM_Bld_Floor_Lines_04_1" parent="." instance=ExtResource("2_qenhj")]
+transform = Transform3D(1, 0, 0, 0, -2.18557e-08, -1, 0, 0.5, -4.37114e-08, -300, 0, 1)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4uhss0uk5xaa"]
+
+[ext_resource type="PackedScene" uid="uid://74kqrhlxkv2u" path="res://Models/capsule_spawn.tscn" id="1_o66bq"]
+[ext_resource type="Script" path="res://Features/CapsuleSpawn/CapsuleSpawnController.cs" id="2_2ohrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0nhuq"]
+size = Vector3(28.615, 3.885, 43.975)
+
+[node name="capsule_node" type="Node3D"]
+transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0.239618, 0.0640337, 0.301474)
+
+[node name="model_capsule_spawn" parent="." instance=ExtResource("1_o66bq")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0, 0, 0)
+
+[node name="spawn" type="Node3D" parent="."]
+transform = Transform3D(8.85, 0, 1.13687e-13, 0, 8.85, 0, -1.13687e-13, 0, 8.85, -140.935, 9.78724, -204.106)
+script = ExtResource("2_2ohrv")
+
+[node name="Area3D" type="Area3D" parent="spawn"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn/Area3D"]
+shape = SubResource("BoxShape3D_0nhuq")

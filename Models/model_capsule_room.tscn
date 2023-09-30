@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqlrotfwb2mwx" path="res://Models/brick_wall_red_doorway.tscn" id="4_31dgj"]
 
 [node name="model_capsule_room" type="Node3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 
 [node name="SM_Bld_Floor_Asphalt_03__17_" parent="." instance=ExtResource("1_ibdfn")]
 transform = Transform3D(-1.74846e-07, -5, 1.74846e-07, 0, -2.18557e-07, -4, 4, -2.18557e-07, 7.64274e-15, 0, 0, 0)

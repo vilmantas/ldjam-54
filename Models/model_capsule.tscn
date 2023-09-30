@@ -46,13 +46,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0b75y")
 
 [node name="model_capsule" type="Node3D"]
-transform = Transform3D(-2, 0, -4.52987e-07, 0, 2, 0, 3.01992e-07, 0, -3, 113, 0, 142)
+transform = Transform3D(-0.02, 0, -4.52987e-09, 0, 0.02, 0, 3.01992e-09, 0, -0.03, 113, 0, 142)
 
 [node name="SM_Prop_Barrel_Metal_01__9_" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 46)
 mesh = SubResource("ArrayMesh_4d8oe")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_3srnx")
-
-[node name="surface_spawn" type="Node3D" parent="."]
-transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 0, 0, 1, 0, 69, 0)

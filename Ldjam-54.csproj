@@ -4,4 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>Ldjam54</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Features\Capsule\Capsule.cs" />
+  </ItemGroup>
 </Project>

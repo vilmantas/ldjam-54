@@ -1,23 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://c37ggc2ui6ka7"]
+[gd_scene load_steps=10 format=3 uid="uid://c37ggc2ui6ka7"]
 
 [ext_resource type="PackedScene" uid="uid://c53jp5eoffge8" path="res://Models/model_capsule_room.tscn" id="2_t6vqv"]
-[ext_resource type="PackedScene" uid="uid://dtnerdctf3he5" path="res://Features/Capsule/capsule.tscn" id="2_ym253"]
+[ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="3_2uorp"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="3_bwbst"]
+[ext_resource type="Script" path="res://Features/CapsuleNode/CapsuleNodeController.cs" id="4_hte63"]
+[ext_resource type="PackedScene" uid="uid://v0ac5jpw1l4p" path="res://Scenes/ui.tscn" id="6_6jke1"]
+[ext_resource type="Script" path="res://Scenes/parent.gd" id="6_gv6da"]
+[ext_resource type="Script" path="res://Scenes/Area3D.cs" id="7_s70jc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vd320"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yn3kj"]
 
 [node name="v_test" type="Node3D"]
 
-[node name="model_capsule_room" parent="." instance=ExtResource("2_t6vqv")]
-
-[node name="capsule" parent="." instance=ExtResource("2_ym253")]
-
-[node name="capsule_lower" parent="capsule" index="1"]
-transform = Transform3D(-2.165, -1.1614e-21, -4.52987e-07, 1.09305e-28, 2.165, -1.06581e-14, 3.26906e-07, -7.69162e-15, -3, -183.901, 1.78728, -113.987)
+[node name="lighting" parent="." instance=ExtResource("3_bwbst")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.5, -0.224144, 0.836516, 7.45058e-09, 0.965926, 0.258819, -0.866026, -0.129409, 0.482963, 1138, 511, 895)
+transform = Transform3D(0.5, -0.466793, 0.729455, -1.49012e-08, 0.842302, 0.539006, -0.866026, -0.269503, 0.421151, 9.66856, 5.93625, 8.36595)
+current = true
 
-[node name="lighting" parent="Camera3D" instance=ExtResource("3_bwbst")]
+[node name="model_capsule_room" parent="." instance=ExtResource("2_t6vqv")]
 
-[editable path="capsule"]
-[editable path="capsule/capsule_lower"]
-[editable path="capsule/capsule_upper"]
+[node name="capsule_node" parent="." instance=ExtResource("3_2uorp")]
+script = ExtResource("4_hte63")
+
+[node name="ui" parent="." instance=ExtResource("6_6jke1")]
+
+[node name="parent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.66108, 3.79731, 3.53139)
+script = ExtResource("6_gv6da")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="parent"]
+mesh = SubResource("SphereMesh_vd320")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="parent/MeshInstance3D"]
+script = ExtResource("7_s70jc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="parent/MeshInstance3D/Area3D"]
+shape = SubResource("SphereShape3D_yn3kj")
+
+[editable path="capsule_node"]
