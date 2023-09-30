@@ -12,7 +12,7 @@ public partial class CapsuleController : Node3D
 		
 		if (parent is CapsuleController)
 		{
-			GetNode<Node3D>("spawn").Hide();
+			GetNode<Node3D>("spawn").QueueFree();
 		}
 		
 		var model = (Node3D) configuration.CapsulePrefab.Instantiate();

@@ -11,13 +11,16 @@ public partial class GameManager : Node
     public static PackedScene CapsulePrefab =
         ResourceLoader.Load<PackedScene>("res://Features/Capsule/capsule.tscn");
     
-    public CapsuleConfiguration SelectedCapsuleConfiguration;
-
     public static CapsuleConfiguration[] Capsules = CapsuleConfigurations.Capsules;
-
-    public Action<bool> OnBuildModeChanged;
-
+    
+    // PROPS
+    
     public bool BuildModeActive = false;
+    
+    
+    // PLUGS
+    
+    public Action<bool> OnBuildModeChanged;
     
     public override void _Ready()
     {
@@ -26,36 +29,44 @@ public partial class GameManager : Node
 
     public override void _Process(double delta)
     {
-        if (Input.IsActionJustReleased("ui_build_mode_toggle"))
-        {
-            BuildModeActive = !BuildModeActive;
-            OnBuildModeChanged?.Invoke(BuildModeActive);
-        }
+        if (!Input.IsActionJustReleased("ui_build_mode_toggle")) return;
+        
+        BuildModeActive = !BuildModeActive;
+        OnBuildModeChanged?.Invoke(BuildModeActive);
     }
 
     public void SetCapsuleConfiguration(string title)
     {
-        SelectedCapsuleConfiguration = Capsules.First(x => x.Title == title);
+        BuildingManager.Instance.SetConfiguration(Capsules.First(x => x.Title == title));
     }
     
     public bool BuildCapsule(Vector3 globalPosition, Node parent)
     {
-        GD.Print("BUILDING");
+        var config = BuildingManager.Instance.CapsuleConfiguration;
 
-        if (SelectedCapsuleConfiguration == null)
+        var cash = MoneyManager.Instance.CurrentMoney;
+        
+        if (config == null)
         {
             GD.Print("Capsule not set you monkey");
+            
+            return false;
         }
-        else
+
+        if (cash < config.Cost)
         {
-            var capsule = (CapsuleController)CapsulePrefab.Instantiate();
-            GetTree().Root.AddChild(capsule);
-            capsule.Initialize(SelectedCapsuleConfiguration, parent);
-            capsule.GlobalPosition = globalPosition;
-
-            return true;
+            GD.Print("Not enough cash you monkey");
+            
+            return false;
         }
+        
+        var capsule = (CapsuleController)CapsulePrefab.Instantiate();
+        GetTree().Root.AddChild(capsule);
+        capsule.Initialize(config, parent);
+        capsule.GlobalPosition = globalPosition;
+        
+        MoneyManager.Instance.RemoveMoney(config.Cost);
 
-        return false;
+        return true;
     }
 }

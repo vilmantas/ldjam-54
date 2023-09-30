@@ -1,55 +1,55 @@
 [gd_scene load_steps=6 format=3 uid="uid://cy76l85ht3ei7"]
 
-[ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_i1us6"]
-[ext_resource type="PackedScene" uid="uid://c53jp5eoffge8" path="res://Models/model_capsule_room.tscn" id="2_t6vqv"]
-[ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="3_bwbst"]
-[ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_loo3y"]
-[ext_resource type="PackedScene" uid="uid://v0ac5jpw1l4p" path="res://Scenes/ui.tscn" id="6_6jke1"]
+[ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
+[ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
+[ext_resource type="PackedScene" uid="uid://c53jp5eoffge8" path="res://Models/model_capsule_room.tscn" id="3_2jtf2"]
+[ext_resource type="PackedScene" uid="uid://v0ac5jpw1l4p" path="res://Scenes/ui.tscn" id="4_cwxxv"]
+[ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
 
 [node name="v_test" type="Node3D"]
 
-[node name="GameCamera" parent="." instance=ExtResource("1_i1us6")]
+[node name="GameCamera" parent="." instance=ExtResource("1_6wf0w")]
 transform = Transform3D(0.603472, 0, 0.797384, 0, 1, 0, -0.797384, 0, 0.603472, 7.88168, 0, 7.10435)
 
-[node name="lighting" parent="." instance=ExtResource("3_bwbst")]
+[node name="lighting" parent="." instance=ExtResource("2_xxdjb")]
 
 [node name="DirectionalLight3D" parent="lighting" index="0"]
 transform = Transform3D(0.258819, -0.22121, 0.940255, 0, 0.973423, 0.229014, -0.965926, -0.0592731, 0.25194, 0, 0, 0)
 
-[node name="model_capsule_room" parent="." instance=ExtResource("2_t6vqv")]
+[node name="model_capsule_room" parent="." instance=ExtResource("3_2jtf2")]
 
-[node name="ui" parent="." instance=ExtResource("6_6jke1")]
+[node name="ui" parent="." instance=ExtResource("4_cwxxv")]
 anchors_preset = -1
 anchor_right = 0.224
 anchor_bottom = 0.542
 offset_right = -0.0480042
 offset_bottom = -0.216034
 
-[node name="capsule_node" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74178, 0.0243537, 4.3258)
 
-[node name="capsule_node7" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node7" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30022, 0.0243537, 4.3258)
 
-[node name="capsule_node8" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node8" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2209, 0.0243537, 4.3258)
 
-[node name="capsule_node9" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node9" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7793, 0.0243537, 4.3258)
 
-[node name="capsule_node2" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node2" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3.38991, 0.024354, 11.792)
 
-[node name="capsule_node3" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node3" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5.94084, 0.024354, 11.792)
 
-[node name="capsule_node4" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node4" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 8.48996, 0.024354, 11.792)
 
-[node name="capsule_node5" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node5" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 11.0409, 0.024354, 11.792)
 
-[node name="capsule_node6" parent="." instance=ExtResource("5_loo3y")]
+[node name="capsule_node6" parent="." instance=ExtResource("5_deibi")]
 transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 13.6018, 0.024354, 11.792)
 
 [editable path="lighting"]

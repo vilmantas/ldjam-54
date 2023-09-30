@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://v0ac5jpw1l4p"]
+[gd_scene load_steps=4 format=3 uid="uid://v0ac5jpw1l4p"]
 
 [ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuItem.cs" id="1_0spjo"]
 [ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuUIController.cs" id="1_3j4d5"]
+[ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -48,3 +49,34 @@ offset_bottom = 139.0
 text = "Select Nice Capsule"
 script = ExtResource("1_0spjo")
 title = "Nice Capsule"
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("MoneyLabel")]
+anchors_preset = 0
+offset_left = 361.0
+offset_top = 34.0
+offset_right = 730.0
+offset_bottom = 182.0
+script = ExtResource("3_3s8xs")
+MoneyLabel = NodePath("RichTextLabel")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.537
+anchor_bottom = 0.27
+text = "Kurent Kash:"
+fit_content = true
+autowrap_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.304
+anchor_right = 0.537
+anchor_bottom = 0.27
+offset_left = -0.17601
+offset_right = -0.153
+offset_bottom = 0.0399971
+text = "$ 11111"
+fit_content = true
+autowrap_mode = 1
