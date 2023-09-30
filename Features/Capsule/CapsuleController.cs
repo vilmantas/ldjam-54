@@ -17,5 +17,9 @@ public partial class CapsuleController : Node3D
 		
 		var model = (Node3D) configuration.CapsulePrefab.Instantiate();
 		AddChild(model);
+
+		var player = model.GetNode<AnimationPlayer>("AnimationPlayer");
+		
+		player.Play("close_animation/close");
 	}
 }

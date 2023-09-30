@@ -66,7 +66,7 @@ public partial class GameManager : Node
         }
         
         var capsule = (CapsuleController)CapsulePrefab.Instantiate();
-        GetTree().Root.AddChild(capsule);
+        parent.AddChild(capsule);
         capsule.Initialize(config, parent);
         capsule.GlobalPosition = globalPosition;
         

@@ -20,8 +20,6 @@ public partial class BuildMenuItemUIController : Button
 	{
 		OnMouseExit?.Invoke(title);
 	}
-
-	
 	
 	private void OnMouseEntered()
 	{
