@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c37ggc2ui6ka7"]
+
+[ext_resource type="PackedScene" uid="uid://c53jp5eoffge8" path="res://Models/model_capsule_room.tscn" id="2_t6vqv"]
+[ext_resource type="PackedScene" uid="uid://dtnerdctf3he5" path="res://Features/Capsule/capsule.tscn" id="2_ym253"]
+[ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="3_bwbst"]
+
+[node name="v_test" type="Node3D"]
+
+[node name="model_capsule_room" parent="." instance=ExtResource("2_t6vqv")]
+
+[node name="capsule" parent="." instance=ExtResource("2_ym253")]
+
+[node name="capsule_lower" parent="capsule" index="1"]
+transform = Transform3D(-2.165, -1.1614e-21, -4.52987e-07, 1.09305e-28, 2.165, -1.06581e-14, 3.26906e-07, -7.69162e-15, -3, -183.901, 1.78728, -113.987)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.5, -0.224144, 0.836516, 7.45058e-09, 0.965926, 0.258819, -0.866026, -0.129409, 0.482963, 1138, 511, 895)
+
+[node name="lighting" parent="Camera3D" instance=ExtResource("3_bwbst")]
+
+[editable path="capsule"]
+[editable path="capsule/capsule_lower"]
+[editable path="capsule/capsule_upper"]

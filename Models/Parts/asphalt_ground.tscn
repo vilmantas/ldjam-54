@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbjap88w82c7i"]
+
+[ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_ok8cg"]
+[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_kk1am"]
+[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/warfare_mat.tres" id="3_ho6pj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h664e"]
+resource_name = "PolygonGangWarfare_Material_01_A.002"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ok8cg")
+roughness = 0.552786
+emission_enabled = true
+emission_texture = ExtResource("2_kk1am")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x6x6x"]
+_surfaces = [{
+"aabb": AABB(8.40425e-05, -300, 0, 300, 300, 1e-05),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"name": "PolygonGangWarfare_Material_01_A.002",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 149, 67, 254, 255, 149, 195, 0, 0, 0, 128, 254, 255, 149, 67, 0, 0, 22, 55, 0, 0, 0, 128, 0, 64, 176, 56, 0, 0, 22, 55, 0, 0, 0, 128, 0, 64, 176, 56, 254, 255, 149, 195, 0, 0, 0, 128)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wivsx"]
+resource_name = "WarfareModels_Scene_969"
+_surfaces = [{
+"aabb": AABB(8.40425e-05, -300, 0, 300, 300, 1e-05),
+"attribute_data": PackedByteArray(152, 107, 166, 61, 28, 63, 62, 63, 152, 107, 166, 61, 28, 63, 62, 63, 152, 107, 166, 61, 28, 63, 62, 63, 152, 107, 166, 61, 28, 63, 62, 63),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_h664e"),
+"name": "PolygonGangWarfare_Material_01_A.002",
+"primitive": 3,
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 149, 67, 254, 255, 149, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 0, 0, 22, 55, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 0, 0, 22, 55, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 254, 255, 149, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_x6x6x")
+
+[node name="SM_Bld_Floor_Asphalt_03__17_" type="MeshInstance3D"]
+transform = Transform3D(-2, -7.64274e-15, 1.74846e-07, -1.74846e-07, 8.74228e-08, -2, 0, -2, -8.74228e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_wivsx")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_ho6pj")

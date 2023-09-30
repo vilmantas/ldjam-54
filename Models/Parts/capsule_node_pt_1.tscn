@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://di0amhcm3pqds"]
+
+[ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_rp4yx"]
+[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_70lkr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h664e"]
+resource_name = "PolygonGangWarfare_Material_01_A.002"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_rp4yx")
+roughness = 0.552786
+emission_enabled = true
+emission_texture = ExtResource("2_70lkr")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2bcwm"]
+_surfaces = [{
+"aabb": AABB(8.40425e-05, -300, 0, 300, 300, 1e-05),
+"format": 4097,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 3, 0, 2, 0, 4, 0, 3, 0, 4, 0, 7, 0),
+"name": "PolygonGangWarfare_Material_01_A.002",
+"primitive": 3,
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 64, 176, 56, 254, 255, 149, 195, 0, 0, 0, 128, 254, 255, 149, 67, 254, 255, 149, 195, 0, 0, 0, 128, 254, 255, 149, 67, 216, 255, 27, 195, 0, 0, 0, 128, 0, 64, 176, 56, 216, 255, 27, 195, 0, 0, 0, 128, 254, 255, 149, 67, 38, 0, 16, 195, 0, 0, 0, 128, 254, 255, 149, 67, 0, 0, 0, 0, 0, 0, 0, 128, 0, 64, 176, 56, 0, 0, 0, 0, 0, 0, 0, 128, 0, 64, 176, 56, 38, 0, 16, 195, 0, 0, 0, 128)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_se40x"]
+resource_name = "WarfareModels_Scene_1308"
+_surfaces = [{
+"aabb": AABB(8.40425e-05, -300, 0, 300, 300, 1e-05),
+"attribute_data": PackedByteArray(199, 111, 0, 63, 0, 178, 200, 58, 144, 54, 64, 63, 0, 178, 200, 58, 0, 200, 95, 62, 220, 122, 20, 63, 144, 54, 64, 63, 232, 9, 248, 61, 210, 197, 95, 62, 220, 122, 20, 63, 199, 111, 0, 63, 232, 9, 248, 61, 0, 200, 95, 62, 220, 122, 20, 63, 144, 54, 64, 63, 252, 56, 6, 62, 144, 54, 64, 63, 70, 86, 128, 62, 199, 111, 0, 63, 70, 86, 128, 62, 210, 197, 95, 62, 220, 122, 20, 63, 199, 111, 0, 63, 252, 56, 6, 62),
+"format": 4119,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 1, 0, 3, 0, 0, 0, 3, 0, 5, 0, 7, 0, 8, 0, 9, 0, 7, 0, 9, 0, 11, 0, 4, 0, 2, 0, 6, 0, 4, 0, 6, 0, 10, 0),
+"material": SubResource("StandardMaterial3D_h664e"),
+"name": "PolygonGangWarfare_Material_01_A.002",
+"primitive": 3,
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 64, 176, 56, 254, 255, 149, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 254, 255, 149, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 216, 255, 27, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 216, 255, 27, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 216, 255, 27, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 216, 255, 27, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 38, 0, 16, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 38, 0, 16, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 254, 255, 149, 67, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 38, 0, 16, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 64, 176, 56, 38, 0, 16, 195, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2bcwm")
+
+[node name="SM_Bld_Floor_Lines_02_6" type="MeshInstance3D"]
+transform = Transform3D(2.92063e-06, -1, 0, 1, 2.92063e-06, 0, 0, 0, 1, -2100, -600, 9.44041e-06)
+mesh = SubResource("ArrayMesh_se40x")
+skeleton = NodePath("")
