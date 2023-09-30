@@ -23,7 +23,7 @@ public static class CapsuleConfigurations
     
     public static readonly CapsuleConfiguration PRO_CAPSULE = new()
     {
-        CapsulePrefab = ResourceLoader.Load<PackedScene>($"{CapsulesFolder}/model_capsule_container.tscn"),
+        CapsulePrefab = ResourceLoader.Load<PackedScene>($"{CapsulesFolder}/model_capsule_pro.tscn"),
         Title = "Pro Capsule",
         Cost = 200,
     };

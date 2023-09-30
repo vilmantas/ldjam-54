@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://daywlrcbt0vff"]
+
+[ext_resource type="Texture2D" uid="uid://ja84x1uxnog4" path="res://Imports/BattleRoyale/PolygonBattleRoyale_Texture_03_A.png" id="1_o0prp"]
+
+[resource]
+albedo_texture = ExtResource("1_o0prp")
+metallic_specular = 0.0
