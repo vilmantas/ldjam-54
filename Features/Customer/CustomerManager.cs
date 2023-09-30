@@ -9,7 +9,7 @@ public partial class CustomerManager : Node
 	
 	Random random = new Random();
 	private PackedScene customerScene;
-	private double spawnCustomerSeconds = 1;
+	private double spawnCustomerSeconds = 5;
 	private double currentSpawnCustomerTimer = 0;
 
 	private List<CustomerSpawnPoint> _customerSpawnPoints = new List<CustomerSpawnPoint>();
@@ -54,12 +54,14 @@ public partial class CustomerManager : Node
 		return _customerSpawnPoints[random.Next(0, _customerSpawnPoints.Count + 1)].Position;
 	}
 	
-	public Customer spawnCustomer()
+	public void spawnCustomer()
 	{
-		Customer newCustomer = (Customer)customerScene.Instantiate();
-		newCustomer.GlobalPosition = getCustomerSpawnLocation();
-		AddChild(newCustomer);
+		if (_customerSpawnPoints.Count > 0)
+		{
+			Customer newCustomer = (Customer)customerScene.Instantiate();
 		
-		return newCustomer;
+			newCustomer.GlobalPosition = getCustomerSpawnLocation();
+			AddChild(newCustomer);
+		}
 	}
 }
