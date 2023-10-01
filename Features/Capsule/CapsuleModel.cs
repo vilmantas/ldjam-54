@@ -1,14 +1,35 @@
-﻿using Godot;
-
-namespace Ldjam54.Features.Capsule;
+﻿using System;
+using Godot;
 
 public class CapsuleModel
 {
     public Node Parent;
+}
+
+public class OccupiedCapsuleModel : CapsuleModel
+{
+    public CustomerModel Occupier;
+
+    public float TimeOccupiedPassed = 0f;
+
+    public float OccupationDuration = 0f;
     
-    public bool IsOccupied = false;
+    public bool OccupationDone => TimeOccupiedPassed >= OccupationDuration;
+    
+    public OccupiedCapsuleModel(CapsuleModel model, float duration)
+    {
+        Parent = model.Parent;
+        
+        OccupationDuration = duration;
+    }
 
-    public float TimeOccupied = 0f;
-
-    public float OccupiedFor = 0f;
+    public void Tick(float delta)
+    {
+        TimeOccupiedPassed = Mathf.Min(TimeOccupiedPassed + delta, OccupationDuration);
+    }
+    
+    public CapsuleModel GetModel()
+    {
+        return new CapsuleModel() {Parent = Parent};
+    }
 }

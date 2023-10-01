@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg51aj5y30rc5"]
+
+[ext_resource type="Script" path="res://Features/Capsule/CapsuleMenuUIController.cs" id="1_78jf6"]
+
+[node name="capsule_menu" type="Control" node_paths=PackedStringArray("CloseButton", "OccupyButton", "InfoButton")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 354.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_78jf6")
+CloseButton = NodePath("Close")
+OccupyButton = NodePath("Grid/Occupy")
+InfoButton = NodePath("Grid/Info")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -54.0
+offset_right = -171.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -171.0
+offset_top = -54.0
+offset_right = -171.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Occupy" type="Button" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+mouse_filter = 1
+text = "Occupy"
+
+[node name="Info" type="Button" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "Info"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = -53.0
+offset_right = 184.0
+offset_bottom = -22.0
+text = "X"

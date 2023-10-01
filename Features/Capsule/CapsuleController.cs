@@ -5,21 +5,65 @@ using Ldjam54.Features.Capsule;
 public partial class CapsuleController : Node3D
 {
 	public CapsuleModel Data;
-	
-	public void Initialize(CapsuleConfiguration configuration, Node parent)
+
+	public AnimationPlayer AnimationPlayer;
+
+	public override void _Process(double delta)
+	{
+		if (Data is not OccupiedCapsuleModel occupied) return;
+
+		occupied.Tick((float)delta);
+
+		if (occupied.OccupationDone)
+		{
+			Data = occupied.GetModel();
+			
+			AnimationPlayer.Play("anim_capsule/open");
+		}
+	}
+
+	public void Initialize(CapsuleConfiguration configuration, CapsuleNodeController parent)
 	{
 		Data = new CapsuleModel() {Parent = parent};
 		
-		if (parent is CapsuleController)
+		if (parent.Capsules.Count == 2)
 		{
 			GetNode<Node3D>("spawn").QueueFree();
 		}
 		
-		var model = (Node3D) configuration.CapsulePrefab.Instantiate();
+		var model = (CapsuleModelController) configuration.CapsulePrefab.Instantiate();
 		AddChild(model);
-
-		var player = model.GetNode<AnimationPlayer>("AnimationPlayer");
 		
-		player.Play("close_animation/close");
+		model.OnHitboxClicked += OnHitboxClicked;
+
+		AnimationPlayer = model.AnimationPlayer;
+	}
+
+	private void OnHitboxClicked(MouseButton button)
+	{
+		if (button == MouseButton.Left)
+		{
+			GameManager.Instance.SelectCapsule(this);
+		}
+	}
+
+	public void HandleOccupyRequest()
+	{
+		if (Data is OccupiedCapsuleModel ) return;
+
+		var customer = GetCustomer();
+
+		Data = new OccupiedCapsuleModel(Data, customer.StayTime);
+		
+		AnimationPlayer.Play("anim_capsule/close");
+	}
+
+	public CustomerModel GetCustomer()
+	{
+		return new CustomerModel()
+		{
+			Name = "Blynas",
+			StayTime = 3f,
+		};
 	}
 }

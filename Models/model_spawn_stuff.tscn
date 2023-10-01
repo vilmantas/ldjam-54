@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkfux5738b3o7"]
+
+[ext_resource type="PackedScene" uid="uid://d1iqbs2x1d8he" path="res://Models/Parts/wall_fan.tscn" id="1_kejit"]
+[ext_resource type="Script" path="res://Features/RandomHide.cs" id="2_hs1ia"]
+[ext_resource type="PackedScene" uid="uid://csme5145p3giw" path="res://Models/Parts/pallet.tscn" id="2_spe1s"]
+[ext_resource type="PackedScene" uid="uid://dvrttfxmp7u3b" path="res://Models/Parts/paint_can_red.tscn" id="3_i62iy"]
+[ext_resource type="PackedScene" uid="uid://bkidxaoxxwjga" path="res://Models/Parts/paint_can_closed.tscn" id="4_ok0p7"]
+[ext_resource type="PackedScene" uid="uid://bmiuloivq0er2" path="res://Models/Parts/paint_can.tscn" id="5_k5onr"]
+[ext_resource type="PackedScene" uid="uid://68vlgx7wla0s" path="res://Models/Parts/paint_brush.tscn" id="6_lbt2l"]
+[ext_resource type="PackedScene" uid="uid://bdrwdpricusck" path="res://Models/Parts/fire_extinguisher.tscn" id="7_5ytg0"]
+
+[node name="model_spawn_stuff" type="Node3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="SM_Prop_WallFan_Top_01_15" parent="." instance=ExtResource("1_kejit")]
+transform = Transform3D(1, -0.000803764, 0.000250378, 0.000571533, 0.866548, 0.499093, -0.000618123, -0.499092, 0.866549, -34.9898, 15.6194, -211.519)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_WallFan_Top_01_16" parent="." instance=ExtResource("1_kejit")]
+transform = Transform3D(1, -0.000803764, 0.000250378, 0.000571533, 0.866548, 0.499093, -0.000618123, -0.499092, 0.866549, -232.976, 15.6194, -171.905)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Pallet_01__66_" parent="." instance=ExtResource("2_spe1s")]
+transform = Transform3D(0.965925, 0.258819, -2.23517e-08, 9.78699e-08, -3.63799e-08, -1, -0.258819, 0.965926, 4.76837e-07, -93.7174, 2.14416, -60.221)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Pallet_01__66_2" parent="." instance=ExtResource("2_spe1s")]
+transform = Transform3D(1, -4.96227e-08, -4.65661e-08, 6.86295e-15, 1.93511e-08, -1, 2.98023e-08, 1, 1.35103e-07, -91.0504, 7.49078, -370.037)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Pallet_01__66_3" parent="." instance=ExtResource("2_spe1s")]
+transform = Transform3D(0.707107, -0.707107, -1.28459e-07, 6.86295e-15, 1.93511e-08, -1, 0.707107, 0.707107, 6.26047e-08, -105.489, 38.2427, -362.227)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Pallet_01__66_4" parent="." instance=ExtResource("2_spe1s")]
+transform = Transform3D(0.866025, 0.5, 2.72238e-08, 6.86295e-15, 1.93511e-08, -1, -0.5, 0.866025, 1.40285e-07, -138.834, 59.9046, -357.038)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintCan_01__2_" parent="." instance=ExtResource("3_i62iy")]
+transform = Transform3D(0.466525, 0.884508, -3.86631e-08, 0, -4.37114e-08, -1, -0.884508, 0.466525, -2.03925e-08, -156.727, -1.74958, -173.295)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintCan_02__5_" parent="." instance=ExtResource("4_ok0p7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -76.8743, 2.52755, -266.453)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintCan_02__5_2" parent="." instance=ExtResource("4_ok0p7")]
+transform = Transform3D(0.258819, 0.965926, -4.2222e-08, 0, -4.37114e-08, -1, -0.965926, 0.258819, -1.13133e-08, -87.6187, 2.52755, -190.983)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintCan_02__5_3" parent="." instance=ExtResource("4_ok0p7")]
+transform = Transform3D(0.965926, -0.258819, 1.13133e-08, -6.70246e-16, -4.37114e-08, -1, 0.258819, 0.965926, -4.2222e-08, -112.104, 2.52755, -160.06)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintCan_03__1_" parent="." instance=ExtResource("5_k5onr")]
+transform = Transform3D(-0.179146, 0, 0.983823, 0, 1, 0, -0.983823, 0, -0.179146, -154.426, 0, -220.384)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_PaintBrush_01__3_" parent="." instance=ExtResource("6_lbt2l")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1.7, 0, -1, -7.43094e-08, -144.186, 1.1685, -214.779)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Fire_Extinguisher_01__3_" parent="." instance=ExtResource("7_5ytg0")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -232.88, 12.0075, -346.111)
+script = ExtResource("2_hs1ia")
+
+[node name="SM_Prop_Fire_Extinguisher_01__3_2" parent="." instance=ExtResource("7_5ytg0")]
+transform = Transform3D(1, 0, 0, 0, 2.32831e-08, -1, 0, 1, 2.32831e-08, -241.989, 45.0789, -61.3661)
+script = ExtResource("2_hs1ia")

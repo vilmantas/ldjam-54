@@ -7,19 +7,45 @@ public partial class BuildMenuUIController : Control
 	
 	[Export] public BuildMenuItemUIController[] BuildMenuItems;
 	
+	[Export] public Button CloseButton;
+
+	public CapsuleSpawnController Spawn;
+	
 	public override void _Ready()
 	{
-		GameManager.Instance.OnBuildModeChanged += OnBuildModeChanged;
-		
-		OnBuildModeChanged(GameManager.Instance.BuildModeActive);
-		
 		CapsuleTooltip.Hide();
+		
+		CloseButton.Pressed += OnCloseButtonPressed;
 
 		foreach (var menuItem in BuildMenuItems)
 		{
 			menuItem.OnMouse += OnMenuItemMouseEntered;
 			menuItem.OnMouseExit += OnMenuItemMouseExited;
+			menuItem.Pressed += MenuItemOnPressed;
 		}
+		
+		GameManager.Instance.OnSpawnSelected += Initialize;
+		
+		Hide();
+	}
+
+	private void MenuItemOnPressed()
+	{
+		GameManager.Instance.BuildCapsule();
+		
+		Hide();
+	}
+
+	public void Initialize(CapsuleSpawnController controller)
+	{
+		Position = GetGlobalMousePosition();
+        
+		this.Show();
+	}
+
+	private void OnCloseButtonPressed()
+	{
+		Hide();
 	}
 
 	private void OnMenuItemMouseExited(string obj)
@@ -33,17 +59,5 @@ public partial class BuildMenuUIController : Control
 		CapsuleTooltip.Initialize(configuration);
 		
 		CapsuleTooltip.Show();
-	}
-	
-	private void OnBuildModeChanged(bool obj)
-	{
-		if (obj)
-		{
-			this.Show();
-		}
-		else
-		{
-			this.Hide();
-		}
 	}
 }

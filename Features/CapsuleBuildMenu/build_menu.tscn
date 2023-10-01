@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcvwvo3m4gic6"]
+
+[ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuUIController.cs" id="1_7s4mg"]
+[ext_resource type="Script" path="res://Features/CapsuleBuildMenu/BuildMenuItemUIController.cs" id="2_g2sa7"]
+[ext_resource type="PackedScene" uid="uid://2rbo1hw3e8p6" path="res://Features/CapsuleBuildMenu/capsule_tooltip.tscn" id="3_ujgcu"]
+
+[node name="build_menu" type="Control" node_paths=PackedStringArray("CapsuleTooltip", "BuildMenuItems", "CloseButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7s4mg")
+CapsuleTooltip = NodePath("CapsuleTooltip")
+BuildMenuItems = [NodePath("GridContainer/Basic"), NodePath("GridContainer/Nice"), NodePath("GridContainer/Pro")]
+CloseButton = NodePath("Close")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+offset_right = 153.0
+offset_bottom = 23.0
+text = "Build Capsule"
+fit_content = true
+autowrap_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -64.0
+offset_right = 75.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Basic" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Basic
+"
+script = ExtResource("2_g2sa7")
+title = "Basic Capsule"
+
+[node name="Nice" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Nice"
+script = ExtResource("2_g2sa7")
+title = "Nice Capsule"
+
+[node name="Pro" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+text = "Pro"
+script = ExtResource("2_g2sa7")
+title = "Pro Capsule"
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X
+"
+script = ExtResource("2_g2sa7")
+title = "Pro Capsule"
+
+[node name="CapsuleTooltip" parent="." instance=ExtResource("3_ujgcu")]
+layout_mode = 1
+offset_left = 292.0
+offset_top = 293.0
+offset_right = 292.0
+offset_bottom = 293.0

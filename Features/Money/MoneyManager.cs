@@ -5,7 +5,7 @@ public partial class MoneyManager : Node
 {
 	public static MoneyManager Instance;
 	
-	public int StartingMoney = 100;
+	public int StartingMoney = 5000;
 	
 	public int CurrentMoney { get; private set; }
 	

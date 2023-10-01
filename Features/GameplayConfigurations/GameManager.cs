@@ -12,6 +12,10 @@ public partial class GameManager : Node
         ResourceLoader.Load<PackedScene>("res://Features/Capsule/capsule.tscn");
     
     public static CapsuleConfiguration[] Capsules = CapsuleConfigurations.Capsules;
+
+    public CapsuleController SelectedCapsule;
+    
+    public CapsuleSpawnController SelectedSpawn;
     
     // PROPS
     
@@ -19,6 +23,10 @@ public partial class GameManager : Node
     
     
     // PLUGS
+    
+    public Action<CapsuleController> OnCapsuleSelected;
+    
+    public Action<CapsuleSpawnController> OnSpawnSelected;
     
     public Action<bool> OnBuildModeChanged;
     
@@ -45,8 +53,10 @@ public partial class GameManager : Node
         return Capsules.First(x => x.Title == title);
     }
     
-    public bool BuildCapsule(Vector3 globalPosition, Node parent)
+    public bool BuildCapsule()
     {
+        var spawn = SelectedSpawn;
+        
         var config = BuildingManager.Instance.CapsuleConfiguration;
 
         var cash = MoneyManager.Instance.CurrentMoney;
@@ -64,14 +74,43 @@ public partial class GameManager : Node
             
             return false;
         }
+
+        CapsuleNodeController node = spawn.GetParent() as CapsuleNodeController;
         
         var capsule = (CapsuleController)CapsulePrefab.Instantiate();
-        parent.AddChild(capsule);
-        capsule.Initialize(config, parent);
-        capsule.GlobalPosition = globalPosition;
+
+        if (node == null)
+        {
+            node = spawn.GetParent<CapsuleController>().GetParent<CapsuleNodeController>();
+        }
+        
+        node.Capsules.Add(capsule);
+        node.AddChild(capsule);
+        capsule.Initialize(config, node);
+        capsule.GlobalPosition = spawn.GlobalPosition;
+
+        SelectedSpawn = null;
+        spawn.QueueFree();
         
         MoneyManager.Instance.RemoveMoney(config.Cost);
 
         return true;
+    }
+    
+    public void SelectCapsule(CapsuleController capsule)
+    {
+        SelectedCapsule = capsule;
+        OnCapsuleSelected?.Invoke(capsule);
+    }
+    
+    public void OccupyCapsule(CapsuleController capsule)
+    {
+        capsule.HandleOccupyRequest();
+    }
+    
+    public void SelectSpawn(CapsuleSpawnController spawnPoint)
+    {
+        SelectedSpawn = spawnPoint;
+        OnSpawnSelected?.Invoke(spawnPoint);
     }
 }

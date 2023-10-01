@@ -1,24 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0iahgtf6q71f"]
+[gd_scene load_steps=7 format=3 uid="uid://d0iahgtf6q71f"]
 
 [ext_resource type="PackedScene" uid="uid://bevvwr5abyiyj" path="res://Imports/BattleRoyale/CapsuleContainer.glb" id="1_2qxl4"]
 [ext_resource type="Material" uid="uid://diychmiptr3k5" path="res://Imports/BattleRoyale/mat_br_4.tres" id="2_ia081"]
-[ext_resource type="AnimationLibrary" uid="uid://cxbiarc4064wk" path="res://Animations/close_animation.res" id="3_hrb4c"]
+[ext_resource type="Script" path="res://Features/Capsule/CapsuleModelController.cs" id="2_k0k7k"]
+[ext_resource type="PackedScene" uid="uid://dod3tpmtwlj8w" path="res://Features/Capsule/outline.tscn" id="3_k7kp2"]
+[ext_resource type="AnimationLibrary" uid="uid://ua7u3skccbj0" path="res://Animations/anim_capsule.res" id="5_aomvc"]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfy7j"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxco1"]
+size = Vector3(2.36144, 2.68953, 7.16876)
 
 [node name="capsule_container" instance=ExtResource("1_2qxl4")]
 transform = Transform3D(1.05271, 0, 0, 0, 0.405, 0, 0, 0, 0.680173, 0, 0, 0)
+script = ExtResource("2_k0k7k")
 
-[node name="SM_Prop_Container_01__16_" parent="." index="0"]
+[node name="Outline" parent="." index="0" instance=ExtResource("3_k7kp2")]
+
+[node name="SM_Prop_Container_01__16_" parent="." index="1"]
 transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, -3)
 surface_material_override/0 = ExtResource("2_ia081")
 
 [node name="SM_Prop_Container_Door_01_22" parent="SM_Prop_Container_01__16_" index="0"]
-transform = Transform3D(0.5, -0.866026, 3.78552e-08, 0.866026, 0.5, 2.18557e-08, -3.78552e-08, 2.18557e-08, 1, -107.187, 291.573, -16.177)
+transform = Transform3D(0.499999, -0.866026, 3.78552e-08, 0.866026, 0.499999, 2.18557e-08, -3.78552e-08, 2.18557e-08, 1, -107.187, 291.573, -16.177)
 surface_material_override/0 = ExtResource("2_ia081")
 
 [node name="SM_Prop_Container_Door_02_22" parent="SM_Prop_Container_01__16_" index="1"]
-transform = Transform3D(0.258819, 0.965926, -4.2222e-08, -0.965926, 0.258819, 3.2398e-08, 4.2222e-08, 3.23981e-08, 1, 107.186, 291.573, -16.177)
+transform = Transform3D(0.5, 0.866026, -3.78552e-08, -0.866026, 0.5, 2.18557e-08, 3.78552e-08, 2.18558e-08, 1, 107.186, 291.573, -16.177)
 surface_material_override/0 = ExtResource("2_ia081")
 
 [node name="SM_Prop_Container_Door_03_22" parent="SM_Prop_Container_01__16_" index="2"]
@@ -27,8 +33,15 @@ surface_material_override/0 = ExtResource("2_ia081")
 [node name="SM_Prop_Container_Door_04_22" parent="SM_Prop_Container_01__16_" index="3"]
 surface_material_override/0 = ExtResource("2_ia081")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_bfy7j"),
-"close_animation": ExtResource("3_hrb4c")
+"anim_capsule": ExtResource("5_aomvc")
 }
+
+[node name="hitbox" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox" index="0"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16857, -2.41252)
+shape = SubResource("BoxShape3D_bxco1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4"]

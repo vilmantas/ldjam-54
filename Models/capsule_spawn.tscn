@@ -12,4 +12,4 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, -149)
 
 [node name="SM_Bld_Floor_Lines_04_1" parent="Node3D" instance=ExtResource("2_qenhj")]
-transform = Transform3D(1, 0, 0, 0, -2.18557e-08, -1, 0, 0.5, -4.37114e-08, -300, 0, 1)
+transform = Transform3D(1, 0, 0, 0, -2.18557e-08, -1, 0, 0.5, -4.37114e-08, -300.547, 0.631118, 1.89359)
