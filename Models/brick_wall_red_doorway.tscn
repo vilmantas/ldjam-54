@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_0qdvt"]
 [ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_afauo"]
-[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/warfare_mat.tres" id="3_3qcpc"]
+[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/mat_warfare_A.tres" id="3_3qcpc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h664e"]
 resource_name = "PolygonGangWarfare_Material_01_A.002"
@@ -80,7 +80,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_3qcpc")
 
 [node name="SM_Bld_Wall_Door_01_11" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.378067, 0.925778, 2.71856e-08, -0.925778, 0.378067, 4.0467e-08, 2.71856e-08, -4.04671e-08, 1, 200.737, -8.79963, -15.3532)
+transform = Transform3D(-0.235854, 0.971788, 5.40209e-08, -0.971788, -0.235854, 4.24781e-08, 5.4021e-08, -4.24783e-08, 1, 200.737, -8.79963, -15.3532)
 mesh = SubResource("ArrayMesh_hq7l5")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("3_3qcpc")

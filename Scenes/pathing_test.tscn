@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3252fljiwngp"]
+
+[ext_resource type="Script" path="res://Features/Pathing/PathingDebugger.cs" id="1_8qev2"]
+[ext_resource type="Material" uid="uid://b8hie8aabk1o" path="res://Imports/Characters/businessman_mat.tres" id="1_bhutn"]
+[ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_6hmr6"]
+[ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="2_id47g"]
+[ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="2_s4c8b"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_7yqye"]
+vertices = PackedVector3Array(-18.5, 0.5, -24.5, -24.5, 0.5, -24.5, -24.5, 0.5, -18.5, -24.5, 0.5, 18.25, -24.5, 0.5, 24.5, -18.5, 0.5, 24.5, 0, 0.5, 24.5, 0, 0.5, 12.75, -1.5, 0.5, 12.5, -6.25, 0.5, 24.5, -1.5, 0.5, -12.5, 0, 0.5, -12.75, 0, 0.5, -24.5, -6.25, 0.5, -24.5, -1.5, 0.5, -6.25, -12.25, 0.5, -24.5, -24.5, 0.5, -6.25, -24.5, 0.5, 0, -1.5, 0.5, 0, -24.5, 0.5, 6, -12.25, 0.5, 24.5, -1.5, 0.5, 6.25, -1.5, 0.5, 0, -24.5, 0.5, 0, -12.25, 0.5, -24.5, -18.5, 0.5, -24.5, -24.5, 0.5, -18.5, -24.5, 0.5, -12.25, -24.5, 0.5, 12.25, -24.5, 0.5, 18.25, -18.5, 0.5, 24.5, -1.5, 0.5, -12.5, -6.25, 0.5, -24.5, -12.25, 0.5, -24.5, -1.5, 0.5, -6.25, -12.25, 0.5, 24.5, -6.25, 0.5, 24.5, -1.5, 0.5, 12.5, -1.5, 0.5, 6.25, -12.25, 0.5, -24.5, -24.5, 0.5, -12.25, -24.5, 0.5, -6.25, -24.5, 0.5, 12.25, -18.5, 0.5, 24.5, -12.25, 0.5, 24.5, -24.5, 0.5, 6, 24.5, 0.5, -18.5, 24.5, 0.5, -24.5, 18.25, 0.5, -24.5, 18.25, 0.5, 24.5, 24.5, 0.5, 24.5, 24.5, 0.5, 18.25, 1.5, 0.5, 12.5, 0, 0.5, 12.75, 0, 0.5, 24.5, 6, 0.5, 24.5, 0, 0.5, -24.5, 0, 0.5, -12.75, 1.5, 0.5, -12.5, 6, 0.5, -24.5, 24.5, 0.5, -6.25, 12.25, 0.5, -24.5, 1.5, 0.5, -6.25, 1.5, 0.5, 0, 24.5, 0.5, 0, 1.5, 0.5, 6.25, 12.25, 0.5, 24.5, 24.5, 0.5, 6, 24.5, 0.5, 0, 1.5, 0.5, 0, 24.5, 0.5, -18.5, 18.25, 0.5, -24.5, 12.25, 0.5, -24.5, 24.5, 0.5, -12.25, 12.25, 0.5, 24.5, 18.25, 0.5, 24.5, 24.5, 0.5, 18.25, 24.5, 0.5, 12.25, 1.5, 0.5, 12.5, 6, 0.5, 24.5, 12.25, 0.5, 24.5, 1.5, 0.5, 6.25, 12.25, 0.5, -24.5, 6, 0.5, -24.5, 1.5, 0.5, -12.5, 1.5, 0.5, -6.25, 12.25, 0.5, 24.5, 24.5, 0.5, 12.25, 24.5, 0.5, 6, 24.5, 0.5, -6.25, 24.5, 0.5, -12.25, 12.25, 0.5, -24.5, -0.5, 3.5, 0, -0.5, 3.5, 11.75, 0.5, 3.5, 11.75, 0.5, 3.5, 0, 0.5, 3.5, 0, 0.5, 3.5, -11.75, -0.5, 3.5, -11.75, -0.5, 3.5, 0, -0.25, 0.5, 0, -0.25, 0.5, 11.5, 0.25, 0.5, 11.5, 0.25, 0.5, 0, 0.25, 0.5, 0, 0.25, 0.5, -11.5, -0.25, 0.5, -11.5, -0.25, 0.5, 0)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(18, 17, 14), PackedInt32Array(14, 17, 16), PackedInt32Array(14, 16, 15), PackedInt32Array(23, 22, 19), PackedInt32Array(19, 22, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(30, 29, 28), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 34), PackedInt32Array(36, 35, 37), PackedInt32Array(37, 35, 38), PackedInt32Array(41, 40, 39), PackedInt32Array(43, 42, 44), PackedInt32Array(44, 42, 45), PackedInt32Array(48, 47, 46), PackedInt32Array(51, 50, 49), PackedInt32Array(53, 52, 54), PackedInt32Array(54, 52, 55), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(64, 63, 60), PackedInt32Array(60, 63, 62), PackedInt32Array(60, 62, 61), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 65), PackedInt32Array(65, 67, 66), PackedInt32Array(71, 70, 72), PackedInt32Array(72, 70, 73), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(79, 78, 80), PackedInt32Array(80, 78, 81), PackedInt32Array(83, 82, 84), PackedInt32Array(84, 82, 85), PackedInt32Array(88, 87, 86), PackedInt32Array(91, 90, 89), PackedInt32Array(95, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(99, 98, 96), PackedInt32Array(96, 98, 97), PackedInt32Array(103, 102, 100), PackedInt32Array(100, 102, 101), PackedInt32Array(107, 106, 104), PackedInt32Array(104, 106, 105)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6bje5"]
+size = Vector2(50, 50)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_itxdh"]
+data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qccj5"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uutle"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="pathing_test" type="Node3D" node_paths=PackedStringArray("Camera", "Customer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0272141, 0.0433712, -0.00149727)
+script = ExtResource("1_8qev2")
+Camera = NodePath("GameCamera/SpringArm/Camera")
+Customer = NodePath("customer")
+
+[node name="lighting" parent="." instance=ExtResource("2_6hmr6")]
+
+[node name="GameCamera" parent="." instance=ExtResource("2_id47g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0097, -0.491969, -6.30412)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_7yqye")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+material_override = ExtResource("1_bhutn")
+mesh = SubResource("PlaneMesh_6bje5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_itxdh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1.87376, 0, 0, 0, 3.04808, 0, 0, 0, 24.099, 0, 1.61489, 0)
+mesh = SubResource("BoxMesh_qccj5")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uutle")
+
+[node name="customer" parent="." instance=ExtResource("2_s4c8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -6)
+
+[editable path="GameCamera"]

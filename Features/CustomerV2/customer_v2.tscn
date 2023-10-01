@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4eccb1nf8vp8"]
+
+[ext_resource type="Script" path="res://Features/CustomerV2/CustomerV2Controller.cs" id="1_njqod"]
+[ext_resource type="PackedScene" uid="uid://byvbx8jbtarar" path="res://Models/businessman.tscn" id="2_nf7ky"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3vbt"]
+radius = 0.221615
+height = 1.66357
+
+[node name="customer" type="CharacterBody3D" groups=["Customer"]]
+collision_layer = 2
+script = ExtResource("1_njqod")
+
+[node name="model" parent="." instance=ExtResource("2_nf7ky")]
+
+[node name="hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84764, 0)
+shape = SubResource("CapsuleShape3D_n3vbt")
+
+[node name="navigator" type="NavigationAgent3D" parent="."]

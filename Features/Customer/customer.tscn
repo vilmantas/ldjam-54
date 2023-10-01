@@ -43,3 +43,5 @@ mesh = SubResource("ArrayMesh_4hrya")
 [node name="CustomerCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_n3vbt")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
