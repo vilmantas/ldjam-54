@@ -17,14 +17,16 @@ public partial class Customer : CustomerNavigator
 	
 	private CapsuleController capsule;
 	private Reception _reception;
-	
 	private CustomerStatus status = CustomerStatus.GoingToReception;
+
+	public MeshInstance3D _modelOutline;
 	
 
 	
 	public override void _Ready()
 	{
 		_reception = GetTree().GetFirstNodeInGroup("Reception") as Reception;
+		_modelOutline = GetNode<MeshInstance3D>("CustomerModel/CustomerModelOutline");
 		this.InputEvent += OnCustomerClicked;
 		base._Ready();
 	}
@@ -69,9 +71,14 @@ public partial class Customer : CustomerNavigator
 		{
 			if (mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
 			{
-				CustomerManager.selectedCustomer = this;
+				CustomerManager.SelectedCustomer = this;
 			}
 		}
+	}
+
+	private void ShowOutline()
+	{
+		
 	}
 	
 	
