@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8hie8aabk1o"]
+
+[ext_resource type="Texture2D" uid="uid://frl8dc7u4gd1" path="res://Imports/Characters/businessman_PolygonBattleRoyale_Texture_02_A.png" id="1_i1lsc"]
+
+[resource]
+albedo_texture = ExtResource("1_i1lsc")
+metallic_specular = 0.0

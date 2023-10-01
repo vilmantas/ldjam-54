@@ -1,28 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4gwy8uluna1e"]
 
+[ext_resource type="PackedScene" uid="uid://cpfvh71ls64cs" path="res://Models/model_reception.tscn" id="1_4y334"]
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_8jrna"]
 [ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="3_410jr"]
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="4_gfv4e"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_pfsws"]
-
 [node name="laurynas_test_level" type="Node3D"]
 
+[node name="model_reception" parent="." instance=ExtResource("1_4y334")]
+
 [node name="Camera" parent="." instance=ExtResource("1_8jrna")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 4.74315, 0, 10.417)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.871077, 0.491147, 0, -0.491147, 0.871077, -0.446458, 6.70517, 6.61504)
 light_energy = 0.848
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(57.986, 0, 0, 0, 0.266987, 0, 0, 0, 45.135, 0, 0, 0)
-mesh = SubResource("BoxMesh_pfsws")
-
 [node name="CustomerSpawnPoint" parent="." instance=ExtResource("4_gfv4e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2103, 0, -2.94112)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.77377, 0.125461, -8.56261)
 
 [node name="CustomerSpawnPoint2" parent="." instance=ExtResource("4_gfv4e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9425, 0, 10.9622)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.66016, 0.118813, -18.9621)
 
 [node name="Reception" parent="." instance=ExtResource("3_410jr")]
-transform = Transform3D(-0.665504, 0, -0.746394, 0, 1, 0, 0.746394, 0, -0.665504, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4281, 0.257705, 12.8128)

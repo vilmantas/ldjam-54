@@ -5,18 +5,20 @@ namespace Ldjam54.Features.Customer;
 public partial class CustomerNavigator : CharacterBody3D
 {
     public Vector3 navigationTarget = Vector3.Zero;
-    private double maxMovementTimer = 10;
-    private double distanceToTargetReached = 1;
+    private double maxMovementTimer = 20;
+    private double distanceToTargetReached = 0.2;
     private double movementTimer = 0;
     private bool isMoving = false;
     private bool targetReached = false;
-    private float customerSpeed = 400f;
+    private float customerSpeed = 150f;
     
     public override void _Process(double delta)
     	{
     		if (!targetReached && navigationTarget != Vector3.Zero)
 		    {
-			    this.Velocity = Position.DirectionTo(navigationTarget) * customerSpeed * (float)delta;
+			    Velocity = Position.DirectionTo(navigationTarget) * customerSpeed * (float)delta;
+			    
+			    LookAt(navigationTarget);
 			    MoveAndSlide();
 			    
     			movementTimer += delta;
@@ -32,13 +34,13 @@ public partial class CustomerNavigator : CharacterBody3D
     			{
     				OnTargetReached();
     			}
-    			
     		}
-
 	    }
     
     	public void NavigateTo(Vector3 target)
 	    {
+		    if (IsTargetReached(target)) return;
+		    
 		    navigationTarget = target;
     		targetReached = false;
     		isMoving = true;
@@ -46,6 +48,7 @@ public partial class CustomerNavigator : CharacterBody3D
     	
     	private void TeleportToTarget()
     	{
+		    GD.Print("TELEPORT");
     		Position = navigationTarget;
 		    targetReached = true;
 		    isMoving = false;
@@ -54,10 +57,14 @@ public partial class CustomerNavigator : CharacterBody3D
 
 	    private void OnTargetReached()
 	    {
+		    GD.Print("REACHED");
 		    targetReached = true;
 		    isMoving = false;
 		    movementTimer = 0;
-		    
 	    }
-	    
+
+	    private bool IsTargetReached(Vector3 target)
+	    {
+		    return Position.DistanceTo(target) < distanceToTargetReached;
+	    }
 }

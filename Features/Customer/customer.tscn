@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bby6xx2qgismp"]
+[gd_scene load_steps=7 format=3 uid="uid://bby6xx2qgismp"]
 
 [ext_resource type="Script" path="res://Features/Customer/Customer.cs" id="1_qhhjd"]
+[ext_resource type="PackedScene" uid="uid://byvbx8jbtarar" path="res://Models/businessman.tscn" id="2_ysoeq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8hfvp"]
 
@@ -21,12 +22,16 @@ _surfaces = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3vbt"]
 
-[node name="Customer" type="CharacterBody3D" groups=["Customer"]]
+[node name="Customer" type="CharacterBody3D" node_paths=PackedStringArray("Animator") groups=["Customer"]]
 collision_layer = 2
 script = ExtResource("1_qhhjd")
+Animator = NodePath("model")
+
+[node name="model" parent="." instance=ExtResource("2_ysoeq")]
 
 [node name="CustomerModel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.998011, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_8hfvp")
 
 [node name="CustomerModelOutline" type="MeshInstance3D" parent="CustomerModel"]

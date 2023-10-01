@@ -12,6 +12,6 @@ public partial class CharacterAnimationController : Node3D
 
     public void PlayAnimation(string animationName)
     {
-        Animator.Set("parameters/Transition/transition_request", "walking");
+        Animator.Set("parameters/Transition/transition_request", animationName);
     }
 }

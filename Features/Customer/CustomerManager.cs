@@ -9,8 +9,8 @@ public partial class CustomerManager : Node
 	
 	Random random = new Random();
 	private PackedScene customerScene;
-	private double spawnCustomerSeconds = 5;
-	private double currentSpawnCustomerTimer = 0;
+	private double spawnCustomerSeconds = 6;
+	private double currentSpawnCustomerTimer = 5;
 	private static Customer _selectedCustomer;
 	public static Customer SelectedCustomer
 	{
@@ -35,7 +35,6 @@ public partial class CustomerManager : Node
 	{
 		customerScene = (PackedScene)ResourceLoader.Load("res://Features/Customer/customer.tscn");
 		setCustomerSpawners();
-	
 	}
 
 	public void setCustomerSpawners()
@@ -60,7 +59,6 @@ public partial class CustomerManager : Node
 			spawnCustomer();
 			currentSpawnCustomerTimer -= spawnCustomerSeconds;
 		}
-
 	}
 
 	public Vector3 getCustomerSpawnLocation()

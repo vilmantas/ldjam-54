@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkfux5738b3o7"]
 
 [ext_resource type="PackedScene" uid="uid://d1iqbs2x1d8he" path="res://Models/Parts/wall_fan.tscn" id="1_kejit"]
-[ext_resource type="Script" path="res://Features/RandomHide.cs" id="2_hs1ia"]
+[ext_resource type="Script" path="res://Features/Utilities/RandomHide.cs" id="2_hs1ia"]
 [ext_resource type="PackedScene" uid="uid://csme5145p3giw" path="res://Models/Parts/pallet.tscn" id="2_spe1s"]
 [ext_resource type="PackedScene" uid="uid://dvrttfxmp7u3b" path="res://Models/Parts/paint_can_red.tscn" id="3_i62iy"]
 [ext_resource type="PackedScene" uid="uid://bkidxaoxxwjga" path="res://Models/Parts/paint_can_closed.tscn" id="4_ok0p7"]

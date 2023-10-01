@@ -8,6 +8,7 @@ public partial class Customer : CustomerNavigator
 	
 	enum CustomerStatus
 	{
+		Idle,
 		GoingToReception,
 		WaitingInQueue,
 		GoingToPod,
@@ -17,14 +18,17 @@ public partial class Customer : CustomerNavigator
 	
 	private CapsuleController capsule;
 	private Reception _reception;
-	private CustomerStatus status = CustomerStatus.GoingToReception;
+	private CustomerStatus status = CustomerStatus.Idle;
 
 	public MeshInstance3D _modelOutline;
-	
 
+	[Export] public CharacterAnimationController Animator;
 	
 	public override void _Ready()
 	{
+		SetGoingToReception();
+		
+		Animator = GetNode<CharacterAnimationController>("model");
 		_reception = GetTree().GetFirstNodeInGroup("Reception") as Reception;
 		_modelOutline = GetNode<MeshInstance3D>("CustomerModel/CustomerModelOutline");
 		this.InputEvent += OnCustomerClicked;
@@ -33,13 +37,15 @@ public partial class Customer : CustomerNavigator
 
 	public override void _Process(double delta)
 	{
-
 		switch (status)
 		{
 			case CustomerStatus.GoingToReception:
 				NavigateToReception();
 				break;
 			
+			case CustomerStatus.WaitingInQueue:
+				LookAt(_reception.Position);
+				break;
 		}
 		base._Process(delta);
 	}
@@ -50,24 +56,23 @@ public partial class Customer : CustomerNavigator
 		if (_reception != null && status == CustomerStatus.GoingToReception)
 		{
 			var positionInQueue = _reception.GetLastWaitingPosition();
+			
+			GD.Print(positionInQueue);
+			
 			if (positionInQueue != navigationTarget)
 			{
 				NavigateTo(positionInQueue);
 			}
 			
-			if(Position.DistanceTo(positionInQueue) < 1)
+			if(Position.DistanceTo(positionInQueue) < 0.2f)
 			{
-				_reception.EnterQueue(this);
-				status = CustomerStatus.WaitingInQueue;
+				SetWaitingInQueue();
 			}
-			
-
 		} 
 	}
 	
 	private void OnCustomerClicked(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)
 	{
-	
 		if (@event is InputEventMouseButton mouseEvent)
 		{
 			if (mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
@@ -79,10 +84,24 @@ public partial class Customer : CustomerNavigator
 		}
 	}
 
+	private void SetGoingToReception()
+	{
+		status = CustomerStatus.GoingToReception;
+		
+		Animator.PlayAnimation("Walking");
+	}
+
+	private void SetWaitingInQueue()
+	{
+		status = CustomerStatus.WaitingInQueue;
+		
+		_reception.EnterQueue(this);
+		
+		Animator.PlayAnimation("Idle");
+	}
+
 	private void ShowOutline()
 	{
 		
 	}
-	
-	
 }

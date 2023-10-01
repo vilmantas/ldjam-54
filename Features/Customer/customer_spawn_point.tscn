@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvvy1btjxn8ip"]
+[gd_scene load_steps=5 format=3 uid="uid://cvvy1btjxn8ip"]
 
 [ext_resource type="Script" path="res://Features/Customer/CustomerSpawnPoint.cs" id="1_4sc8x"]
+[ext_resource type="Material" uid="uid://b33c8gwt6bopa" path="res://Features/Utilities/placeholder.tres" id="2_e6lwq"]
+[ext_resource type="Script" path="res://Features/Utilities/HideOnStart.cs" id="2_fwi0w"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nasmm"]
+size = Vector3(1, 0.01, 1)
 
 [node name="CustomerSpawnPoint" type="Node3D" groups=["CustomerSpawnPoint"]]
 script = ExtResource("1_4sc8x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+material_override = ExtResource("2_e6lwq")
+mesh = SubResource("BoxMesh_nasmm")
+script = ExtResource("2_fwi0w")
