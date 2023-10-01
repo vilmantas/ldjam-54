@@ -11,6 +11,7 @@ public partial class CustomerManager : Node
 	private PackedScene customerScene;
 	private double spawnCustomerSeconds = 5;
 	private double currentSpawnCustomerTimer = 0;
+	public static Customer selectedCustomer;
 
 	private List<CustomerSpawnPoint> _customerSpawnPoints = new List<CustomerSpawnPoint>();
 	// Called when the node enters the scene tree for the first time.

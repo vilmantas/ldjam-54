@@ -1,93 +1,78 @@
 using Godot;
 using System;
+using Ldjam54.Features.Customer;
 
 
-
-public partial class Customer : CharacterBody3D
+public partial class Customer : CustomerNavigator
 {
+	
+	enum CustomerStatus
+	{
+		GoingToReception,
+		WaitingInQueue,
+		GoingToPod,
+		Sleeping,
+		Exiting
+	}
+	
 	private CapsuleController capsule;
-	private Node3D currentTarget;
-	private double maxMovementTimer = 5;
-	private double distanceToTargetReached = 1;
-	private double movementTimer = 0;
-	private bool isMoving = false;
-	private bool targetReached = false;
+	private Reception _reception;
+	
+	private CustomerStatus status = CustomerStatus.GoingToReception;
 	
 
 	
 	public override void _Ready()
 	{
-		
+		_reception = GetTree().GetFirstNodeInGroup("Reception") as Reception;
+		this.InputEvent += OnCustomerClicked;
+		base._Ready();
 	}
 
 	public override void _Process(double delta)
 	{
-		getTargetAndNavigate();
-		if (isMoving)
-		{
-			movementTimer += delta;
 
-			if (movementTimer >= maxMovementTimer)
-			{
-				teleportToTarget();
-				movementTimer = 0;
-				isMoving = false;
-			}
-		}
-
-		if (targetReached == false && currentTarget != null)
+		switch (status)
 		{
-			if (Position.DistanceTo(currentTarget.Position) < distanceToTargetReached)
-			{
-				targetReached = true;
-			}
+			case CustomerStatus.GoingToReception:
+				NavigateToReception();
+				break;
 			
 		}
-		
-		
+		base._Process(delta);
 	}
+	
 
-	private void getTargetAndNavigate()
+	private void NavigateToReception()
 	{
-		if (currentTarget == null)
+		if (_reception != null && status == CustomerStatus.GoingToReception)
 		{
-			currentTarget = getNextTarget();
-			if (currentTarget != null)
+			var positionInQueue = _reception.GetAvailableQueuePosition();
+			if (Position != navigationTarget)
 			{
-				navigateToTarget();
+				NavigateTo(positionInQueue);
+			}
+			else
+			{
+				_reception.EnterQueue(this);
+				status = CustomerStatus.WaitingInQueue;
+			}
+			
+
+		} 
+	}
+	
+	private void OnCustomerClicked(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)
+	{
+	
+		if (@event is InputEventMouseButton mouseEvent)
+		{
+			if (mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
+			{
+				CustomerManager.selectedCustomer = this;
 			}
 		}
 	}
-
-	private void navigateToTarget()
-	{
-		targetReached = false;
-		isMoving = true;
-	}
 	
-	private void teleportToTarget()
-	{
-		Position = currentTarget.Position;
-	}
-
-	private Node3D getNextTarget()
-	{
-		if (capsule == null)
-		{
-			return GetTree().GetFirstNodeInGroup("Reception") as Reception;
-		}
-
-		return null;
-	}
-
-	private void onTargetReached()
-	{
-		
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		
-		base._PhysicsProcess(delta);
-	}
+	
 }

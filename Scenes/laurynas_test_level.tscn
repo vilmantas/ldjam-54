@@ -14,9 +14,6 @@
 transform = Transform3D(1, 0, 0, 0, 0.871077, 0.491147, 0, -0.491147, 0.871077, -0.446458, 6.70517, 6.61504)
 light_energy = 0.848
 
-[node name="Reception" parent="." instance=ExtResource("3_410jr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.37744, -2.38419e-07, -1.59181)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(57.986, 0, 0, 0, 0.266987, 0, 0, 0, 45.135, 0, 0, 0)
 mesh = SubResource("BoxMesh_pfsws")
@@ -26,3 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2103, 0, -2.94112)
 
 [node name="CustomerSpawnPoint2" parent="." instance=ExtResource("4_gfv4e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9425, 0, 10.9622)
+
+[node name="Reception" parent="." instance=ExtResource("3_410jr")]
+transform = Transform3D(-0.665504, 0, -0.746394, 0, 1, 0, 0.746394, 0, -0.665504, 0, 0, 0)
