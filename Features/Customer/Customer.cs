@@ -49,12 +49,13 @@ public partial class Customer : CustomerNavigator
 	{
 		if (_reception != null && status == CustomerStatus.GoingToReception)
 		{
-			var positionInQueue = _reception.GetAvailableQueuePosition();
-			if (Position != navigationTarget)
+			var positionInQueue = _reception.GetLastWaitingPosition();
+			if (positionInQueue != navigationTarget)
 			{
 				NavigateTo(positionInQueue);
 			}
-			else
+			
+			if(Position.DistanceTo(positionInQueue) < 1)
 			{
 				_reception.EnterQueue(this);
 				status = CustomerStatus.WaitingInQueue;
@@ -71,6 +72,8 @@ public partial class Customer : CustomerNavigator
 		{
 			if (mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
 			{
+				// _reception.ExitQueue(this);
+				// QueueFree();
 				CustomerManager.SelectedCustomer = this;
 			}
 		}

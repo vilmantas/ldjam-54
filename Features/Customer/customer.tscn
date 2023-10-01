@@ -22,6 +22,7 @@ _surfaces = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3vbt"]
 
 [node name="Customer" type="CharacterBody3D" groups=["Customer"]]
+collision_layer = 2
 script = ExtResource("1_qhhjd")
 
 [node name="CustomerModel" type="MeshInstance3D" parent="."]
