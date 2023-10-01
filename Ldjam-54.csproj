@@ -7,4 +7,7 @@
   <ItemGroup>
     <Compile Remove="Features\Capsule\Capsule.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\Tooltip\" />
+  </ItemGroup>
 </Project>

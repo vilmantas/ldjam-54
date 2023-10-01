@@ -1,12 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=10 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
+[ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
-[ext_resource type="PackedScene" uid="uid://c53jp5eoffge8" path="res://Models/model_capsule_room.tscn" id="3_2jtf2"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnd5c"]
+sky_top_color = Color(0.168627, 0.45098, 0.772549, 1)
+sky_horizon_color = Color(0.784314, 0.615686, 0.486275, 1)
+ground_bottom_color = Color(0.2, 0.207843, 0.427451, 1)
+ground_horizon_color = Color(0.772549, 0.611765, 0.580392, 1)
+
+[sub_resource type="Sky" id="Sky_dn4v0"]
+sky_material = SubResource("ProceduralSkyMaterial_dnd5c")
+
+[sub_resource type="Environment" id="Environment_p3pjh"]
+background_mode = 2
+sky = SubResource("Sky_dn4v0")
+sky_custom_fov = 28.0
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.368627, 0.4, 0.447059, 1)
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_c0h2f"]
+
 [node name="v_test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p3pjh")
+camera_attributes = SubResource("CameraAttributesPhysical_c0h2f")
+
+[node name="background" parent="." instance=ExtResource("1_o6m18")]
 
 [node name="GameCamera" parent="." instance=ExtResource("1_6wf0w")]
 transform = Transform3D(0.603472, 0, 0.797384, 0, 1, 0, -0.797384, 0, 0.603472, 7.88168, 0, 7.10435)
@@ -15,36 +43,34 @@ transform = Transform3D(0.603472, 0, 0.797384, 0, 1, 0, -0.797384, 0, 0.603472, 
 
 [node name="DirectionalLight3D" parent="lighting" index="0"]
 transform = Transform3D(0.258819, -0.22121, 0.940255, 0, 0.973423, 0.229014, -0.965926, -0.059273, 0.25194, 0, 0, 0)
-
-[node name="model_capsule_room" parent="." instance=ExtResource("3_2jtf2")]
-
-[node name="capsule_node" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74178, 0.0243537, 4.3258)
-
-[node name="capsule_node7" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30022, 0.0243537, 4.3258)
-
-[node name="capsule_node8" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2209, 0.0243537, 4.3258)
-
-[node name="capsule_node9" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7793, 0.0243537, 4.3258)
-
-[node name="capsule_node2" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 11.2843, 0.024354, 7.66837)
-
-[node name="capsule_node3" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.73332, 0.024354, 7.66837)
-
-[node name="capsule_node4" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 6.1842, 0.024354, 7.66837)
-
-[node name="capsule_node5" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 3.63326, 0.024354, 7.66837)
-
-[node name="capsule_node6" parent="." instance=ExtResource("5_deibi")]
-transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, 1.07236, 0.024354, 7.66837)
+light_color = Color(0.760784, 0.760784, 0.760784, 1)
 
 [node name="ui" parent="." instance=ExtResource("4_cwxxv")]
+
+[node name="nodes" type="Node3D" parent="."]
+
+[node name="capsule_node" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, -5.03308, 0.621992, 11.1851)
+
+[node name="capsule_node2" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, -2.32894, 0.621992, 11.1851)
+
+[node name="capsule_node3" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 3.30541, 0.621992, 11.1851)
+
+[node name="capsule_node4" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 6.2103, 0.621992, 11.1851)
+
+[node name="capsule_node5" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, 4.08052, 0.621992, 14.0003)
+
+[node name="capsule_node6" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, 0.932812, 0.621992, 14.0003)
+
+[node name="capsule_node7" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, -1.90938, 0.621992, 14.0003)
+
+[node name="capsule_node8" parent="nodes" instance=ExtResource("5_deibi")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -4.31913, 0.621992, 12.8624)
 
 [editable path="lighting"]

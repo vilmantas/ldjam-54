@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_ok8cg"]
 [ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_kk1am"]
-[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/warfare_mat.tres" id="3_ho6pj"]
+[ext_resource type="Material" uid="uid://qlcckgm6yxs7" path="res://Imports/Warfare/mat_warfare_A.tres" id="3_ho6pj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h664e"]
 resource_name = "PolygonGangWarfare_Material_01_A.002"

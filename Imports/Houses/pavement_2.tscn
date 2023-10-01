@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4bipcbje7pbm"]
+
+[ext_resource type="PackedScene" uid="uid://ch71r8i553glr" path="res://Imports/Houses/Pavement_2.glb" id="1_do0dd"]
+[ext_resource type="PackedScene" uid="uid://cfp54xvy74tjd" path="res://Models/Background/sidewalk_3.tscn" id="2_7q0tb"]
+
+[node name="Pavement_2" instance=ExtResource("1_do0dd")]
+
+[node name="SM_sidewalk_03__11_" parent="SM_sidewalk_03__11_" index="0" instance=ExtResource("2_7q0tb")]

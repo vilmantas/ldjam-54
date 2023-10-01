@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8l2brqm16m7r"]
+
+[ext_resource type="PackedScene" uid="uid://p4gkj2a01le7" path="res://Imports/BattleRoyale/BeachCircle.glb" id="1_wv0cc"]
+[ext_resource type="Material" uid="uid://daywlrcbt0vff" path="res://Imports/BattleRoyale/mat_br_3.tres" id="2_pplsn"]
+
+[node name="BeachCircle" instance=ExtResource("1_wv0cc")]
+
+[node name="SM_Env_Beach_01__6_" parent="." index="0"]
+transform = Transform3D(-0.00726806, -0.00866827, 0, 0, 0, -0.01, 0.00803868, -0.00783728, 0, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_pplsn")

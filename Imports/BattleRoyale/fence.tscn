@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://oipg5xqqmd3d"]
+
+[ext_resource type="PackedScene" uid="uid://bkli1ut4vqow1" path="res://Imports/BattleRoyale/fence.glb" id="1_i4ac8"]
+
+[node name="fence" instance=ExtResource("1_i4ac8")]
+
+[node name="SM_Prop_WireFence_01__39_" parent="." index="0"]
+transform = Transform3D(1.19209e-09, -0.01, 0, 1.19209e-09, 0, -0.01, 0.01, 1.19209e-09, 1.19209e-09, 0, 0, 0)

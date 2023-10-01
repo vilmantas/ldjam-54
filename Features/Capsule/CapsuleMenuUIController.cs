@@ -46,6 +46,7 @@ public partial class CapsuleMenuUIController : Control
     private void HandleHide()
     {
         Capsule = null;
+        GameManager.Instance.DeselectCapsule();
         Hide();
     }
 }

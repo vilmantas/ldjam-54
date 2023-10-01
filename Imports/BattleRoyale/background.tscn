@@ -1,0 +1,212 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0clw1jygcoh2"]
+
+[ext_resource type="PackedScene" uid="uid://bew1nwfnkfw7j" path="res://Imports/BattleRoyale/Background.glb" id="1_n43vn"]
+[ext_resource type="Material" uid="uid://daywlrcbt0vff" path="res://Imports/BattleRoyale/mat_br_3.tres" id="2_l34su"]
+[ext_resource type="Material" uid="uid://diychmiptr3k5" path="res://Imports/BattleRoyale/mat_br_4.tres" id="3_1wcff"]
+[ext_resource type="Material" uid="uid://rffnelnulcy5" path="res://Imports/BattleRoyale/mat_br_1.tres" id="4_d1qx2"]
+
+[node name="Background" instance=ExtResource("1_n43vn")]
+
+[node name="SM_Env_Beach_01__10_" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_01__3_" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_01__6_" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01__1_" parent="." index="4"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01__2_" parent="." index="5"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01__5_" parent="." index="6"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01__6_" parent="." index="7"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_01__8_" parent="." index="8"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02" parent="." index="9"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__1_" parent="." index="10"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__2_" parent="." index="11"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__3_" parent="." index="12"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__4_" parent="." index="13"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__5_" parent="." index="14"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__7_" parent="." index="15"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__8_" parent="." index="16"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Beach_Staight_02__9_" parent="." index="17"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_DirtRoad_End_01" parent="." index="18"]
+surface_material_override/0 = ExtResource("3_1wcff")
+
+[node name="SM_Env_Grass_Circle_01" parent="." index="19"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__10_" parent="." index="20"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__1_" parent="." index="21"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__2_" parent="." index="22"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__3_" parent="." index="23"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__5_" parent="." index="24"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__6_" parent="." index="25"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_01__8_" parent="." index="26"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Circle_02__5_" parent="." index="27"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01" parent="." index="28"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__10_" parent="." index="29"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__13_" parent="." index="30"]
+surface_material_override/0 = ExtResource("3_1wcff")
+
+[node name="SM_Env_Grass_Square_01__15_" parent="." index="31"]
+surface_material_override/0 = ExtResource("3_1wcff")
+
+[node name="SM_Env_Grass_Square_01__17_" parent="." index="32"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__18_" parent="." index="33"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__19_" parent="." index="34"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__20_" parent="." index="35"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__5_" parent="." index="36"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__6_" parent="." index="37"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__7_" parent="." index="38"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Grass_Square_01__9_" parent="." index="39"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Rock_01__12_" parent="." index="41"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__13_" parent="." index="42"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__14_" parent="." index="43"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__16_" parent="." index="44"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__17_" parent="." index="45"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__7_" parent="." index="46"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_01__9_" parent="." index="47"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02" parent="." index="48"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__15_" parent="." index="49"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__1_" parent="." index="50"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__21_" parent="." index="51"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__24_" parent="." index="52"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__25_" parent="." index="53"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__26_" parent="." index="54"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__29_" parent="." index="55"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__2_" parent="." index="56"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__30_" parent="." index="57"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__37_" parent="." index="58"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__38_" parent="." index="59"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__3_" parent="." index="60"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__40_" parent="." index="61"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__42_" parent="." index="62"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__43_" parent="." index="63"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__44_" parent="." index="64"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__46_" parent="." index="65"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Env_Rock_02__47_" parent="." index="66"]
+surface_material_override/0 = ExtResource("2_l34su")
+
+[node name="SM_Generic_Mountains_Soft_01" parent="." index="69"]
+surface_material_override/0 = ExtResource("4_d1qx2")
+
+[node name="SM_Env_Planecrash_Dirt_01" parent="." index="74"]
+surface_material_override/0 = ExtResource("3_1wcff")

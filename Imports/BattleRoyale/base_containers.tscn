@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cduyaojj1kt67"]
+
+[ext_resource type="PackedScene" uid="uid://calcjcf3hx73o" path="res://Imports/BattleRoyale/BaseContainers.glb" id="1_fhvko"]
+
+[node name="BaseContainers" instance=ExtResource("1_fhvko")]
+
+[node name="SM_Prop_Container_Small_01__1_" parent="." index="0"]
+transform = Transform3D(2.98023e-08, -0.01, 0, 1.19209e-09, 0, -0.01, 0.01, 2.98023e-08, 1.19209e-09, 0, 0, 0)
+
+[node name="SM_Prop_Container_Small_01__2_" parent="." index="1"]
+transform = Transform3D(2.98023e-08, -0.01, 0, 1.19209e-09, 0, -0.01, 0.01, 2.98023e-08, 1.19209e-09, 1.20612, 0, 3.65927)

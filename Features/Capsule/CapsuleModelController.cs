@@ -31,12 +31,12 @@ public partial class CapsuleModelController : Node3D
 
 	private void OnMouseExited()
 	{
-		Outline.Hide();
+		GameManager.Instance.HideTooltip();
 	}
 
 	private void OnMouseEntered()
 	{
-		Outline.Show();
+		GameManager.Instance.ShowTooltipText("Capsule Actions");
 	}
 
 	private void HitboxOnInputEvent(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1wtuvffhlc3"]
+
+[ext_resource type="PackedScene" uid="uid://ctt0af30h0jww" path="res://Imports/BattleRoyale/MoreBackground.glb" id="1_f7dd1"]
+
+[node name="MoreBackground" instance=ExtResource("1_f7dd1")]
+
+[node name="SM_Prop_TireStack_01__10_" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+
+[node name="SM_Prop_WireFence_01__39_" parent="." index="1"]
+transform = Transform3D(1.19209e-09, -0.01, 0, 1.19209e-09, 0, -0.01, 0.01, 1.19209e-09, 1.19209e-09, 0, 0, 0)
+
+[node name="SM_Veh_Car_Destroyed_01__14_" parent="." index="2"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -4.72075, -0.7205, -3.0071)
+
+[node name="SM_Veh_Car_Destroyed_01__15_" parent="." index="3"]
+transform = Transform3D(-0.01, 7.54979e-10, 7.54979e-10, -7.54979e-10, 0, -0.01, -7.54979e-10, -0.01, 0, -2.56088, -0.7205, -2.88051)
+
+[node name="SM_Veh_Car_Destroyed_01__16_" parent="." index="4"]
+transform = Transform3D(0.00984808, -0.00173648, 7.45058e-11, 7.45058e-11, 0, -0.01, 0.00173648, 0.00984808, 0, -0.190879, -0.7205, -2.88051)
+
+[node name="SM_Veh_Car_Destroyed_01__17_" parent="." index="5"]
+transform = Transform3D(-0.01, 7.54979e-10, 7.54979e-10, -7.54979e-10, 0, -0.01, -7.54979e-10, -0.01, 0, -3.55088, 0.4935, -2.88051)
+
+[node name="SM_Veh_Car_Destroyed_01__18_" parent="." index="6"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -1.41088, 0.4935, -3.06851)

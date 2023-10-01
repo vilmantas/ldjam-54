@@ -16,6 +16,8 @@ public partial class GameManager : Node
     public CapsuleController SelectedCapsule;
     
     public CapsuleSpawnController SelectedSpawn;
+
+    public TooltipUIController Tooltip;
     
     // PROPS
     
@@ -102,6 +104,11 @@ public partial class GameManager : Node
         SelectedCapsule = capsule;
         OnCapsuleSelected?.Invoke(capsule);
     }
+
+    public void DeselectCapsule()
+    {
+        SelectedCapsule = null;
+    }
     
     public void OccupyCapsule(CapsuleController capsule)
     {
@@ -112,5 +119,18 @@ public partial class GameManager : Node
     {
         SelectedSpawn = spawnPoint;
         OnSpawnSelected?.Invoke(spawnPoint);
+    }
+
+    public void ShowTooltipText(string text)
+    {
+        if (SelectedCapsule == null && SelectedSpawn == null)
+        {
+            Tooltip.Initialize(text);    
+        }
+    }
+
+    public void HideTooltip()
+    {
+        Tooltip.HideDisplay();
     }
 }

@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6c55612dx4lo"]
+
+[ext_resource type="PackedScene" uid="uid://ceq6etviytion" path="res://Imports/BattleRoyale/Folliage.glb" id="1_adj33"]
+[ext_resource type="Material" uid="uid://rffnelnulcy5" path="res://Imports/BattleRoyale/mat_br_1.tres" id="2_1hu42"]
+
+[node name="Folliage" instance=ExtResource("1_adj33")]
+
+[node name="SM_Env_Bush_02__6_" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -3.57064, 0, -2.95359)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Bush_03__18_" parent="." index="1"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -3.72442, -4.76837e-07, 2.33054)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Bush_04" parent="." index="2"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 1.64478, 0, -2.24578)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Bush_04__2_" parent="." index="3"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -1.81081, -2.38419e-07, 2.49667)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Rubble_Plank_01" parent="." index="4"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -1.34188, 0, -2.91833)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Rubble_Plank_02" parent="." index="5"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 2.36215, 0, -5.14171)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Mountains_Grass_02__3_" parent="." index="6"]
+transform = Transform3D(0.0124088, 0, 0, 0, 0, -0.00272683, 0, 0.0119696, 0, 12.0886, 9.53674e-07, 0.106745)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Small_Rocks_01__23_" parent="." index="7"]
+transform = Transform3D(-0.00529437, 0.00848349, -2.98023e-10, -1.19209e-09, -1.19209e-09, -0.01, -0.00848349, -0.00529437, 1.19209e-09, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Small_Rocks_01__24_" parent="." index="8"]
+transform = Transform3D(0.00354368, 0.00935106, 0, -5.96046e-10, 5.96046e-10, -0.01, -0.00935106, 0.00354368, 1.19209e-09, -0.786091, -9.53674e-07, -9.9653)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Small_Rocks_02__11_" parent="." index="9"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -1.37285, -4.76837e-07, 15.6721)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Tree_01__5_" parent="." index="10"]
+transform = Transform3D(0.02, 0, 0, 0, 0, -0.02, 0, 0.02, 0, 0.230279, 7.15256e-07, 6.04003)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Tree_04__4_" parent="." index="11"]
+transform = Transform3D(0.0115, 0, 0, 0, 0, -0.0115, 0, 0.0115, 0, 3.09285, -4.76837e-07, 10.2347)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_Tree_04__7_" parent="." index="12"]
+transform = Transform3D(0.0124886, 0, 0, 0, 0, -0.0124886, 0, 0.0124886, 0, -4.13078, -4.76837e-07, 12.9398)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Generic_TreeStump_01__1_" parent="." index="13"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -0.566304, 0, 1.76789)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Gerneric_Grass_Patch_01__57_" parent="." index="14"]
+transform = Transform3D(0.00713201, 0.00700959, -2.98023e-10, -8.9407e-10, 1.19209e-09, -0.01, -0.00700959, 0.00713201, 1.19209e-09, -4.56818, -1.43051e-06, -11.9485)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Crate_Large_01__11_" parent="." index="15"]
+transform = Transform3D(2.98023e-08, -0.01, 0, 1.19209e-09, 0, -0.01, 0.01, 2.98023e-08, 1.19209e-09, -4.43459e-05, -0.808485, -14.7343)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Crate_Large_01__7_" parent="." index="16"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 2.20325, 0, -9.95906)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Rubbish_Papers_01__4_" parent="." index="17"]
+transform = Transform3D(0.00999999, -1.27279e-05, 2.98735e-06, 2.97173e-06, -1.2085e-05, -0.00999999, 1.27315e-05, 0.00999998, -1.20812e-05, -2.00969, 0, -1.29417)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Rubbish_Papers_01__7_" parent="." index="18"]
+transform = Transform3D(-0.00786436, -0.00617672, 2.98023e-10, 2.98023e-10, 0, -0.01, 0.00617672, -0.00786436, 1.19209e-09, 1.43452, 1.90735e-06, 0.299672)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Wirespool_01__8_" parent="." index="19"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -3.81005, 2.38419e-07, -0.461366)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Prop_Wirespool_02__1_" parent="." index="20"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 1.04036, -2.38419e-07, 3.17807)
+surface_material_override/0 = ExtResource("2_1hu42")
+
+[node name="SM_Env_Planecrash_Debris_01" parent="." index="21"]
+transform = Transform3D(0.00903014, -0.00429611, -1.49012e-10, 1.49012e-10, 1.19209e-09, -0.01, 0.00429611, 0.00903014, 1.19209e-09, -2.66882, -2.86102e-06, -22.7027)
+surface_material_override/0 = ExtResource("2_1hu42")

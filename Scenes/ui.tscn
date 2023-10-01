@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwqsyovccnub4"]
+[gd_scene load_steps=5 format=3 uid="uid://cwqsyovccnub4"]
 
 [ext_resource type="PackedScene" uid="uid://cg51aj5y30rc5" path="res://Features/Capsule/capsule_menu.tscn" id="1_b3uog"]
 [ext_resource type="PackedScene" uid="uid://bcvwvo3m4gic6" path="res://Features/CapsuleBuildMenu/build_menu.tscn" id="2_o12yi"]
 [ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
+[ext_resource type="Script" path="res://Features/Tooltip/TooltipUIController.cs" id="4_4ms6o"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -15,7 +16,6 @@ size_flags_vertical = 0
 
 [node name="capsule_menu" parent="." instance=ExtResource("1_b3uog")]
 visible = false
-anchors_preset = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 355.0
@@ -61,5 +61,31 @@ offset_bottom = 0.0399971
 text = "$ 11111"
 fit_content = true
 autowrap_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." node_paths=PackedStringArray("TooltipLabel")]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 30.0
+script = ExtResource("4_4ms6o")
+TooltipLabel = NodePath("RichTextLabel")
+
+[node name="Panel" type="Panel" parent="RichTextLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="RichTextLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "awdawdwa
+"
 
 [editable path="build_menu"]
