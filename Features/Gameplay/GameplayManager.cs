@@ -96,5 +96,10 @@ public partial class GameplayManager : Node3D
     {
         Complaints++;
         OnComplaintReceived?.Invoke();
+
+        if (Complaints >= 5)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }

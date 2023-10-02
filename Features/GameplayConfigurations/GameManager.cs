@@ -151,4 +151,9 @@ public partial class GameManager : Node
         
         OnCustomerDeselected?.Invoke();
     }
+
+    public void GameOver()
+    {
+        GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn");
+    }
 }
