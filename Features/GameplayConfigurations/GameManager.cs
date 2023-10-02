@@ -94,8 +94,10 @@ public partial class GameManager : Node
     
     public void SelectCapsule(CapsuleController capsule)
     {
+        
         SelectedCapsule = capsule;
         OnCapsuleSelected?.Invoke(capsule);
+        AudioEffects.Click();
     }
 
     public void DeselectCapsule()
@@ -143,6 +145,7 @@ public partial class GameManager : Node
         SelectedCustomer = customer;
 
         OnCustomerSelected?.Invoke(customer);
+        AudioEffects.Click();
     }
     
     public void DeselectCustomer()

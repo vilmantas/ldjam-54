@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=14 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
 [ext_resource type="PackedScene" uid="uid://huv8fer3gcdd" path="res://Features/Gameplay/level_manager.tscn" id="1_mv3kj"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
 [ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="6_fdwxr"]
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="9_bmj0r"]
-[ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="10_sbbxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnd5c"]
 sky_top_color = Color(0.168627, 0.45098, 0.772549, 1)
@@ -87,23 +86,18 @@ transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107
 
 [node name="customer" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(0.0748395, 0, 0.997196, 0, 1, 0, -0.997196, 0, 0.0748395, 3.98006, 1.47716, -1.47148)
-visible = false
 
 [node name="customer5" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -1.92922, 1.47716, -1.46425)
-visible = false
 
 [node name="customer3" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 2.18655, 1.47716, -2.65376)
-visible = false
 
 [node name="customer2" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.434744, 1.47716, -5.79727)
-visible = false
 
 [node name="customer4" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.822461, 1.47716, -3.34318)
-visible = false
 
 [node name="CustomerSpawnPoint" parent="." instance=ExtResource("9_bmj0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.935, 1.4376, -4.58177)
@@ -112,12 +106,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.935, 1.4376, -4.58177)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8362, 1.4376, -12.3122)
 
 [node name="CustomerSpawnPoint3" parent="." instance=ExtResource("9_bmj0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2241, 1.4376, -0.623463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5772, 1.4376, -0.607712)
 
 [node name="CustomerSpawnPoint4" parent="." instance=ExtResource("9_bmj0r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7618, 1.4376, -15.0482)
-
-[node name="Reception" parent="." instance=ExtResource("10_sbbxy")]
-transform = Transform3D(-0.107704, 0, -0.994183, 0, 1, 0, 0.994183, 0, -0.107704, -2.57194, 0.835629, -7.79826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5501, 1.4376, -8.37118)
 
 [editable path="lighting"]

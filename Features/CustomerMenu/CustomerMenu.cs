@@ -27,13 +27,11 @@ public partial class CustomerMenu : Control
 
 	private void OnCustomerDeselected()
 	{
-		GD.Print("Deselect");
 		HandleHide();
 	}
 
 	private void OnCustomerSelected(CustomerV2Controller customer)
 	{
-		GD.Print("Select");
 		GD.Print(customer.CurrentPatience);
 		GD.Print(customer.State);
 		Customer = customer;
@@ -47,8 +45,6 @@ public partial class CustomerMenu : Control
 		{
 			return;
 		}
-		GD.Print("Updating");
-		GD.Print(Customer.Data.Name);
 		_nameLabel.Text = Customer.Data.Name;
 		_stayDurationLabel.Text = Customer.Data.StayDuration.ToString();
 		_capsuleLabel.Text = Customer.Data.PreferredCapsule.Title;
@@ -57,8 +53,8 @@ public partial class CustomerMenu : Control
 
 	private void OnCloseButtonPressed()
 	{
-		GD.Print("Close");
 		GameManager.Instance.DeselectCustomer();
+		AudioEffects.Click();
 	}
 	
 	private void HandleHide()

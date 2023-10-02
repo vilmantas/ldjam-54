@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgu0lj7ualldf"]
+
+[ext_resource type="AudioStream" uid="uid://df8ybc4ukd7de" path="res://Audio/Effects/click.wav" id="1_aeobe"]
+[ext_resource type="Script" path="res://Features/AudioEffects/AudioEffects.cs" id="1_kqh8f"]
+
+[node name="AudioEffects" type="Node"]
+script = ExtResource("1_kqh8f")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_aeobe")

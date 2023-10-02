@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cooqx2w4c4jmm"]
+
+[ext_resource type="AudioStream" uid="uid://b7an5kp8eyfwy" path="res://Audio/Music/working.wav" id="1_4i6o3"]
+[ext_resource type="Script" path="res://Features/Music/Music.cs" id="1_q37vi"]
+[ext_resource type="AudioStream" uid="uid://dor2po0vjgjf1" path="res://Audio/Music/grudge.wav" id="1_wbd26"]
+[ext_resource type="AudioStream" uid="uid://d4maw6omerihy" path="res://Audio/Music/hollow.wav" id="2_y6gmi"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3ywyk"]
+streams_count = 3
+stream_0/stream = ExtResource("1_wbd26")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_y6gmi")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("1_4i6o3")
+stream_2/weight = 1.0
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_3ywyk")
+volume_db = -15.0
+script = ExtResource("1_q37vi")

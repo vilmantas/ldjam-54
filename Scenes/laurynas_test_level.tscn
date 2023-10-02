@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4gwy8uluna1e"]
+[gd_scene load_steps=11 format=3 uid="uid://c4gwy8uluna1e"]
 
 [ext_resource type="PackedScene" uid="uid://bs3kdysfimtq5" path="res://Features/Gameplay/gameplay_manager.tscn" id="1_2yuop"]
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_8jrna"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="4_gfv4e"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="4_ksvhd"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="6_4qys1"]
+[ext_resource type="PackedScene" uid="uid://cooqx2w4c4jmm" path="res://Features/Music/music.tscn" id="8_7v552"]
+[ext_resource type="PackedScene" uid="uid://dgu0lj7ualldf" path="res://Features/AudioEffects/audio_effects.tscn" id="9_f5tee"]
+[ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="10_e43wb"]
 
 [node name="laurynas_test_level" type="Node3D"]
 
@@ -33,3 +36,11 @@ transform = Transform3D(-0.107704, 0, -0.994183, 0, 1, 0, 0.994183, 0, -0.107704
 transform = Transform3D(1, 0, 0, 0, -0.592674, 0.805442, 0, -0.805442, -0.592674, 0, 20.273, -26.3378)
 
 [node name="ui" parent="." instance=ExtResource("6_4qys1")]
+
+[node name="Music" parent="." instance=ExtResource("8_7v552")]
+autoplay = true
+
+[node name="AudioEffects" parent="." instance=ExtResource("9_f5tee")]
+
+[node name="capsule_node" parent="." instance=ExtResource("10_e43wb")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0150134, 0.709928, 10.7034)
