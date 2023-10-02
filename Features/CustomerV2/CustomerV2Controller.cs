@@ -19,6 +19,8 @@ public partial class CustomerV2Controller : CharacterBody3D
 	public Area3D Clickbox;
 
 	public CustomerData Data;
+
+	public bool CheckedIn = false; 
 	
 	public override void _Ready()
 	{
@@ -71,6 +73,7 @@ public partial class CustomerV2Controller : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
+		
 		if (NavigationAgent.IsNavigationFinished())
 		{
 			ChangeState(CustomerState.Idle);

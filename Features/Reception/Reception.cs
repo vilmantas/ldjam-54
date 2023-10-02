@@ -6,7 +6,8 @@ using System.Linq;
 public partial class Reception : Node3D
 {
 	[Export] public Node3D QueueStart;
-	public List<Customer> customerQueue = new List<Customer>();
+	
+	public List<CustomerV2Controller> customerQueue = new List<CustomerV2Controller>();
 	private int lastQueueLength = 0;
 	private Vector3 forward;
 	public override void _Ready()
@@ -16,7 +17,7 @@ public partial class Reception : Node3D
 
 	public override void _Process(double delta)
 	{
-		customerQueue = customerQueue.Where(customer => customer is Customer).ToList();
+		customerQueue = customerQueue.Where(customer => customer is CustomerV2Controller).ToList();
 		UpdateCustomerWaitingLocation();
 	}
 
@@ -24,23 +25,23 @@ public partial class Reception : Node3D
 	{
 		for (int index = 0; index < customerQueue.Count; index++)
 		{
-			Customer customer = customerQueue[index];
+			CustomerV2Controller customer = customerQueue[index];
 			
 			var waitingPosition = GetWaitingPosition(index);
 			
-			if (Position != customer.navigationTarget)
+			if (Position != customer.NavigationAgent.GetFinalPosition())
 			{
-				customer.NavigateTo(waitingPosition);
+				customer.NavigationAgent.TargetPosition = waitingPosition;
 			}
 		}
 	}
 
-	public void EnterQueue(Customer customer)
+	public void EnterQueue(CustomerV2Controller customer)
 	{
 		customerQueue.Add(customer);
 	}
 
-	public void ExitQueue(Customer customer)
+	public void ExitQueue(CustomerV2Controller customer)
 	{
 		customerQueue.Remove(customer);
 	}

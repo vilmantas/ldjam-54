@@ -77,7 +77,7 @@ public partial class Customer : CustomerNavigator
 			{
 				// _reception.ExitQueue(this);
 				// QueueFree();
-				CustomerManager.SelectedCustomer = this;
+				// CustomerManager.SelectedCustomer = this;
 			}
 		}
 	}
@@ -93,7 +93,7 @@ public partial class Customer : CustomerNavigator
 	{
 		status = CustomerStatus.WaitingInQueue;
 		
-		_reception.EnterQueue(this);
+		// _reception.EnterQueue(this);
 		
 		Animator.PlayAnimation("Idle");
 	}
