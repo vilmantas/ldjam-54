@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using Ldjam54.Features.Capsule;
 
 public partial class CapsuleMenuUIController : Control
 {
@@ -30,7 +29,7 @@ public partial class CapsuleMenuUIController : Control
 
     private void OccupyButtonOnPressed()
     {
-        GameManager.Instance.OccupyCapsule(Capsule);
+        GameManager.Instance.OccupyCapsule();
     }
 
     private void OnCloseButtonPressed()

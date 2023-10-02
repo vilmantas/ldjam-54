@@ -1,6 +1,7 @@
 using Godot;
 using System;
-using Ldjam54.Features.CustomerV2;
+using System.Linq;
+using Ldjam54.Features.GameplayConfigurations;
 
 public partial class CustomerV2Controller : CharacterBody3D
 {
@@ -31,7 +32,16 @@ public partial class CustomerV2Controller : CharacterBody3D
 		Clickbox.MouseExited += ClickboxOnMouseExited;
 		Clickbox.InputEvent += ClickboxOnInputEvent;
 		
-		Initialize(new CustomerData() { Name = "Test", StayDuration = 5f });
+		GD.Randomize();
+
+		var data = new CustomerData()
+		{
+			Name = "Test " + GD.Randi(), 
+			StayDuration = 5f + GD.RandRange(0, 10),
+			PreferredCapsule = CapsuleConfigurations.Capsules[GD.RandRange(0, CapsuleConfigurations.Capsules.Length - 1)] 
+		};
+        
+		Initialize(data);
 	}
 
 	public void Initialize(CustomerData data)

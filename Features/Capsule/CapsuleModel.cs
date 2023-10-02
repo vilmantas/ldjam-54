@@ -8,7 +8,7 @@ public class CapsuleModel
 
 public class OccupiedCapsuleModel : CapsuleModel
 {
-    public CustomerModel Occupier;
+    public CustomerData Occupier;
 
     public float TimeOccupiedPassed = 0f;
 
@@ -16,11 +16,12 @@ public class OccupiedCapsuleModel : CapsuleModel
     
     public bool OccupationDone => TimeOccupiedPassed >= OccupationDuration;
     
-    public OccupiedCapsuleModel(CapsuleModel model, float duration)
+    public OccupiedCapsuleModel(CapsuleModel model, CustomerData occupier, float duration)
     {
         Parent = model.Parent;
         
         OccupationDuration = duration;
+        Occupier = occupier;
     }
 
     public void Tick(float delta)

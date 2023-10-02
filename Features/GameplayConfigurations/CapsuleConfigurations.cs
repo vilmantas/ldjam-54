@@ -1,5 +1,4 @@
 ﻿using Godot;
-using Ldjam54.Features.Capsule;
 
 namespace Ldjam54.Features.GameplayConfigurations;
 

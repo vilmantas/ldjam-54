@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Linq;
-using Ldjam54.Features.Capsule;
 using Ldjam54.Features.GameplayConfigurations;
 
 public partial class GameManager : Node
@@ -13,6 +12,8 @@ public partial class GameManager : Node
     
     public static CapsuleConfiguration[] Capsules = CapsuleConfigurations.Capsules;
 
+    public LevelManager LevelManager;
+    
     public CapsuleController SelectedCapsule;
     
     public CapsuleSpawnController SelectedSpawn;
@@ -119,21 +120,40 @@ public partial class GameManager : Node
         OnCapsuleDeselected?.Invoke();
     }
     
-    public void OccupyCapsule(CapsuleController capsule)
+    public void OccupyCapsule()
     {
         if (SelectedCustomer == null)
         {
-            GD.Print("No customer selected");
+            return;
+        }
+
+        var customer = SelectedCustomer;
+
+        var capsule = SelectedCapsule;
+
+        if (SelectedCustomer.Data.PreferredCapsule != SelectedCapsule.Configuration)
+        {
+            GD.Print("Invalid selection: Customer prefers different capsule.");
+            GD.Print("Preferred: " + SelectedCustomer.Data.PreferredCapsule.Title);
+            GD.Print("Selected: " + SelectedCapsule.Configuration.Title);
             return;
         }
         
-        GD.Print("Occupying with customer: " + SelectedCustomer.Data.Name);
-        capsule.HandleOccupyRequest();
+        SelectedCustomer.NavigationAgent.TargetPosition = LevelManager.CapsuleRoomWaypoint.GlobalPosition;
+
+        GetTree().CreateTimer(4f).Timeout += () => TimerOnTimeout(customer, capsule);
+        
+        capsule.HandleOccupyRequest(SelectedCustomer.Data);
         
         DeselectCustomer();
         DeselectCapsule();
     }
-    
+
+    private void TimerOnTimeout(CustomerV2Controller customer, CapsuleController capsule)
+    {
+        customer.Hide();
+    }
+
     public void SelectSpawn(CapsuleSpawnController spawnPoint)
     {
         SelectedSpawn = spawnPoint;
@@ -160,7 +180,9 @@ public partial class GameManager : Node
     
     public void SelectCustomer(CustomerV2Controller customer)
     {
-        GD.Print(customer.Data.Name);
+        GD.Print("Selected customer: " + customer.Data.Name);
+        GD.Print("Preferred capsule: " + customer.Data.PreferredCapsule.Title);
+        
         SelectedCustomer = customer;
 
         OnCustomerSelected?.Invoke(customer);

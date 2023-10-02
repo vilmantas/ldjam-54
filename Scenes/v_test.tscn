@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=12 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
+[ext_resource type="Script" path="res://Features/Gameplay/LevelManager.cs" id="1_gwhah"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
@@ -30,6 +31,13 @@ fog_light_color = Color(0.368627, 0.4, 0.447059, 1)
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_c0h2f"]
 
 [node name="v_test" type="Node3D"]
+
+[node name="level_manager" type="Node3D" parent="." node_paths=PackedStringArray("CapsuleRoomWaypoint")]
+script = ExtResource("1_gwhah")
+CapsuleRoomWaypoint = NodePath("../capsule_room_waypoint")
+
+[node name="capsule_room_waypoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533577, 0.937574, 12.0678)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p3pjh")
@@ -75,6 +83,18 @@ transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, -1.909
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -4.31913, 0.621992, 12.8624)
 
 [node name="customer" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0672, 1.47716, -6.32311)
+transform = Transform3D(0.0748395, 0, 0.997196, 0, 1, 0, -0.997196, 0, 0.0748395, 3.98006, 1.47716, -1.47148)
+
+[node name="customer5" parent="." instance=ExtResource("6_fdwxr")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -1.92922, 1.47716, -1.46425)
+
+[node name="customer3" parent="." instance=ExtResource("6_fdwxr")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 2.18655, 1.47716, -2.65376)
+
+[node name="customer2" parent="." instance=ExtResource("6_fdwxr")]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.434744, 1.47716, -5.79727)
+
+[node name="customer4" parent="." instance=ExtResource("6_fdwxr")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.822461, 1.47716, -3.34318)
 
 [editable path="lighting"]

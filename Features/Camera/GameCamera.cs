@@ -24,6 +24,7 @@ public partial class GameCamera : Node3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GD.Print("Camera Ready");
 		this._camera = GetNode<Camera3D>("SpringArm/Camera");
 		this._springArm = GetNode<SpringArm3D>("SpringArm");
 	}

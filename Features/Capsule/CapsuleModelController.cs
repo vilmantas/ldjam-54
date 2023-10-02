@@ -10,6 +10,8 @@ public partial class CapsuleModelController : Node3D
 	public AnimationPlayer AnimationPlayer;
     
 	public Action<MouseButton> OnHitboxClicked;
+	public Action OnMouseEntered;
+	public Action OnMouseExited;
     
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,23 +22,23 @@ public partial class CapsuleModelController : Node3D
 		
 		Hitbox.InputEvent += HitboxOnInputEvent;
 		
-		Hitbox.MouseEntered += OnMouseEntered;
+		Hitbox.MouseEntered += MouseEntered;
 		
-		Hitbox.MouseExited += OnMouseExited;
+		Hitbox.MouseExited += MouseExited;
 
 		Outline = GetNode<Node3D>("Outline");
         
 		Outline.Hide();
 	}
 
-	private void OnMouseExited()
+	private void MouseExited()
 	{
-		GameManager.Instance.HideTooltip();
+		OnMouseExited?.Invoke();
 	}
 
-	private void OnMouseEntered()
+	private void MouseEntered()
 	{
-		GameManager.Instance.ShowTooltipText("Capsule Actions");
+		OnMouseEntered?.Invoke();
 	}
 
 	private void HitboxOnInputEvent(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)

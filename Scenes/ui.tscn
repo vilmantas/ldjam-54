@@ -35,8 +35,8 @@ offset_bottom = 0.0690002
 anchors_preset = 0
 offset_left = 361.0
 offset_top = 34.0
-offset_right = 730.0
-offset_bottom = 182.0
+offset_right = 741.0
+offset_bottom = 67.0
 script = ExtResource("3_3s8xs")
 MoneyLabel = NodePath("Value")
 

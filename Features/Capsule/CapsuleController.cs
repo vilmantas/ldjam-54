@@ -1,12 +1,12 @@
 using Godot;
-using System;
-using Ldjam54.Features.Capsule;
 
 public partial class CapsuleController : Node3D
 {
 	public CapsuleModel Data;
 
 	public AnimationPlayer AnimationPlayer;
+	
+	public CapsuleConfiguration Configuration;
 
 	public override void _Process(double delta)
 	{
@@ -16,6 +16,8 @@ public partial class CapsuleController : Node3D
 
 		if (occupied.OccupationDone)
 		{
+			GD.Print("Stay ended.");
+			
 			Data = occupied.GetModel();
 			
 			AnimationPlayer.Play("anim_capsule/open");
@@ -25,18 +27,32 @@ public partial class CapsuleController : Node3D
 	public void Initialize(CapsuleConfiguration configuration, CapsuleNodeController parent)
 	{
 		Data = new CapsuleModel() {Parent = parent};
-		
+
+		Configuration = configuration;
+        
 		if (parent.Capsules.Count == 2)
 		{
 			GetNode<Node3D>("spawn").QueueFree();
 		}
 		
-		var model = (CapsuleModelController) configuration.CapsulePrefab.Instantiate();
+		var model = (CapsuleModelController) Configuration.CapsulePrefab.Instantiate();
 		AddChild(model);
 		
 		model.OnHitboxClicked += OnHitboxClicked;
+		model.OnMouseEntered += OnMouseEntered;
+		model.OnMouseExited += OnMouseExited;
 
 		AnimationPlayer = model.AnimationPlayer;
+	}
+
+	private void OnMouseExited()
+	{
+		GameManager.Instance.HideTooltip();
+	}
+
+	private void OnMouseEntered()
+	{
+		GameManager.Instance.ShowTooltipText(Configuration.Title);
 	}
 
 	private void OnHitboxClicked(MouseButton button)
@@ -47,23 +63,14 @@ public partial class CapsuleController : Node3D
 		}
 	}
 
-	public void HandleOccupyRequest()
+	public void HandleOccupyRequest(CustomerData customer)
 	{
 		if (Data is OccupiedCapsuleModel ) return;
 
-		var customer = GetCustomer();
-
-		Data = new OccupiedCapsuleModel(Data, customer.StayTime);
+		GD.Print($"Customer {customer.Name} occupied capsule. Staying for: {customer.StayDuration} seconds.");
+        
+		Data = new OccupiedCapsuleModel(Data, customer, customer.StayDuration);
 		
 		AnimationPlayer.Play("anim_capsule/close");
-	}
-
-	public CustomerModel GetCustomer()
-	{
-		return new CustomerModel()
-		{
-			Name = "Blynas",
-			StayTime = 3f,
-		};
 	}
 }
