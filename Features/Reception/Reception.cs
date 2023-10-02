@@ -26,16 +26,44 @@ public partial class Reception : Node3D
 		for (int index = 0; index < customerQueue.Count; index++)
 		{
 			CustomerV2Controller customer = customerQueue[index];
-			
+
+			var navAgent = customer.NavigationAgent;
+            
 			var waitingPosition = GetWaitingPosition(index);
+
+			if (customer.State == CustomerV2Controller.CustomerState.Idle)
+			{
+				navAgent.TargetPosition = waitingPosition;
+				customer.ChangeState(CustomerV2Controller.CustomerState.GoingToQueue);
+				continue;
+			}
 			
-			if (Position != customer.NavigationAgent.GetFinalPosition())
+			if (navAgent.TargetPosition == waitingPosition)
 			{
-				customer.NavigationAgent.TargetPosition = waitingPosition;
-			} 
-			if(customer.NavigationAgent.TargetPosition == waitingPosition && customer.NavigationAgent.IsNavigationFinished())
+				if (navAgent.IsNavigationFinished())
+				{
+					customer.ChangeState(CustomerV2Controller.CustomerState.InQueue);
+				}
+				continue;
+			}
+
+			if (customer.State == CustomerV2Controller.CustomerState.InQueue)
 			{
-				customer.CheckedIn = true;
+				if (navAgent.TargetPosition != waitingPosition)
+				{
+					navAgent.TargetPosition = waitingPosition;
+					customer.ChangeState(CustomerV2Controller.CustomerState.AdvancingInQueue);
+				}
+			}
+
+			if (customer.State == CustomerV2Controller.CustomerState.GoingToQueue)
+			{
+				navAgent.TargetPosition = waitingPosition;
+			}
+			
+			if (customer.State == CustomerV2Controller.CustomerState.AdvancingInQueue)
+			{
+				navAgent.TargetPosition = waitingPosition;
 			}
 		}
 	}

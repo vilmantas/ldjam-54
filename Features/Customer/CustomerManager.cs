@@ -10,7 +10,7 @@ public partial class CustomerManager : Node
 	Random random = new Random();
 	private PackedScene customerScene;
 	private Reception _reception;
-	private double spawnCustomerSeconds = 6;
+	private double spawnCustomerSeconds = 2;
 	private double currentSpawnCustomerTimer = 5;
 
 	private List<CustomerSpawnPoint> _customerSpawnPoints = new List<CustomerSpawnPoint>();
@@ -48,7 +48,7 @@ public partial class CustomerManager : Node
 
 	public Vector3 getCustomerSpawnLocation()
 	{
-		return _customerSpawnPoints[random.Next(0, _customerSpawnPoints.Count + 1)].Position;
+		return _customerSpawnPoints[random.Next(0, _customerSpawnPoints.Count - 1)].Position;
 	}
 	
 	public void spawnCustomer()

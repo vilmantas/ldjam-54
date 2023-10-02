@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=14 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
-[ext_resource type="Script" path="res://Features/Gameplay/LevelManager.cs" id="1_gwhah"]
+[ext_resource type="PackedScene" uid="uid://huv8fer3gcdd" path="res://Features/Gameplay/level_manager.tscn" id="1_mv3kj"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
-[ext_resource type="Script" path="res://Features/Gameplay/GameplayManager.cs" id="1_qms5q"]
+[ext_resource type="PackedScene" uid="uid://bs3kdysfimtq5" path="res://Features/Gameplay/gameplay_manager.tscn" id="2_swr63"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
 [ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="6_fdwxr"]
+[ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="9_bmj0r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnd5c"]
 sky_top_color = Color(0.168627, 0.45098, 0.772549, 1)
@@ -33,14 +34,11 @@ fog_light_color = Color(0.368627, 0.4, 0.447059, 1)
 
 [node name="v_test" type="Node3D"]
 
-[node name="level_manager" type="Node3D" parent="." node_paths=PackedStringArray("CapsuleRoomWaypoint")]
-script = ExtResource("1_gwhah")
-CapsuleRoomWaypoint = NodePath("../capsule_room_waypoint")
+[node name="level_manager" parent="." instance=ExtResource("1_mv3kj")]
 
-[node name="gameplay_manager" type="Node3D" parent="."]
-script = ExtResource("1_qms5q")
+[node name="gameplay_manager" parent="." instance=ExtResource("2_swr63")]
 
-[node name="capsule_room_waypoint" type="Node3D" parent="."]
+[node name="capsule_room_waypoint" type="Node3D" parent="." groups=["CapsuleRoomWaypoint"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533577, 0.937574, 12.0678)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -100,5 +98,17 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 
 [node name="customer4" parent="." instance=ExtResource("6_fdwxr")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.822461, 1.47716, -3.34318)
+
+[node name="CustomerSpawnPoint" parent="." instance=ExtResource("9_bmj0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.935, 1.4376, -4.58177)
+
+[node name="CustomerSpawnPoint2" parent="." instance=ExtResource("9_bmj0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8362, 1.4376, -12.3122)
+
+[node name="CustomerSpawnPoint3" parent="." instance=ExtResource("9_bmj0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5772, 1.4376, -0.607712)
+
+[node name="CustomerSpawnPoint4" parent="." instance=ExtResource("9_bmj0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5501, 1.4376, -8.37118)
 
 [editable path="lighting"]

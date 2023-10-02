@@ -34,7 +34,8 @@ public partial class CustomerMenu : Control
 	private void OnCustomerSelected(CustomerV2Controller customer)
 	{
 		GD.Print("Select");
-		GD.Print(customer);
+		GD.Print(customer.CurrentPatience);
+		GD.Print(customer.State);
 		Customer = customer;
 		UpdateCustomerData();
 		Show();

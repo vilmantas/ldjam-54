@@ -77,10 +77,7 @@ public partial class GameManager : Node
         
         var capsule = (CapsuleController)CapsulePrefab.Instantiate();
 
-        if (node == null)
-        {
-            node = spawn.GetParent<CapsuleController>().GetParent<CapsuleNodeController>();
-        }
+        node ??= spawn.GetParent<CapsuleController>().GetParent<CapsuleNodeController>();
         
         node.AddCapsule(capsule);
 
@@ -143,9 +140,6 @@ public partial class GameManager : Node
     
     public void SelectCustomer(CustomerV2Controller customer)
     {
-        GD.Print("Selected customer: " + customer.Data.Name);
-        GD.Print("Preferred capsule: " + customer.Data.PreferredCapsule.Title);
-        
         SelectedCustomer = customer;
 
         OnCustomerSelected?.Invoke(customer);

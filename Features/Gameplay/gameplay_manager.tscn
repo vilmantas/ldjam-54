@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs3kdysfimtq5"]
+
+[ext_resource type="Script" path="res://Features/Gameplay/GameplayManager.cs" id="1_gia8d"]
+
+[node name="gameplay_manager" type="Node3D"]
+script = ExtResource("1_gia8d")

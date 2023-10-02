@@ -5,9 +5,11 @@ using Ldjam54.Features.GameplayConfigurations;
 
 public partial class CustomerV2Controller : CharacterBody3D
 {
+	[Export] public CustomerState InitialState = CustomerState.Idle;
+	
 	public enum CustomerState
 	{
-		None, Idle, Moving
+		None, Idle, InQueue, GoingToCapsule, GoingToQueue, LeavingQueue, AdvancingInQueue
 	}
 
 	public CustomerState State = CustomerState.None;
@@ -22,8 +24,6 @@ public partial class CustomerV2Controller : CharacterBody3D
 
 	public CustomerData Data;
 
-	public bool CheckedIn = false;
-	public bool AssignedCapsule = false;
 	public float CurrentPatience;
 	
 	public override void _Ready()
@@ -32,7 +32,6 @@ public partial class CustomerV2Controller : CharacterBody3D
 		Animator = GetNode<CharacterAnimationController>("model");
 		NavigationAgent = GetNode<NavigationAgent3D>("navigator");
 		NavigationAgent.NavigationFinished += OnNavigationFinished;
-		ChangeState(CustomerState.Idle);
 
 		Clickbox.MouseEntered += ClickboxOnMouseEntered;
 		Clickbox.MouseExited += ClickboxOnMouseExited;
@@ -44,15 +43,89 @@ public partial class CustomerV2Controller : CharacterBody3D
 		{
 			Name = "Test " + GD.Randi(), 
 			StayDuration = 5 + GD.RandRange(0, 10),
-			PreferredCapsule = CapsuleConfigurations.Capsules[GD.RandRange(0, CapsuleConfigurations.Capsules.Length - 1)] 
+			PreferredCapsule = CapsuleConfigurations.Capsules[GD.RandRange(0, CapsuleConfigurations.Capsules.Length - 1)] ,
+			Patience = 5f,
 		};
 		CurrentPatience = data.Patience;
 		Initialize(data);
+		
+		ChangeState(InitialState);
 	}
 
 	public void Initialize(CustomerData data)
 	{
 		Data = data;
+	}
+
+	public override void _Process(double delta)
+	{
+		Navigate(delta);
+		HandlePatience(delta);
+	}
+	
+	private void HandlePatience(double delta)
+	{
+		if (State is not (CustomerState.InQueue or CustomerState.AdvancingInQueue)) return;
+		
+		CurrentPatience -= (float)delta;
+
+		if (!(CurrentPatience < 0)) return;
+		
+		ChangeState(CustomerState.LeavingQueue);
+			
+		if (Reception != null)
+		{
+			Reception.ExitQueue(this);
+		}
+		
+		var spawn = GameManager.Instance.LevelManager.CustomerSpawnPoints[GD.Randi() % GameManager.Instance.LevelManager.CustomerSpawnPoints.Length];
+
+		SpawnLocation = spawn.GlobalPosition;
+
+		NavigationAgent.TargetPosition = SpawnLocation;
+	}
+	
+	public void ChangeState(CustomerState state)
+	{
+		if (State == state) return;
+
+		State = state;
+		
+		GD.Print("Changing state to " + state);
+		
+		switch (State)
+		{
+			case CustomerState.Idle:
+				Animator.PlayAnimation("Idle");
+				break;
+			case CustomerState.InQueue:
+				Animator.PlayAnimation("Idle");
+				break;
+			case CustomerState.GoingToQueue:
+				Animator.PlayAnimation("Walking");
+				break;
+			case CustomerState.GoingToCapsule:
+				Animator.PlayAnimation("Walking");
+				break;
+			case CustomerState.LeavingQueue:
+				Animator.PlayAnimation("Walking");
+				break;
+			case CustomerState.AdvancingInQueue:
+				Animator.PlayAnimation("Walking");
+				break;
+			case CustomerState.None:
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
+	}
+
+	private void OnNavigationFinished()
+	{
+		if (CurrentPatience < 0 && NavigationAgent.TargetPosition == SpawnLocation)
+		{
+			QueueFree();
+		}
 	}
 	
 	private void ClickboxOnInputEvent(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)
@@ -74,46 +147,11 @@ public partial class CustomerV2Controller : CharacterBody3D
 	{
 		GameManager.Instance.ShowTooltipText("Customer");
 	}
-
-	public override void _Process(double delta)
-	{
-		Navigate(delta);
-		HandlePatience(delta);
-	}
-
-	private void HandlePatience(double delta)
-	{
-		if (CheckedIn && !AssignedCapsule && CurrentPatience > 0)
-		{
-			CurrentPatience -= (float)delta;
-		}
-
-		if (CurrentPatience < 0)
-		{
-			if (Reception != null)
-			{
-				Reception.ExitQueue(this);
-			}
-			
-			NavigationAgent.TargetPosition = SpawnLocation;
-		}
-		
-		
-	}
-
-	private void OnNavigationFinished()
-	{
-		if (CurrentPatience < 0 && NavigationAgent.TargetPosition == SpawnLocation)
-		{
-			QueueFree();
-		}
-	}
-
+	
 	private void Navigate(double delta)
 	{
 		if (NavigationAgent.IsNavigationFinished())
 		{
-			ChangeState(CustomerState.Idle);
 			return;
 		}
 		
@@ -132,28 +170,5 @@ public partial class CustomerV2Controller : CharacterBody3D
 		Velocity = Velocity.Lerp(direction * 3f, 5f * (float)delta);
         
 		MoveAndSlide();
-		
-		ChangeState(CustomerState.Moving);
-	}
-
-	private void ChangeState(CustomerState state)
-	{
-		if (State == state) return;
-
-		State = state;
-		
-		switch (State)
-		{
-			case CustomerState.Idle:
-				Animator.PlayAnimation("Idle");
-				break;
-			case CustomerState.Moving:
-				Animator.PlayAnimation("Walking");
-				break;
-			case CustomerState.None:
-				break;
-			default:
-				throw new ArgumentOutOfRangeException();
-		}
 	}
 }

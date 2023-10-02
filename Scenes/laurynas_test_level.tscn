@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4gwy8uluna1e"]
+[gd_scene load_steps=8 format=3 uid="uid://c4gwy8uluna1e"]
 
+[ext_resource type="PackedScene" uid="uid://bs3kdysfimtq5" path="res://Features/Gameplay/gameplay_manager.tscn" id="1_2yuop"]
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_8jrna"]
+[ext_resource type="PackedScene" uid="uid://huv8fer3gcdd" path="res://Features/Gameplay/level_manager.tscn" id="2_khsry"]
 [ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="3_410jr"]
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="4_gfv4e"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="4_ksvhd"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="6_4qys1"]
 
 [node name="laurynas_test_level" type="Node3D"]
+
+[node name="gameplay_manager" parent="." instance=ExtResource("1_2yuop")]
+
+[node name="level_manager" parent="." instance=ExtResource("2_khsry")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0227208, 0.0179093, -0.0119085)
 
 [node name="Camera" parent="." instance=ExtResource("1_8jrna")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 4.74315, 0, -13.246)
@@ -15,7 +22,7 @@ transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.935, 1.4376, -4.58177)
 
 [node name="CustomerSpawnPoint2" parent="." instance=ExtResource("4_gfv4e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9651, 1.23911, -18.9621)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9738, 1.23911, -18.9741)
 
 [node name="Reception" parent="." instance=ExtResource("3_410jr")]
 transform = Transform3D(-0.107704, 0, -0.994183, 0, 1, 0, 0.994183, 0, -0.107704, -2.57194, 0.257705, -7.79826)

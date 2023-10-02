@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CustomerManager="*res://Features/Customer/CustomerManager.cs"
 GameManager="*res://Features/GameplayConfigurations/GameManager.cs"
+CustomerManager="*res://Features/Customer/CustomerManager.cs"
 MoneyManager="*res://Features/Money/MoneyManager.cs"
 BuildingManager="*res://Features/CapsuleBuildMenu/BuildingManager.cs"
 
