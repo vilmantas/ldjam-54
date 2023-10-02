@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4gwy8uluna1e"]
+[gd_scene load_steps=6 format=3 uid="uid://c4gwy8uluna1e"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_8jrna"]
 [ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="3_410jr"]
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="4_gfv4e"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="4_ksvhd"]
-[ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="5_76n6n"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="6_4qys1"]
 
 [node name="laurynas_test_level" type="Node3D"]
@@ -25,8 +24,5 @@ transform = Transform3D(-0.107704, 0, -0.994183, 0, 1, 0, 0.994183, 0, -0.107704
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.592674, 0.805442, 0, -0.805442, -0.592674, 0, 20.273, -26.3378)
-
-[node name="customer" parent="." instance=ExtResource("5_76n6n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4334, 1.7139, -10.2643)
 
 [node name="ui" parent="." instance=ExtResource("6_4qys1")]

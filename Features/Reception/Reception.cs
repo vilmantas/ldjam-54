@@ -32,6 +32,10 @@ public partial class Reception : Node3D
 			if (Position != customer.NavigationAgent.GetFinalPosition())
 			{
 				customer.NavigationAgent.TargetPosition = waitingPosition;
+			} 
+			if(customer.NavigationAgent.TargetPosition == waitingPosition && customer.NavigationAgent.IsNavigationFinished())
+			{
+				customer.CheckedIn = true;
 			}
 		}
 	}

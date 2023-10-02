@@ -58,6 +58,7 @@ public partial class CustomerManager : Node
 			CustomerV2Controller newCustomer = (CustomerV2Controller)customerScene.Instantiate();
 		
 			newCustomer.GlobalPosition = getCustomerSpawnLocation();
+			newCustomer.Reception = _reception;
 			AddChild(newCustomer);
 			_reception.EnterQueue(newCustomer);
 		}
