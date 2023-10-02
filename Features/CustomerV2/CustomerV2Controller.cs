@@ -99,7 +99,6 @@ public partial class CustomerV2Controller : CharacterBody3D
 		var remainingPatience = CurrentPatience / Data.Patience;
 		PatienceBar.Show();
 		PatienceBar.Scale = new Vector3(remainingPatience, 1,1);
-		GD.Print((byte)(255 * remainingPatience));
 		var green = 255 * remainingPatience;
 		var red = 255 - green;
 		PatienceBar.Modulate = Color.Color8((byte)(red),(byte)(green) , 0, 255);
