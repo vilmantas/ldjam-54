@@ -70,9 +70,9 @@ public partial class CapsuleController : Node3D
 		}
 	}
 
-	public void HandleOccupyRequest(CustomerData customer)
+	public bool HandleOccupyRequest(CustomerData customer)
 	{
-		if (Data is OccupiedCapsuleModel ) return;
+		if (Data is OccupiedCapsuleModel) return false;
 
 		GD.Print($"Customer {customer.Name} occupied capsule. Staying for: {customer.StayDuration} seconds.");
         
@@ -81,5 +81,7 @@ public partial class CapsuleController : Node3D
 		AnimationPlayer.Play("anim_capsule/close");
 		
 		OnCapsuleOccupied?.Invoke(this);
+
+		return true;
 	}
 }

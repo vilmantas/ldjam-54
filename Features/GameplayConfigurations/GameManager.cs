@@ -109,38 +109,12 @@ public partial class GameManager : Node
     
     public void OccupyCapsule()
     {
-        if (SelectedCustomer == null)
-        {
-            return;
-        }
+        if (SelectedCustomer == null) return;
 
-        var customer = SelectedCustomer;
-
-        var capsule = SelectedCapsule;
-
-        if (SelectedCustomer.Data.PreferredCapsule != SelectedCapsule.Configuration)
-        {
-            GD.Print("Invalid selection: Customer prefers different capsule.");
-            GD.Print("Preferred: " + SelectedCustomer.Data.PreferredCapsule.Title);
-            GD.Print("Selected: " + SelectedCapsule.Configuration.Title);
-            return;
-        }
-        
-        SelectedCustomer.NavigationAgent.TargetPosition = LevelManager.CapsuleRoomWaypoint.GlobalPosition;
-
-        GetTree().CreateTimer(4f).Timeout += () => TimerOnTimeout(customer, capsule);
-
-        capsule.HandleOccupyRequest(SelectedCustomer.Data);
-        
-        MoneyManager.Instance.AddMoney(customer.Data.PreferredCapsule.BookingCost + customer.Data.PreferredCapsule.CostPerHour * customer.Data.StayDuration);
+        if (!GameplayManager.OccupyCapsule(SelectedCapsule, SelectedCustomer)) return;
         
         DeselectCustomer();
         DeselectCapsule();
-    }
-
-    private void TimerOnTimeout(CustomerV2Controller customer, CapsuleController capsule)
-    {
-        customer.Hide();
     }
 
     public void SelectSpawn(CapsuleSpawnController spawnPoint)
