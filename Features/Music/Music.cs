@@ -7,6 +7,7 @@ public partial class Music : AudioStreamPlayer
 	public override void _Ready()
 	{
 		Instance = this;
+		this.Play();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
