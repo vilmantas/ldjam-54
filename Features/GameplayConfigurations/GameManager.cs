@@ -66,7 +66,7 @@ public partial class GameManager : Node
             return false;
         }
 
-        if (cash < config.Cost)
+        if (cash < config.BuildCost)
         {
             GD.Print("Not enough cash you monkey");
             
@@ -90,7 +90,7 @@ public partial class GameManager : Node
         SelectedSpawn = null;
         spawn.QueueFree();
         
-        MoneyManager.Instance.RemoveMoney(config.Cost);
+        MoneyManager.Instance.RemoveMoney(config.BuildCost);
 
         return true;
     }
@@ -129,8 +129,10 @@ public partial class GameManager : Node
         SelectedCustomer.NavigationAgent.TargetPosition = LevelManager.CapsuleRoomWaypoint.GlobalPosition;
 
         GetTree().CreateTimer(4f).Timeout += () => TimerOnTimeout(customer, capsule);
-        
+
         capsule.HandleOccupyRequest(SelectedCustomer.Data);
+        
+        MoneyManager.Instance.AddMoney(customer.Data.PreferredCapsule.BookingCost + customer.Data.PreferredCapsule.CostPerHour * customer.Data.StayDuration);
         
         DeselectCustomer();
         DeselectCapsule();

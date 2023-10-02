@@ -9,7 +9,7 @@ public partial class CapsuleTooltipController : Control
     public void Initialize(CapsuleConfiguration configuration)
     {
         Title.Text = configuration.Title;
-        Cost.Text = configuration.Cost.ToString("C");
+        Cost.Text = configuration.BuildCost.ToString("C");
     }
 
     public override void _Process(double delta)

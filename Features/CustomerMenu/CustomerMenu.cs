@@ -10,22 +10,21 @@ public partial class CustomerMenu : Control
 	private Label _nameLabel;
 
 	private Label _stayDurationLabel;
+	
+	private Label _capsuleLabel;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_nameLabel = GetNode<Label>("GridContainer/customer_name");
 		_stayDurationLabel = GetNode<Label>("GridContainer/stay_duration/stay_duration_count");
+		_capsuleLabel = GetNode<Label>("GridContainer/capsule/capsule_title");
+			
 		CloseButton.Pressed += OnCloseButtonPressed;
 		GameManager.Instance.OnCustomerDeselected += OnCustomerDeselected;
 		GameManager.Instance.OnCustomerSelected += OnCustomerSelected;
 		Hide();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-	
 	private void OnCustomerDeselected()
 	{
 		GD.Print("Deselect");
@@ -51,6 +50,7 @@ public partial class CustomerMenu : Control
 		GD.Print(Customer.Data.Name);
 		_nameLabel.Text = Customer.Data.Name;
 		_stayDurationLabel.Text = Customer.Data.StayDuration.ToString();
+		_capsuleLabel.Text = Customer.Data.PreferredCapsule.Title;
 	}
 
 

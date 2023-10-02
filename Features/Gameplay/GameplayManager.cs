@@ -27,8 +27,6 @@ public partial class GameplayManager : Node3D
 
     private void OnCapsuleAdded(CapsuleController obj)
     {
-        GD.Print("Capsule built.");
-        
         obj.OnCapsuleOccupied += UpdateTotals;
         obj.OnCapsuleFreed += UpdateTotals;
         

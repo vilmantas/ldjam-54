@@ -40,24 +40,30 @@ offset_bottom = 50.0
 layout_mode = 2
 text = "Customer Name"
 
-[node name="stay_duration" type="Control" parent="GridContainer"]
+[node name="stay_duration" type="HBoxContainer" parent="GridContainer"]
 layout_mode = 2
 
 [node name="stay_duration_label" type="Label" parent="GridContainer/stay_duration"]
-layout_mode = 0
-offset_top = -2.0
-offset_right = 106.0
-offset_bottom = 24.0
+layout_mode = 2
 text = "Stay Duration:"
 label_settings = SubResource("LabelSettings_ecibk")
 
 [node name="stay_duration_count" type="Label" parent="GridContainer/stay_duration"]
-layout_mode = 0
-offset_left = 79.0
-offset_top = -2.0
-offset_right = 119.0
-offset_bottom = 21.0
+layout_mode = 2
 text = "1"
+label_settings = SubResource("LabelSettings_s2e1t")
+
+[node name="capsule" type="HBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="capsule_label" type="Label" parent="GridContainer/capsule"]
+layout_mode = 2
+text = "Preferred Capsule:"
+label_settings = SubResource("LabelSettings_ecibk")
+
+[node name="capsule_title" type="Label" parent="GridContainer/capsule"]
+layout_mode = 2
+text = "Nice"
 label_settings = SubResource("LabelSettings_s2e1t")
 
 [node name="Close" type="Button" parent="."]

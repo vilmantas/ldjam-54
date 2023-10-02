@@ -6,5 +6,9 @@ public class CapsuleConfiguration
     
     public PackedScene CapsulePrefab;
 
-    public int Cost;
+    public int BuildCost;
+
+    public int BookingCost;
+
+    public int CostPerHour;
 }

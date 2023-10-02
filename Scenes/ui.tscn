@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwqsyovccnub4"]
+[gd_scene load_steps=7 format=3 uid="uid://cwqsyovccnub4"]
 
 [ext_resource type="PackedScene" uid="uid://cg51aj5y30rc5" path="res://Features/Capsule/capsule_menu.tscn" id="1_b3uog"]
 [ext_resource type="PackedScene" uid="uid://bcvwvo3m4gic6" path="res://Features/CapsuleBuildMenu/build_menu.tscn" id="2_o12yi"]
 [ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
 [ext_resource type="Script" path="res://Features/Tooltip/TooltipUIController.cs" id="4_4ms6o"]
 [ext_resource type="PackedScene" uid="uid://d3jei34ndxbks" path="res://Features/Gameplay/gameplay_ui.tscn" id="5_j86c2"]
+[ext_resource type="PackedScene" uid="uid://bs427640hfucf" path="res://Features/CustomerMenu/customer_menu.tscn" id="6_ko1xt"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -94,5 +95,7 @@ offset_left = 16.0
 offset_top = 226.0
 offset_right = 224.0
 offset_bottom = 516.0
+
+[node name="customer_menu" parent="." instance=ExtResource("6_ko1xt")]
 
 [editable path="build_menu"]

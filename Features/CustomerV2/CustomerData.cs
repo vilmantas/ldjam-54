@@ -2,7 +2,7 @@
 {
     public string Name;
 
-    public float StayDuration;
+    public int StayDuration;
     
     public CapsuleConfiguration PreferredCapsule;
 }

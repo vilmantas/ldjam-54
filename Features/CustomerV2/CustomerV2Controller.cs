@@ -39,7 +39,7 @@ public partial class CustomerV2Controller : CharacterBody3D
 		var data = new CustomerData()
 		{
 			Name = "Test " + GD.Randi(), 
-			StayDuration = 5f + GD.RandRange(0, 10),
+			StayDuration = 5 + GD.RandRange(0, 10),
 			PreferredCapsule = CapsuleConfigurations.Capsules[GD.RandRange(0, CapsuleConfigurations.Capsules.Length - 1)] 
 		};
         

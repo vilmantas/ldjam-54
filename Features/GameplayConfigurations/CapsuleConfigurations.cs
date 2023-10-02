@@ -10,21 +10,27 @@ public static class CapsuleConfigurations
     {
         CapsulePrefab = ResourceLoader.Load<PackedScene>($"{CapsulesFolder}/model_capsule_basic.tscn"),
         Title = "Basic Capsule",
-        Cost = 100,
+        BuildCost = 100,
+        BookingCost = 2,
+        CostPerHour = 4
     };
     
     public static readonly CapsuleConfiguration NICE_CAPSULE = new()
     {
         CapsulePrefab = ResourceLoader.Load<PackedScene>($"{CapsulesFolder}/model_capsule_nice.tscn"),
         Title = "Nice Capsule",
-        Cost = 200,
+        BuildCost = 200,
+        BookingCost = 4,
+        CostPerHour = 8
     };
     
     public static readonly CapsuleConfiguration PRO_CAPSULE = new()
     {
         CapsulePrefab = ResourceLoader.Load<PackedScene>($"{CapsulesFolder}/model_capsule_pro.tscn"),
         Title = "Pro Capsule",
-        Cost = 200,
+        BuildCost = 300,
+        BookingCost = 4,
+        CostPerHour = 12
     };
     
     public static readonly CapsuleConfiguration[] Capsules = new[]
