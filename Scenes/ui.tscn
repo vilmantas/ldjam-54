@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvwvo3m4gic6" path="res://Features/CapsuleBuildMenu/build_menu.tscn" id="2_o12yi"]
 [ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
 [ext_resource type="Script" path="res://Features/Tooltip/TooltipUIController.cs" id="4_4ms6o"]
-[ext_resource type="PackedScene" uid="uid://bs427640hfucf" path="res://Features/CustomerMenu/customer_menu.tscn" id="5_44u67"]
+[ext_resource type="PackedScene" uid="uid://d3jei34ndxbks" path="res://Features/Gameplay/gameplay_ui.tscn" id="5_j86c2"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
@@ -89,6 +89,10 @@ grow_vertical = 2
 text = "awdawdwa
 "
 
-[node name="customer_menu" parent="." instance=ExtResource("5_44u67")]
+[node name="gameplay_ui" parent="." instance=ExtResource("5_j86c2")]
+offset_left = 16.0
+offset_top = 226.0
+offset_right = 224.0
+offset_bottom = 516.0
 
 [editable path="build_menu"]

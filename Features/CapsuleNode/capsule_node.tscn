@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0nhuq"]
 size = Vector3(1.9802, 2.1685, 4.01664)
 
-[node name="capsule_node" type="Node3D"]
+[node name="capsule_node" type="Node3D" groups=["capsule_node"]]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.0150134, 0.0640337, 0.0214581)
 script = ExtResource("1_vquii")
 

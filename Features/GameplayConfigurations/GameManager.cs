@@ -13,6 +13,8 @@ public partial class GameManager : Node
     public static CapsuleConfiguration[] Capsules = CapsuleConfigurations.Capsules;
 
     public LevelManager LevelManager;
+
+    public GameplayManager GameplayManager;
     
     public CapsuleController SelectedCapsule;
     
@@ -21,11 +23,6 @@ public partial class GameManager : Node
     public CustomerV2Controller SelectedCustomer;
 
     public TooltipUIController Tooltip;
-    
-    // PROPS
-    
-    public bool BuildModeActive = false;
-    
     
     // PLUGS
     
@@ -39,19 +36,9 @@ public partial class GameManager : Node
 
     public Action OnCustomerDeselected;
     
-    public Action<bool> OnBuildModeChanged;
-    
     public override void _Ready()
     {
         Instance = this;
-    }
-
-    public override void _Process(double delta)
-    {
-        if (!Input.IsActionJustReleased("ui_build_mode_toggle")) return;
-        
-        BuildModeActive = !BuildModeActive;
-        OnBuildModeChanged?.Invoke(BuildModeActive);
     }
 
     public void SetCapsuleConfiguration(string title)
@@ -95,8 +82,8 @@ public partial class GameManager : Node
             node = spawn.GetParent<CapsuleController>().GetParent<CapsuleNodeController>();
         }
         
-        node.Capsules.Add(capsule);
-        node.AddChild(capsule);
+        node.AddCapsule(capsule);
+
         capsule.Initialize(config, node);
         capsule.GlobalPosition = spawn.GlobalPosition;
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=13 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
 [ext_resource type="Script" path="res://Features/Gameplay/LevelManager.cs" id="1_gwhah"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
+[ext_resource type="Script" path="res://Features/Gameplay/GameplayManager.cs" id="1_qms5q"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
@@ -35,6 +36,9 @@ fog_light_color = Color(0.368627, 0.4, 0.447059, 1)
 [node name="level_manager" type="Node3D" parent="." node_paths=PackedStringArray("CapsuleRoomWaypoint")]
 script = ExtResource("1_gwhah")
 CapsuleRoomWaypoint = NodePath("../capsule_room_waypoint")
+
+[node name="gameplay_manager" type="Node3D" parent="."]
+script = ExtResource("1_qms5q")
 
 [node name="capsule_room_waypoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.533577, 0.937574, 12.0678)

@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class CapsuleController : Node3D
@@ -7,6 +8,10 @@ public partial class CapsuleController : Node3D
 	public AnimationPlayer AnimationPlayer;
 	
 	public CapsuleConfiguration Configuration;
+
+	public Action<CapsuleController> OnCapsuleOccupied;
+
+	public Action<CapsuleController> OnCapsuleFreed;
 
 	public override void _Process(double delta)
 	{
@@ -21,6 +26,8 @@ public partial class CapsuleController : Node3D
 			Data = occupied.GetModel();
 			
 			AnimationPlayer.Play("anim_capsule/open");
+			
+			OnCapsuleFreed?.Invoke(this);
 		}
 	}
 
@@ -72,5 +79,7 @@ public partial class CapsuleController : Node3D
 		Data = new OccupiedCapsuleModel(Data, customer, customer.StayDuration);
 		
 		AnimationPlayer.Play("anim_capsule/close");
+		
+		OnCapsuleOccupied?.Invoke(this);
 	}
 }

@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3jei34ndxbks"]
+
+[ext_resource type="Script" path="res://Features/Gameplay/GameplayUIController.cs" id="1_p8had"]
+
+[node name="gameplay_ui" type="Control" node_paths=PackedStringArray("TotalCapsulesLabel", "FreeCapsulesLabel", "OccupiedCapsulesLabel")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 208.0
+offset_bottom = 290.0
+script = ExtResource("1_p8had")
+TotalCapsulesLabel = NodePath("MarginContainer/grid/total/value")
+FreeCapsulesLabel = NodePath("MarginContainer/grid/free/value")
+OccupiedCapsulesLabel = NodePath("MarginContainer/grid/occupied/value")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="grid" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="total" type="HBoxContainer" parent="MarginContainer/grid"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/grid/total"]
+layout_mode = 2
+text = "Total Capsules"
+
+[node name="value" type="Label" parent="MarginContainer/grid/total"]
+layout_mode = 2
+text = "5"
+
+[node name="free" type="HBoxContainer" parent="MarginContainer/grid"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/grid/free"]
+layout_mode = 2
+text = "Free Capsules"
+
+[node name="value" type="Label" parent="MarginContainer/grid/free"]
+layout_mode = 2
+text = "5"
+
+[node name="occupied" type="HBoxContainer" parent="MarginContainer/grid"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/grid/occupied"]
+layout_mode = 2
+text = "Occupied Capsules"
+
+[node name="value" type="Label" parent="MarginContainer/grid/occupied"]
+layout_mode = 2
+text = "5"
