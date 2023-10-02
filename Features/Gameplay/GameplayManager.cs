@@ -39,6 +39,8 @@ public partial class GameplayManager : Node3D
 
         if (!result) return false;
         
+        customer.ChangeState(CustomerV2Controller.CustomerState.GoingToCapsule);
+        
         customer.NavigationAgent.TargetPosition = GameManager.Instance.LevelManager.CapsuleRoomWaypoint.GlobalPosition;
 
         GetTree().CreateTimer(4f).Timeout += () => TimerOnTimeout(customer, capsule);

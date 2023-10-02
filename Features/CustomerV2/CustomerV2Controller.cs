@@ -47,7 +47,7 @@ public partial class CustomerV2Controller : CharacterBody3D
 			Name = "Test " + GD.Randi(), 
 			StayDuration = 5 + GD.RandRange(0, 10),
 			PreferredCapsule = CapsuleConfigurations.Capsules[GD.RandRange(0, CapsuleConfigurations.Capsules.Length - 1)] ,
-			Patience = 5f,
+			Patience = 5f + GD.RandRange(5, 10),
 		};
 		CurrentPatience = data.Patience;
 		Initialize(data);
@@ -75,11 +75,6 @@ public partial class CustomerV2Controller : CharacterBody3D
 		if (!(CurrentPatience < 0)) return;
 	
 		ChangeState(CustomerState.LeavingQueue);
-			
-		if (Reception != null)
-		{
-			Reception.ExitQueue(this);
-		}
 		
 		var spawn = GameManager.Instance.LevelManager.CustomerSpawnPoints[GD.Randi() % GameManager.Instance.LevelManager.CustomerSpawnPoints.Length];
 
@@ -126,9 +121,11 @@ public partial class CustomerV2Controller : CharacterBody3D
 				Animator.PlayAnimation("Walking");
 				break;
 			case CustomerState.GoingToCapsule:
+				Reception.ExitQueue(this);
 				Animator.PlayAnimation("Walking");
 				break;
 			case CustomerState.LeavingQueue:
+				Reception.ExitQueue(this);
 				Animator.PlayAnimation("Walking");
 				break;
 			case CustomerState.AdvancingInQueue:
