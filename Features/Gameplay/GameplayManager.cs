@@ -4,6 +4,8 @@ using Godot;
 
 public partial class GameplayManager : Node3D
 {
+    public int CashGoal = 100;
+    
     public CapsuleNodeController[] Nodes;
 
     public int TotalCapsulesCount = 0;
@@ -19,12 +21,22 @@ public partial class GameplayManager : Node3D
     {
         GameManager.Instance.GameplayManager = this;
         
+        MoneyManager.Instance.OnMoneyChanged += OnMoneyChanged;
+        
         Nodes = GetTree().GetNodesInGroup("capsule_node").Cast<CapsuleNodeController>().ToArray();
 
         foreach (var node in Nodes)
         {
             TotalCapsulesCount += node.Capsules.Count;
             node.OnCapsuleAdded += OnCapsuleAdded;
+        }
+    }
+
+    private void OnMoneyChanged(int obj)
+    {
+        if (MoneyManager.Instance.CurrentMoney >= CashGoal)
+        {
+            GameManager.Instance.Victory();
         }
     }
 

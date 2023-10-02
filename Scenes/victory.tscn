@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://nyseuepg65dd"]
+
+[ext_resource type="PackedScene" uid="uid://cdkcacwh7t1t7" path="res://Scenes/victory_ui.tscn" id="1_706vc"]
+
+[node name="victory" type="Node3D"]
+
+[node name="victory_ui" parent="." instance=ExtResource("1_706vc")]

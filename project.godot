@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Ldjam-54"
-run/main_scene="res://Scenes/v_test.tscn"
+run/main_scene="res://Scenes/laurynas_test_level.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*res://Features/GameplayConfigurations/GameManager.cs"
 CustomerManager="*res://Features/Customer/CustomerManager.cs"
+GameManager="*res://Features/GameplayConfigurations/GameManager.cs"
 MoneyManager="*res://Features/Money/MoneyManager.cs"
 BuildingManager="*res://Features/CapsuleBuildMenu/BuildingManager.cs"
 

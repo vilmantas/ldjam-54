@@ -156,4 +156,9 @@ public partial class GameManager : Node
     {
         GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn");
     }
+    
+    public void Victory()
+    {
+        GetTree().ChangeSceneToFile("res://Scenes/victory.tscn");
+    }
 }

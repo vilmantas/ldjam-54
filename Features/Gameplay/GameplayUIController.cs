@@ -8,7 +8,8 @@ public partial class GameplayUIController : Node
 	[Export] public Label OccupiedCapsulesLabel;
 	[Export] public Label MoneyLabel;
 	[Export] public Label ComplaintsLabel;
-
+	[Export] public Label GoalLabel;
+	
 	public override void _Ready()
 	{
 		var gameplay = GameManager.Instance.GameplayManager;
@@ -21,6 +22,8 @@ public partial class GameplayUIController : Node
 		OnTotalsUpdated();
 		OnComplaintReceived();
 		OnMoneyChanged(MoneyManager.Instance.CurrentMoney);
+		
+		GoalLabel.Text = gameplay.CashGoal.ToString("C");
 	}
 
 	private void OnComplaintReceived()
