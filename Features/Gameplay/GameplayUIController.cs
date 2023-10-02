@@ -28,7 +28,7 @@ public partial class GameplayUIController : Node
 
 	private void OnComplaintReceived()
 	{
-		ComplaintsLabel.Text = GameManager.Instance.GameplayManager.Complaints.ToString();
+		ComplaintsLabel.Text = $"{GameManager.Instance.GameplayManager.Complaints.ToString()}/{GameManager.Instance.GameplayManager.ComplaintMax}";
 	}
 
 	private void OnMoneyChanged(int obj)

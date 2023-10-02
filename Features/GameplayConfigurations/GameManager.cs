@@ -158,10 +158,14 @@ public partial class GameManager : Node
     public void GameOver()
     {
         GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn");
+        
+        GetTree().Paused = true;
     }
     
     public void Victory()
     {
         GetTree().ChangeSceneToFile("res://Scenes/victory.tscn");
+        
+        GetTree().Paused = true;
     }
 }

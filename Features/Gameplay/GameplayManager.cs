@@ -5,6 +5,7 @@ using Godot;
 public partial class GameplayManager : Node3D
 {
     public int CashGoal = 1000;
+    public int ComplaintMax = 5;
     
     public CapsuleNodeController[] Nodes;
 
@@ -109,7 +110,7 @@ public partial class GameplayManager : Node3D
         Complaints++;
         OnComplaintReceived?.Invoke();
 
-        if (Complaints >= 5)
+        if (Complaints >= ComplaintMax)
         {
             GameManager.Instance.GameOver();
         }
