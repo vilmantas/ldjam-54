@@ -4,7 +4,7 @@ using Godot;
 
 public partial class GameplayManager : Node3D
 {
-    public int CashGoal = 10000;
+    public int CashGoal = 1000;
     
     public CapsuleNodeController[] Nodes;
 

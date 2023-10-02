@@ -1,14 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=16 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
+[ext_resource type="PackedScene" uid="uid://dgu0lj7ualldf" path="res://Features/AudioEffects/audio_effects.tscn" id="1_dfcp3"]
 [ext_resource type="PackedScene" uid="uid://huv8fer3gcdd" path="res://Features/Gameplay/level_manager.tscn" id="1_mv3kj"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
+[ext_resource type="PackedScene" path="res://Features/Music/music.tscn" id="2_cvqsn"]
 [ext_resource type="PackedScene" uid="uid://bs3kdysfimtq5" path="res://Features/Gameplay/gameplay_manager.tscn" id="2_swr63"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
-[ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="6_fdwxr"]
 [ext_resource type="PackedScene" uid="uid://cvvy1btjxn8ip" path="res://Features/Customer/customer_spawn_point.tscn" id="9_bmj0r"]
+[ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="10_sbbxy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnd5c"]
 sky_top_color = Color(0.168627, 0.45098, 0.772549, 1)
@@ -33,6 +35,13 @@ fog_light_color = Color(0.368627, 0.4, 0.447059, 1)
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_c0h2f"]
 
 [node name="v_test" type="Node3D"]
+
+[node name="Reception" parent="." instance=ExtResource("10_sbbxy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.54995, 0.48526, -9.30395)
+
+[node name="AudioEffects" parent="." instance=ExtResource("1_dfcp3")]
+
+[node name="Music" parent="." instance=ExtResource("2_cvqsn")]
 
 [node name="level_manager" parent="." instance=ExtResource("1_mv3kj")]
 
@@ -83,21 +92,6 @@ transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, -1.909
 
 [node name="capsule_node8" parent="nodes" instance=ExtResource("5_deibi")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -4.31913, 0.621992, 12.8624)
-
-[node name="customer" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(0.0748395, 0, 0.997196, 0, 1, 0, -0.997196, 0, 0.0748395, 3.98006, 1.47716, -1.47148)
-
-[node name="customer5" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -1.92922, 1.47716, -1.46425)
-
-[node name="customer3" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 2.18655, 1.47716, -2.65376)
-
-[node name="customer2" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.434744, 1.47716, -5.79727)
-
-[node name="customer4" parent="." instance=ExtResource("6_fdwxr")]
-transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.822461, 1.47716, -3.34318)
 
 [node name="CustomerSpawnPoint" parent="." instance=ExtResource("9_bmj0r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.935, 1.4376, -4.58177)
