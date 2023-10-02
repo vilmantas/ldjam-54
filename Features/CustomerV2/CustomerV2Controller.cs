@@ -76,6 +76,8 @@ public partial class CustomerV2Controller : CharacterBody3D
 	
 		ChangeState(CustomerState.LeavingQueue);
 		
+		GameManager.Instance.GameplayManager.AddComplaint();
+        
 		var spawn = GameManager.Instance.LevelManager.CustomerSpawnPoints[GD.Randi() % GameManager.Instance.LevelManager.CustomerSpawnPoints.Length];
 
 		SpawnLocation = spawn.GlobalPosition;

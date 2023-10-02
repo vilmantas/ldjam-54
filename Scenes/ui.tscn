@@ -1,18 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwqsyovccnub4"]
+[gd_scene load_steps=6 format=3 uid="uid://cwqsyovccnub4"]
 
 [ext_resource type="PackedScene" uid="uid://cg51aj5y30rc5" path="res://Features/Capsule/capsule_menu.tscn" id="1_b3uog"]
 [ext_resource type="PackedScene" uid="uid://bcvwvo3m4gic6" path="res://Features/CapsuleBuildMenu/build_menu.tscn" id="2_o12yi"]
-[ext_resource type="Script" path="res://Features/Money/MoneyUIController.cs" id="3_3s8xs"]
 [ext_resource type="Script" path="res://Features/Tooltip/TooltipUIController.cs" id="4_4ms6o"]
 [ext_resource type="PackedScene" uid="uid://d3jei34ndxbks" path="res://Features/Gameplay/gameplay_ui.tscn" id="5_j86c2"]
 [ext_resource type="PackedScene" uid="uid://bs427640hfucf" path="res://Features/CustomerMenu/customer_menu.tscn" id="6_ko1xt"]
 
 [node name="ui" type="Control"]
 layout_mode = 3
-anchor_right = 0.224
-anchor_bottom = 0.542
-offset_right = -0.0480042
-offset_bottom = -0.216034
+anchors_preset = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
@@ -33,38 +29,7 @@ anchor_bottom = 0.581
 offset_right = -0.0860138
 offset_bottom = 0.0690002
 
-[node name="Money" type="Control" parent="." node_paths=PackedStringArray("MoneyLabel")]
-anchors_preset = 0
-offset_left = 361.0
-offset_top = 34.0
-offset_right = 741.0
-offset_bottom = 67.0
-script = ExtResource("3_3s8xs")
-MoneyLabel = NodePath("Value")
-
-[node name="Title" type="RichTextLabel" parent="Money"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.537
-anchor_bottom = 0.27
-text = "Kurent Kash:"
-fit_content = true
-autowrap_mode = 1
-
-[node name="Value" type="RichTextLabel" parent="Money"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.304
-anchor_right = 0.537
-anchor_bottom = 0.27
-offset_left = -0.17601
-offset_right = -0.153
-offset_bottom = 0.0399971
-text = "$ 11111"
-fit_content = true
-autowrap_mode = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="." node_paths=PackedStringArray("TooltipLabel")]
+[node name="tooltip" type="RichTextLabel" parent="." node_paths=PackedStringArray("TooltipLabel")]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 1
 offset_right = 100.0
@@ -72,7 +37,7 @@ offset_bottom = 30.0
 script = ExtResource("4_4ms6o")
 TooltipLabel = NodePath("RichTextLabel")
 
-[node name="Panel" type="Panel" parent="RichTextLabel"]
+[node name="Panel" type="Panel" parent="tooltip"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,7 +45,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="RichTextLabel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="tooltip"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -97,3 +62,12 @@ offset_right = 224.0
 offset_bottom = 516.0
 
 [node name="customer_menu" parent="." instance=ExtResource("6_ko1xt")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 976.0
+offset_top = 3.0
+offset_right = 1149.0
+offset_bottom = 212.0
+grow_horizontal = 0

@@ -10,7 +10,10 @@ public partial class GameplayManager : Node3D
     public int FreeCapsules = 0;
     public int OccupiedCapsules = 0;
     
+    public int Complaints = 0;
+    
     public Action OnTotalsUpdated;
+    public Action OnComplaintReceived;
     
     public override void _Ready()
     {
@@ -87,5 +90,11 @@ public partial class GameplayManager : Node3D
         }
         
         OnTotalsUpdated?.Invoke();
+    }
+
+    public void AddComplaint()
+    {
+        Complaints++;
+        OnComplaintReceived?.Invoke();
     }
 }

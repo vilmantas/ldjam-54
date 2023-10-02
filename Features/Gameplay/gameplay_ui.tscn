@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Features/Gameplay/GameplayUIController.cs" id="1_p8had"]
 
-[node name="gameplay_ui" type="Control" node_paths=PackedStringArray("TotalCapsulesLabel", "FreeCapsulesLabel", "OccupiedCapsulesLabel")]
+[node name="gameplay_ui" type="Control" node_paths=PackedStringArray("TotalCapsulesLabel", "FreeCapsulesLabel", "OccupiedCapsulesLabel", "MoneyLabel", "ComplaintsLabel")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 208.0
@@ -11,6 +11,8 @@ script = ExtResource("1_p8had")
 TotalCapsulesLabel = NodePath("MarginContainer/grid/total/value")
 FreeCapsulesLabel = NodePath("MarginContainer/grid/free/value")
 OccupiedCapsulesLabel = NodePath("MarginContainer/grid/occupied/value")
+MoneyLabel = NodePath("MarginContainer/grid/cash/value")
+ComplaintsLabel = NodePath("MarginContainer/grid/complaints/value")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -34,6 +36,17 @@ theme_override_constants/margin_bottom = 32
 
 [node name="grid" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="cash" type="HBoxContainer" parent="MarginContainer/grid"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/grid/cash"]
+layout_mode = 2
+text = "Cash"
+
+[node name="value" type="Label" parent="MarginContainer/grid/cash"]
+layout_mode = 2
+text = "5"
 
 [node name="total" type="HBoxContainer" parent="MarginContainer/grid"]
 layout_mode = 2
@@ -65,5 +78,16 @@ layout_mode = 2
 text = "Occupied Capsules"
 
 [node name="value" type="Label" parent="MarginContainer/grid/occupied"]
+layout_mode = 2
+text = "5"
+
+[node name="complaints" type="HBoxContainer" parent="MarginContainer/grid"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/grid/complaints"]
+layout_mode = 2
+text = "Complaints Received"
+
+[node name="value" type="Label" parent="MarginContainer/grid/complaints"]
 layout_mode = 2
 text = "5"

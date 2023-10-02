@@ -6,14 +6,31 @@ public partial class GameplayUIController : Node
 	[Export] public Label TotalCapsulesLabel;
 	[Export] public Label FreeCapsulesLabel;
 	[Export] public Label OccupiedCapsulesLabel;
+	[Export] public Label MoneyLabel;
+	[Export] public Label ComplaintsLabel;
 
 	public override void _Ready()
 	{
 		var gameplay = GameManager.Instance.GameplayManager;
 		
 		gameplay.OnTotalsUpdated += OnTotalsUpdated;
+		gameplay.OnComplaintReceived += OnComplaintReceived;
+		
+		MoneyManager.Instance.OnMoneyChanged += OnMoneyChanged;
 		
 		OnTotalsUpdated();
+		OnComplaintReceived();
+		OnMoneyChanged(MoneyManager.Instance.CurrentMoney);
+	}
+
+	private void OnComplaintReceived()
+	{
+		ComplaintsLabel.Text = GameManager.Instance.GameplayManager.Complaints.ToString();
+	}
+
+	private void OnMoneyChanged(int obj)
+	{
+		MoneyLabel.Text = MoneyManager.Instance.CurrentMoney.ToString("C");
 	}
 
 	private void OnTotalsUpdated()
