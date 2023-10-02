@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://788uashcm7cu"]
+[gd_scene load_steps=7 format=3 uid="uid://788uashcm7cu"]
 
 [ext_resource type="Script" path="res://Features/Reception/Reception.cs" id="1_4f3n1"]
+[ext_resource type="PackedScene" uid="uid://dlnsmcuu1wckf" path="res://Models/Parts/office_desk.tscn" id="2_32lwd"]
 [ext_resource type="Script" path="res://Features/Utilities/HideOnStart.cs" id="2_bht46"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_1q80x"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_o4u12"]
+[ext_resource type="PackedScene" uid="uid://c416ewtn0l8xe" path="res://Models/Parts/office_chair_2.tscn" id="2_oq0tb"]
+[ext_resource type="PackedScene" uid="uid://emmjpspyxids" path="res://Models/Characters/female_merc.tscn" id="3_w0k8h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pt6t5"]
 size = Vector3(1, 0.01, 1)
@@ -14,13 +13,13 @@ size = Vector3(1, 0.01, 1)
 script = ExtResource("1_4f3n1")
 QueueStart = NodePath("QueueStart")
 
-[node name="DeskModel" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.05988, 0, 0, 0, 1, 0, 0, 0, 0.884876, 0, 0.504765, 0)
-mesh = SubResource("BoxMesh_1q80x")
+[node name="SM_Prop_Office_Desk_01" parent="." instance=ExtResource("2_32lwd")]
 
-[node name="ReceptionistModel" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.997735, 0, 0, 0, 0.997735, 0, 0, 0, 0.997735, -0.0177957, 0.915223, 1.12918)
-mesh = SubResource("CapsuleMesh_o4u12")
+[node name="female_me" parent="." instance=ExtResource("3_w0k8h")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.156753, 0.810759)
+
+[node name="SM_Prop_OfficeChair_01" parent="." instance=ExtResource("2_oq0tb")]
+transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 0, 0, 1)
 
 [node name="QueueStart" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0327205)

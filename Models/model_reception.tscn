@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpfvh71ls64cs"]
+[gd_scene load_steps=13 format=3 uid="uid://cpfvh71ls64cs"]
 
 [ext_resource type="PackedScene" uid="uid://dbjap88w82c7i" path="res://Models/Parts/asphalt_ground.tscn" id="1_avwrx"]
 [ext_resource type="PackedScene" uid="uid://cav77rfiht2jn" path="res://Models/brick_wall_red.tscn" id="2_jujld"]
 [ext_resource type="PackedScene" uid="uid://dtjycuynu5s0s" path="res://Models/brick_wall_red_corner.tscn" id="3_6ixk7"]
 [ext_resource type="PackedScene" uid="uid://bqlrotfwb2mwx" path="res://Models/brick_wall_red_doorway.tscn" id="4_2rsrt"]
+[ext_resource type="PackedScene" uid="uid://djxl1ci7srdyg" path="res://Models/Parts/rug_1.tscn" id="5_nsbv3"]
+[ext_resource type="PackedScene" uid="uid://d2ldbasa8apbn" path="res://Models/Parts/plant_1.tscn" id="6_ecyqv"]
+[ext_resource type="PackedScene" uid="uid://twbu3w641ej7" path="res://Models/Parts/office_shelf.tscn" id="7_ebefo"]
+[ext_resource type="PackedScene" uid="uid://bdrwdpricusck" path="res://Models/Parts/fire_extinguisher.tscn" id="8_wcrpm"]
+[ext_resource type="PackedScene" uid="uid://bthg1demdtor6" path="res://Models/Parts/crowbar.tscn" id="9_c57og"]
+[ext_resource type="PackedScene" uid="uid://2vsrsvwpync5" path="res://Models/Parts/bookcase.tscn" id="10_xovle"]
+[ext_resource type="PackedScene" uid="uid://dethxmumx67kc" path="res://Models/Parts/pipe.tscn" id="11_fg7v2"]
+[ext_resource type="PackedScene" uid="uid://bkpk002eqyqwg" path="res://Models/Parts/box_open.tscn" id="12_vpdui"]
 
 [node name="model_reception" type="Node3D"]
 transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
@@ -82,3 +90,36 @@ transform = Transform3D(1, 1.74846e-07, -7.64274e-15, 0, -4.37114e-08, -1, -1.74
 
 [node name="SM_Bld_Wall_Brick_Exterior_Corner_01__12__4" parent="." instance=ExtResource("3_6ixk7")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1500)
+
+[node name="SM_Prop_BearRug_01" parent="." instance=ExtResource("5_nsbv3")]
+transform = Transform3D(0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, 398.124, -9.53674e-05, 1089.16)
+
+[node name="SM_Prop_Plant_Palm_01" parent="." instance=ExtResource("6_ecyqv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 77.0364, 0, 601.942)
+
+[node name="SM_Prop_Plant_Palm_02" parent="." instance=ExtResource("6_ecyqv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1165.38, 0, 1294.75)
+
+[node name="SM_Prop_Office_Shelf_01" parent="." instance=ExtResource("7_ebefo")]
+transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 547.701, 9.53674e-05, 1429.76)
+
+[node name="SM_Prop_Office_Shelf_02" parent="." instance=ExtResource("7_ebefo")]
+transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 663.573, 0, 1430.2)
+
+[node name="SM_Prop_Fire_Extinguisher_01__3_" parent="." instance=ExtResource("8_wcrpm")]
+transform = Transform3D(-0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, -0.707107, 3.09086e-08, 44.708, 34.8843, 1463.86)
+
+[node name="SM_Wep_Crowbar_01" parent="." instance=ExtResource("9_c57og")]
+transform = Transform3D(-4.18396e-08, -0.957178, -0.2895, 1, -4.37114e-08, 2.77556e-15, -1.26544e-08, -0.2895, 0.957178, 76.7253, 0, 1295.36)
+
+[node name="Node3D" parent="." instance=ExtResource("10_xovle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 725.064, 0, 1408.41)
+
+[node name="SM_Wep_Pipe_01" parent="." instance=ExtResource("11_fg7v2")]
+transform = Transform3D(-5.60941e-08, 0.344495, -0.938788, -1, -4.37114e-08, 4.37114e-08, -2.59774e-08, 0.938788, 0.344495, 600.798, 180.553, 1423.56)
+
+[node name="SM_Prop_CardboardBox_Open_05__1_" parent="." instance=ExtResource("12_vpdui")]
+transform = Transform3D(0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, 806.878, 4.76837e-07, 1316.13)
+
+[node name="Node3D2" parent="." instance=ExtResource("10_xovle")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 427.884, 0.854862, 1429.69)

@@ -25,6 +25,13 @@ public partial class CustomerV2Controller : CharacterBody3D
 
 	public CustomerData Data;
 
+	public float WalkingSpeed = 3f;
+	public float RunningSpeed = 6f;
+    
+	public float MovementSpeed = 3f;
+
+	public float Acceleration = 5f;
+    
 	public float CurrentPatience;
 	
 	public override void _Ready()
@@ -120,18 +127,19 @@ public partial class CustomerV2Controller : CharacterBody3D
 				Animator.PlayAnimation("Idle");
 				break;
 			case CustomerState.GoingToQueue:
-				Animator.PlayAnimation("Walking");
+				Animator.PlayAnimation("Walk");
 				break;
 			case CustomerState.GoingToCapsule:
 				Reception.ExitQueue(this);
-				Animator.PlayAnimation("Walking");
+				Animator.PlayAnimation("Sneak");
 				break;
 			case CustomerState.LeavingQueue:
 				Reception.ExitQueue(this);
-				Animator.PlayAnimation("Walking");
+				MovementSpeed = RunningSpeed;
+				Animator.PlayAnimation("Run");
 				break;
 			case CustomerState.AdvancingInQueue:
-				Animator.PlayAnimation("Walking");
+				Animator.PlayAnimation("Walk");
 				break;
 			case CustomerState.None:
 				break;
@@ -187,7 +195,7 @@ public partial class CustomerV2Controller : CharacterBody3D
 
 		Rotation = newRot;
 			
-		Velocity = Velocity.Lerp(direction * 3f, 5f * (float)delta);
+		Velocity = Velocity.Lerp(direction * MovementSpeed, Acceleration * (float)delta);
         
 		MoveAndSlide();
 	}

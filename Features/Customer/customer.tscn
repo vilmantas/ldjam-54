@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bby6xx2qgismp"]
 
 [ext_resource type="Script" path="res://Features/Customer/Customer.cs" id="1_qhhjd"]
-[ext_resource type="PackedScene" uid="uid://byvbx8jbtarar" path="res://Models/businessman.tscn" id="2_ysoeq"]
+[ext_resource type="PackedScene" uid="uid://byvbx8jbtarar" path="res://Models/Characters/businessman.tscn" id="2_ysoeq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8hfvp"]
 

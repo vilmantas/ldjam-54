@@ -1,16 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvyam1kdv5gqg"]
+[gd_scene load_steps=6 format=3 uid="uid://d2ldbasa8apbn"]
 
-[ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_rmpfi"]
-[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_21huj"]
+[ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="1_gulkh"]
+[ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="2_14u3j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h664e"]
 resource_name = "PolygonGangWarfare_Material_01_A.002"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_rmpfi")
+albedo_texture = ExtResource("1_gulkh")
 roughness = 0.552786
 emission_enabled = true
-emission_texture = ExtResource("2_21huj")
+emission_texture = ExtResource("2_14u3j")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bubbr"]
 _surfaces = [{
@@ -43,6 +43,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bubbr")
 
 [node name="SM_Prop_Plant_Palm_01" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ycg16")
 skeleton = NodePath("")

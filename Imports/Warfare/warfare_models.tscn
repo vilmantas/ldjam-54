@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c0lncogeefqpj"]
+[gd_scene load_steps=16 format=3 uid="uid://c0lncogeefqpj"]
 
 [ext_resource type="PackedScene" uid="uid://krht3nna0b4r" path="res://Imports/Warfare/WarfareModels.glb" id="1_tx2a8"]
 [ext_resource type="Texture2D" uid="uid://bhebixmbggxoe" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Texture_01_A.png" id="2_pwls6"]
 [ext_resource type="Texture2D" uid="uid://cupec6w1k5xnv" path="res://Imports/Warfare/WarfareModels_PolygonGangWarfare_Emissive_01_A.png" id="3_jxf8v"]
 [ext_resource type="PackedScene" uid="uid://bkpk002eqyqwg" path="res://Models/Parts/box_open.tscn" id="4_safio"]
+[ext_resource type="PackedScene" uid="uid://dlnsmcuu1wckf" path="res://Models/Parts/office_desk.tscn" id="5_lo5ps"]
 [ext_resource type="PackedScene" uid="uid://68vlgx7wla0s" path="res://Models/Parts/paint_brush.tscn" id="5_ng0uk"]
 [ext_resource type="PackedScene" uid="uid://dvrttfxmp7u3b" path="res://Models/Parts/paint_can_red.tscn" id="6_elyga"]
 [ext_resource type="PackedScene" uid="uid://bkidxaoxxwjga" path="res://Models/Parts/paint_can_closed.tscn" id="7_tisy0"]
@@ -132,6 +133,8 @@ skeleton = NodePath("")
 transform = Transform3D(0.973659, 0.228011, 0, -0.228011, 0.973659, 0, 0, 0, 1, -2338.5, -3670.1, -92.2015)
 
 [node name="SM_Prop_CardboardBox_Open_05__1_" parent="WarfareModels2/Scene/SM_Prop_CardboardBox_Open_05__1_" index="0" instance=ExtResource("4_safio")]
+
+[node name="SM_Prop_Office_Desk_01" parent="WarfareModels2/Scene/SM_Prop_Office_Desk_01" index="1" instance=ExtResource("5_lo5ps")]
 
 [node name="SM_Prop_PaintBrush_01__3_" parent="WarfareModels2/Scene/SM_Prop_PaintBrush_01__3_" index="0" instance=ExtResource("5_ng0uk")]
 

@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://cafrbfjompnt8"]
+
+[ext_resource type="PackedScene" uid="uid://cpfvh71ls64cs" path="res://Models/model_reception.tscn" id="1_iswdv"]
+[ext_resource type="PackedScene" uid="uid://788uashcm7cu" path="res://Features/Reception/reception.tscn" id="1_r5dss"]
+[ext_resource type="PackedScene" uid="uid://djxl1ci7srdyg" path="res://Models/Parts/rug_1.tscn" id="3_kv2px"]
+[ext_resource type="PackedScene" uid="uid://d2ldbasa8apbn" path="res://Models/Parts/plant_1.tscn" id="4_v0mxe"]
+[ext_resource type="PackedScene" uid="uid://twbu3w641ej7" path="res://Models/Parts/office_shelf.tscn" id="5_ul11p"]
+[ext_resource type="PackedScene" uid="uid://bdrwdpricusck" path="res://Models/Parts/fire_extinguisher.tscn" id="6_a3c6t"]
+[ext_resource type="PackedScene" uid="uid://bthg1demdtor6" path="res://Models/Parts/crowbar.tscn" id="7_2au37"]
+[ext_resource type="PackedScene" uid="uid://2vsrsvwpync5" path="res://Models/Parts/bookcase.tscn" id="8_k0xca"]
+[ext_resource type="PackedScene" uid="uid://dethxmumx67kc" path="res://Models/Parts/pipe.tscn" id="9_s1imp"]
+[ext_resource type="PackedScene" uid="uid://bkpk002eqyqwg" path="res://Models/Parts/box_open.tscn" id="10_ee0sn"]
+
+[node name="pref_reception" type="Node3D"]
+
+[node name="Reception" parent="." instance=ExtResource("1_r5dss")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.35218, 0, 12.5586)
+
+[node name="model_reception" parent="." instance=ExtResource("1_iswdv")]
+
+[node name="SM_Prop_BearRug_01" parent="." instance=ExtResource("3_kv2px")]
+transform = Transform3D(0.00707107, -0.00707107, 3.09086e-10, 4.37114e-10, 1.91069e-17, -0.01, 0.00707107, 0.00707107, 3.09086e-10, 4.32994, 0, 10.7828)
+
+[node name="SM_Prop_Plant_Palm_01" parent="." instance=ExtResource("4_v0mxe")]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 13, 0, 14)
+
+[node name="SM_Prop_Plant_Palm_02" parent="." instance=ExtResource("4_v0mxe")]
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 1.34207, 0, 6.81119)
+
+[node name="SM_Prop_Office_Shelf_01" parent="." instance=ExtResource("5_ul11p")]
+transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 6.80558, 0, 14.5178)
+
+[node name="SM_Prop_Office_Shelf_02" parent="." instance=ExtResource("5_ul11p")]
+transform = Transform3D(-0.01, -8.74228e-10, 3.82137e-17, 0, -4.37114e-10, -0.01, 8.74228e-10, -0.01, 4.37114e-10, 7.95528, 0, 14.5178)
+
+[node name="SM_Prop_Fire_Extinguisher_01__3_" parent="." instance=ExtResource("6_a3c6t")]
+transform = Transform3D(-0.00707107, 0.00707107, 0, 0, 0, -0.01, -0.00707107, -0.00707107, 0, 0.465219, 0.342499, 14.625)
+
+[node name="SM_Wep_Crowbar_01" parent="." instance=ExtResource("7_2au37")]
+transform = Transform3D(-4.18396e-10, -0.00957178, -0.002895, 0.01, -4.37114e-10, 0, -1.26544e-10, -0.002895, 0.00957178, 1.01794, 0, 11.9998)
+
+[node name="Node3D" parent="." instance=ExtResource("8_k0xca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8857, 0, 12.6126)
+
+[node name="SM_Wep_Pipe_01" parent="." instance=ExtResource("9_s1imp")]
+transform = Transform3D(-4.10357e-10, 0.00344495, -0.00938788, -0.01, 1.91069e-17, 4.37114e-10, 1.50584e-10, 0.00938788, 0.00344495, 5.69022, 1.826, 14.4699)
+
+[node name="SM_Prop_CardboardBox_Open_05__1_" parent="." instance=ExtResource("10_ee0sn")]
+transform = Transform3D(0.00707107, -0.00707107, 3.09086e-10, 0, -4.37114e-10, -0.01, 0.00707107, 0.00707107, -3.09086e-10, 9.81185, 4.76837e-07, 13.8974)

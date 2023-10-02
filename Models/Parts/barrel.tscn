@@ -45,6 +45,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q6vas")
 
 [node name="SM_Prop_Barrel_Plastic_01__8_" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -904.089, 223.1, 7.15827e-05)
+transform = Transform3D(0.01, 0, 0, 0, -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0)
 mesh = SubResource("ArrayMesh_m3el1")
 skeleton = NodePath("")
