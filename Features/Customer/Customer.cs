@@ -57,8 +57,6 @@ public partial class Customer : CustomerNavigator
 		{
 			var positionInQueue = _reception.GetLastWaitingPosition();
 			
-			GD.Print(positionInQueue);
-			
 			if (positionInQueue != navigationTarget)
 			{
 				NavigateTo(positionInQueue);

@@ -28,7 +28,6 @@ public partial class Reception : Node3D
 			
 			var waitingPosition = GetWaitingPosition(index);
 			
-			GD.Print(waitingPosition);
 			if (Position != customer.navigationTarget)
 			{
 				customer.NavigateTo(waitingPosition);
