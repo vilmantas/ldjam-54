@@ -5,49 +5,46 @@
 [ext_resource type="PackedScene" uid="uid://2rbo1hw3e8p6" path="res://Features/CapsuleBuildMenu/capsule_tooltip.tscn" id="3_ujgcu"]
 
 [node name="build_menu" type="Control" node_paths=PackedStringArray("CapsuleTooltip", "BuildMenuItems", "CloseButton")]
+custom_minimum_size = Vector2(180, 200)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 200.0
 script = ExtResource("1_7s4mg")
 CapsuleTooltip = NodePath("CapsuleTooltip")
-BuildMenuItems = [NodePath("GridContainer/Basic"), NodePath("GridContainer/Nice"), NodePath("GridContainer/Pro")]
+BuildMenuItems = [NodePath("MarginContainer/GridContainer/Basic"), NodePath("MarginContainer/GridContainer/Nice"), NodePath("MarginContainer/GridContainer/Pro")]
 CloseButton = NodePath("Close")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(180, 200)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 180.0
+offset_bottom = 200.0
 
 [node name="Title" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 1
-offset_right = 153.0
-offset_bottom = 23.0
-text = "Build Capsule"
+offset_left = 15.0
+offset_top = 13.0
+offset_right = 159.0
+offset_bottom = 40.0
+text = "Build Menu"
 fit_content = true
 autowrap_mode = 1
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -64.0
-offset_right = 75.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 180.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Basic" type="Button" parent="GridContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Basic" type="Button" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 text = "Basic
@@ -55,30 +52,17 @@ text = "Basic
 script = ExtResource("2_g2sa7")
 title = "Basic Capsule"
 
-[node name="Nice" type="Button" parent="GridContainer"]
+[node name="Nice" type="Button" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 text = "Nice"
 script = ExtResource("2_g2sa7")
 title = "Nice Capsule"
 
-[node name="Pro" type="Button" parent="GridContainer"]
+[node name="Pro" type="Button" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 2
 text = "Pro"
-script = ExtResource("2_g2sa7")
-title = "Pro Capsule"
-
-[node name="Close" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -18.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "X
-"
 script = ExtResource("2_g2sa7")
 title = "Pro Capsule"
 
@@ -88,3 +72,14 @@ offset_left = 292.0
 offset_top = 293.0
 offset_right = 292.0
 offset_bottom = 293.0
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+offset_left = 127.0
+offset_top = 10.0
+offset_right = 172.0
+offset_bottom = 41.0
+text = "X
+"
+script = ExtResource("2_g2sa7")
+title = "Pro Capsule"

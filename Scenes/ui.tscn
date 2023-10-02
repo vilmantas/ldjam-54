@@ -97,5 +97,3 @@ offset_right = 224.0
 offset_bottom = 516.0
 
 [node name="customer_menu" parent="." instance=ExtResource("6_ko1xt")]
-
-[editable path="build_menu"]

@@ -2,37 +2,21 @@
 
 [ext_resource type="Script" path="res://Features/CapsuleBuildMenu/CapsuleTooltipController.cs" id="1_4ylmw"]
 
-[node name="CapsuleTooltip" type="Control" node_paths=PackedStringArray("Title", "Cost")]
+[node name="CapsuleTooltip" type="Control" node_paths=PackedStringArray("Title", "BuildCost", "BookingCost", "CostPerHour")]
+custom_minimum_size = Vector2(271, 263)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 271.0
+offset_bottom = 263.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_4ylmw")
-Title = NodePath("GridContainer/Title/HBoxContainer/Value")
-Cost = NodePath("GridContainer/Cost/HBoxContainer/Value")
+Title = NodePath("MarginContainer/GridContainer/title/Value")
+BuildCost = NodePath("MarginContainer/GridContainer/cost/Value")
+BookingCost = NodePath("MarginContainer/GridContainer/booking_cost/Value")
+CostPerHour = NodePath("MarginContainer/GridContainer/cost_per_hour/Value")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 31.0
-offset_right = 383.0
-offset_bottom = 202.0
-
-[node name="GridContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 1
-offset_left = 67.0
-offset_top = 71.0
-offset_right = 359.0
-offset_bottom = 171.0
-
-[node name="Title" type="Control" parent="GridContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Title"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,69 +24,83 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="GridContainer/Title/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="title" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/GridContainer/title"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
 scroll_active = false
 
-[node name="Value" type="RichTextLabel" parent="GridContainer/Title/HBoxContainer"]
+[node name="cost" type="HBoxContainer" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="RichTextLabel" parent="MarginContainer/GridContainer/cost"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Build Cost:"
+scroll_active = false
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/GridContainer/cost"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "$ 1111"
 scroll_active = false
 
-[node name="Cost" type="Control" parent="GridContainer"]
+[node name="booking_cost" type="HBoxContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Cost"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="RichTextLabel" parent="GridContainer/Cost/HBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="MarginContainer/GridContainer/booking_cost"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Cost"
+text = "Booking Cost:"
 scroll_active = false
 
-[node name="Value" type="RichTextLabel" parent="GridContainer/Cost/HBoxContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/GridContainer/booking_cost"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "$ 1111"
 scroll_active = false
 
-[node name="Control3" type="Control" parent="GridContainer"]
+[node name="cost_per_hour" type="HBoxContainer" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/Control3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Title" type="RichTextLabel" parent="GridContainer/Control3/HBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="MarginContainer/GridContainer/cost_per_hour"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Inc. TV"
+text = "Cost Per Hour"
 scroll_active = false
 
-[node name="Value" type="RichTextLabel" parent="GridContainer/Control3/HBoxContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/GridContainer/cost_per_hour"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "No"
+text = "$ 1111"
 scroll_active = false
