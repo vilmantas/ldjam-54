@@ -9,31 +9,16 @@ public partial class CustomerManager : Node
 	
 	Random random = new Random();
 	private PackedScene customerScene;
+	private Reception _reception;
 	private double spawnCustomerSeconds = 6;
 	private double currentSpawnCustomerTimer = 5;
-	private static Customer _selectedCustomer;
-	public static Customer SelectedCustomer
-	{
-		get { return _selectedCustomer; }
-		set
-		{
-			if (_selectedCustomer != null)
-			{
-				if(_selectedCustomer._modelOutline != null)
-				{
-					_selectedCustomer._modelOutline.Visible = false;
-				}
-			}
-			_selectedCustomer = value;
-			_selectedCustomer._modelOutline.Visible = true;
-		}
-	}
 
 	private List<CustomerSpawnPoint> _customerSpawnPoints = new List<CustomerSpawnPoint>();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		customerScene = (PackedScene)ResourceLoader.Load("res://Features/Customer/customer.tscn");
+		customerScene = (PackedScene)ResourceLoader.Load("res://Features/CustomerV2/customer_v2.tscn");
+		_reception = GetTree().GetFirstNodeInGroup("Reception") as Reception;
 		setCustomerSpawners();
 	}
 
@@ -70,10 +55,11 @@ public partial class CustomerManager : Node
 	{
 		if (_customerSpawnPoints.Count > 0)
 		{
-			Customer newCustomer = (Customer)customerScene.Instantiate();
+			CustomerV2Controller newCustomer = (CustomerV2Controller)customerScene.Instantiate();
 		
 			newCustomer.GlobalPosition = getCustomerSpawnLocation();
 			AddChild(newCustomer);
+			_reception.EnterQueue(newCustomer);
 		}
 	}
 }
