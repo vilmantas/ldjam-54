@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cy76l85ht3ei7"]
+[gd_scene load_steps=11 format=3 uid="uid://cy76l85ht3ei7"]
 
 [ext_resource type="PackedScene" uid="uid://8er6tm3o863x" path="res://Features/Camera/game_camera.tscn" id="1_6wf0w"]
 [ext_resource type="PackedScene" uid="uid://wwkbi534x24c" path="res://Scenes/background.tscn" id="1_o6m18"]
 [ext_resource type="PackedScene" uid="uid://bl8h3hhdeugj7" path="res://Scenes/lighting.tscn" id="2_xxdjb"]
 [ext_resource type="PackedScene" uid="uid://cwqsyovccnub4" path="res://Scenes/ui.tscn" id="4_cwxxv"]
 [ext_resource type="PackedScene" uid="uid://c4uhss0uk5xaa" path="res://Features/CapsuleNode/capsule_node.tscn" id="5_deibi"]
+[ext_resource type="PackedScene" uid="uid://b4eccb1nf8vp8" path="res://Features/CustomerV2/customer_v2.tscn" id="6_fdwxr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dnd5c"]
 sky_top_color = Color(0.168627, 0.45098, 0.772549, 1)
@@ -72,5 +73,8 @@ transform = Transform3D(-1, 0, -3.25842e-07, 0, 1, 0, 3.25842e-07, 0, -1, -1.909
 
 [node name="capsule_node8" parent="nodes" instance=ExtResource("5_deibi")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -4.31913, 0.621992, 12.8624)
+
+[node name="customer" parent="." instance=ExtResource("6_fdwxr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0672, 1.47716, -6.32311)
 
 [editable path="lighting"]

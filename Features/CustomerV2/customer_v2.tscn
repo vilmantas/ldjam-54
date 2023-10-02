@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4eccb1nf8vp8"]
+[gd_scene load_steps=5 format=3 uid="uid://b4eccb1nf8vp8"]
 
 [ext_resource type="Script" path="res://Features/CustomerV2/CustomerV2Controller.cs" id="1_njqod"]
 [ext_resource type="PackedScene" uid="uid://byvbx8jbtarar" path="res://Models/businessman.tscn" id="2_nf7ky"]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n3vbt"]
 radius = 0.221615
 height = 1.66357
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u08eu"]
+radius = 0.354368
+height = 2.20514
 
 [node name="customer" type="CharacterBody3D" groups=["Customer"]]
 collision_layer = 2
@@ -18,3 +22,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84764, 0)
 shape = SubResource("CapsuleShape3D_n3vbt")
 
 [node name="navigator" type="NavigationAgent3D" parent="."]
+
+[node name="clickbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="clickbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06336, 0)
+shape = SubResource("CapsuleShape3D_u08eu")

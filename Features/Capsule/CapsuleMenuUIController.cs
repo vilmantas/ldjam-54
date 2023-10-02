@@ -18,20 +18,24 @@ public partial class CapsuleMenuUIController : Control
         OccupyButton.Pressed += OccupyButtonOnPressed;
         
         GameManager.Instance.OnCapsuleSelected += Initialize;
+        GameManager.Instance.OnCapsuleDeselected += OnCapsuleDeselected;
         
         Hide();
+    }
+
+    private void OnCapsuleDeselected()
+    {
+        HandleHide();
     }
 
     private void OccupyButtonOnPressed()
     {
         GameManager.Instance.OccupyCapsule(Capsule);
-        
-        HandleHide();
     }
 
     private void OnCloseButtonPressed()
     {
-        HandleHide();
+        GameManager.Instance.DeselectCapsule();
     }
 
     public void Initialize(CapsuleController capsuleController)
@@ -46,7 +50,6 @@ public partial class CapsuleMenuUIController : Control
     private void HandleHide()
     {
         Capsule = null;
-        GameManager.Instance.DeselectCapsule();
         Hide();
     }
 }

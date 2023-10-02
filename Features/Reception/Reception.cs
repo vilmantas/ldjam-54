@@ -12,8 +12,6 @@ public partial class Reception : Node3D
 	public override void _Ready()
 	{
 		forward = Vector3.Forward.Rotated(Vector3.Up, Rotation.Y);
-		
-		GD.Print(QueueStart.GlobalPosition);
 	}
 
 	public override void _Process(double delta)

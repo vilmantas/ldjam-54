@@ -16,6 +16,8 @@ public partial class GameManager : Node
     public CapsuleController SelectedCapsule;
     
     public CapsuleSpawnController SelectedSpawn;
+    
+    public CustomerV2Controller SelectedCustomer;
 
     public TooltipUIController Tooltip;
     
@@ -27,8 +29,14 @@ public partial class GameManager : Node
     // PLUGS
     
     public Action<CapsuleController> OnCapsuleSelected;
+
+    public Action OnCapsuleDeselected;
     
     public Action<CapsuleSpawnController> OnSpawnSelected;
+    
+    public Action<CustomerV2Controller> OnCustomerSelected;
+
+    public Action OnCustomerDeselected;
     
     public Action<bool> OnBuildModeChanged;
     
@@ -108,11 +116,22 @@ public partial class GameManager : Node
     public void DeselectCapsule()
     {
         SelectedCapsule = null;
+        OnCapsuleDeselected?.Invoke();
     }
     
     public void OccupyCapsule(CapsuleController capsule)
     {
+        if (SelectedCustomer == null)
+        {
+            GD.Print("No customer selected");
+            return;
+        }
+        
+        GD.Print("Occupying with customer: " + SelectedCustomer.Data.Name);
         capsule.HandleOccupyRequest();
+        
+        DeselectCustomer();
+        DeselectCapsule();
     }
     
     public void SelectSpawn(CapsuleSpawnController spawnPoint)
@@ -121,6 +140,11 @@ public partial class GameManager : Node
         OnSpawnSelected?.Invoke(spawnPoint);
     }
 
+    public void DeselectSpawn()
+    {
+        SelectedSpawn = null;
+    }
+    
     public void ShowTooltipText(string text)
     {
         if (SelectedCapsule == null && SelectedSpawn == null)
@@ -132,5 +156,20 @@ public partial class GameManager : Node
     public void HideTooltip()
     {
         Tooltip.HideDisplay();
+    }
+    
+    public void SelectCustomer(CustomerV2Controller customer)
+    {
+        GD.Print(customer.Data.Name);
+        SelectedCustomer = customer;
+
+        OnCustomerSelected?.Invoke(customer);
+    }
+    
+    public void DeselectCustomer()
+    {
+        SelectedCustomer = null;
+        
+        OnCustomerDeselected?.Invoke();
     }
 }

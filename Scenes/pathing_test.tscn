@@ -36,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0097, -0.491969, -6.30412
 navigation_mesh = SubResource("NavigationMesh_7yqye")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477112, 0)
 material_override = ExtResource("1_bhutn")
 mesh = SubResource("PlaneMesh_6bje5")
 skeleton = NodePath("../..")
@@ -56,6 +57,6 @@ skeleton = NodePath("../MeshInstance3D")
 shape = SubResource("ConcavePolygonShape3D_uutle")
 
 [node name="customer" parent="." instance=ExtResource("2_s4c8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.48758, -6)
 
 [editable path="GameCamera"]

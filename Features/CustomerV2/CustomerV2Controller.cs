@@ -1,32 +1,69 @@
 using Godot;
 using System;
+using Ldjam54.Features.CustomerV2;
 
 public partial class CustomerV2Controller : CharacterBody3D
 {
-	public enum Statez
+	public enum CustomerState
 	{
 		None, Idle, Moving
 	}
 
-	public Statez State = Statez.None;
+	public CustomerState State = CustomerState.None;
     
 	public NavigationAgent3D NavigationAgent;
     
 	public CharacterAnimationController Animator;
+
+	public Area3D Clickbox;
+
+	public CustomerData Data;
 	
 	public override void _Ready()
 	{
+		Clickbox = GetNode<Area3D>("clickbox");
 		Animator = GetNode<CharacterAnimationController>("model");
 		NavigationAgent = GetNode<NavigationAgent3D>("navigator");
 		
-		ChangeState(Statez.Idle);
+		ChangeState(CustomerState.Idle);
+
+		Clickbox.MouseEntered += ClickboxOnMouseEntered;
+		Clickbox.MouseExited += ClickboxOnMouseExited;
+		Clickbox.InputEvent += ClickboxOnInputEvent;
+		
+		Initialize(new CustomerData() { Name = "Test", StayDuration = 5f });
+	}
+
+	public void Initialize(CustomerData data)
+	{
+		Data = data;
+	}
+	
+	private void ClickboxOnInputEvent(Node camera, InputEvent @event, Vector3 position, Vector3 normal, long shapeidx)
+	{
+		if (@event is not InputEventMouseButton mouseEvent) return;
+		
+		if (mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed)
+		{
+			GameManager.Instance.SelectCustomer(this);
+		}
+	}
+
+	private void ClickboxOnMouseExited()
+	{
+		GameManager.Instance.HideTooltip();
+	}
+
+	private void ClickboxOnMouseEntered()
+	{
+		GameManager.Instance.ShowTooltipText("Customer");
 	}
 
 	public override void _Process(double delta)
 	{
 		if (NavigationAgent.IsNavigationFinished())
 		{
-			ChangeState(Statez.Idle);
+			ChangeState(CustomerState.Idle);
 			return;
 		}
 		
@@ -46,10 +83,10 @@ public partial class CustomerV2Controller : CharacterBody3D
         
 		MoveAndSlide();
 		
-		ChangeState(Statez.Moving);
+		ChangeState(CustomerState.Moving);
 	}
 
-	private void ChangeState(Statez state)
+	private void ChangeState(CustomerState state)
 	{
 		if (State == state) return;
 
@@ -57,13 +94,13 @@ public partial class CustomerV2Controller : CharacterBody3D
 		
 		switch (State)
 		{
-			case Statez.Idle:
+			case CustomerState.Idle:
 				Animator.PlayAnimation("Idle");
 				break;
-			case Statez.Moving:
+			case CustomerState.Moving:
 				Animator.PlayAnimation("Walking");
 				break;
-			case Statez.None:
+			case CustomerState.None:
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();

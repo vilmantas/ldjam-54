@@ -40,11 +40,12 @@ public partial class BuildMenuUIController : Control
 	{
 		Position = GetGlobalMousePosition();
         
-		this.Show();
+		Show();
 	}
 
 	private void OnCloseButtonPressed()
 	{
+		GameManager.Instance.DeselectSpawn();
 		Hide();
 	}
 
