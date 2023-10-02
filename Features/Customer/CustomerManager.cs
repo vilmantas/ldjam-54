@@ -10,7 +10,7 @@ public partial class CustomerManager : Node
 	Random random = new Random();
 	private PackedScene customerScene;
 	private Reception _reception;
-	private double spawnCustomerSeconds = 2;
+	private double spawnCustomerSeconds = 12;
 	private double currentSpawnCustomerTimer = 5;
 
 	private List<CustomerSpawnPoint> _customerSpawnPoints = new List<CustomerSpawnPoint>();

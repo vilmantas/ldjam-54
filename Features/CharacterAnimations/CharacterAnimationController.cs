@@ -3,7 +3,7 @@ using System;
 
 public partial class CharacterAnimationController : Node3D
 {
-    [Export] public AnimationTree Animator;
+    public AnimationTree Animator;
     
     public override void _Ready()
     {
