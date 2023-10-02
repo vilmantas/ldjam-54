@@ -21,6 +21,7 @@ public partial class CustomerV2Controller : CharacterBody3D
 	public Reception Reception;
 	public Vector3 SpawnLocation;
 	public Area3D Clickbox;
+	public Sprite3D PatienceBar;
 
 	public CustomerData Data;
 
@@ -31,6 +32,8 @@ public partial class CustomerV2Controller : CharacterBody3D
 		Clickbox = GetNode<Area3D>("clickbox");
 		Animator = GetNode<CharacterAnimationController>("model");
 		NavigationAgent = GetNode<NavigationAgent3D>("navigator");
+		PatienceBar = GetNode<Sprite3D>("PatienceBar");
+		PatienceBar.Hide();
 		NavigationAgent.NavigationFinished += OnNavigationFinished;
 
 		Clickbox.MouseEntered += ClickboxOnMouseEntered;
@@ -68,9 +71,9 @@ public partial class CustomerV2Controller : CharacterBody3D
 		if (State is not (CustomerState.InQueue or CustomerState.AdvancingInQueue)) return;
 		
 		CurrentPatience -= (float)delta;
-
+		UpdatePatienceBar();
 		if (!(CurrentPatience < 0)) return;
-		
+	
 		ChangeState(CustomerState.LeavingQueue);
 			
 		if (Reception != null)
@@ -83,6 +86,25 @@ public partial class CustomerV2Controller : CharacterBody3D
 		SpawnLocation = spawn.GlobalPosition;
 
 		NavigationAgent.TargetPosition = SpawnLocation;
+	}
+
+	public void UpdatePatienceBar()
+	{
+		if (CurrentPatience < 0)
+		{
+			PatienceBar.Hide();
+			return;
+		}
+
+		var remainingPatience = CurrentPatience / Data.Patience;
+		PatienceBar.Show();
+		PatienceBar.Scale = new Vector3(remainingPatience, 1,1);
+		GD.Print((byte)(255 * remainingPatience));
+		var green = 255 * remainingPatience;
+		var red = 255 - green;
+		PatienceBar.Modulate = Color.Color8((byte)(red),(byte)(green) , 0, 255);
+		
+		
 	}
 	
 	public void ChangeState(CustomerState state)
